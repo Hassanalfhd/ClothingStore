@@ -21,26 +21,22 @@ namespace ClothingStore.Domain.Common
 
         public static Result Success() => new(true, null);
         public static Result Failure(string error) => new(false, error);
-        public static Result Failure(string [] error) => new(false, error[]);
     }
 
     public class Result<T> : Result
     {
         private readonly T _value;
 
-        public T Value => IsSuccess
-            ? _value
-            : throw new InvalidOperationException("The value of a failure result can't be accessed.");
-        
+        public T GetValueOrDefault() => IsSuccess ? _value : default!;
+
         protected Result(bool isSuccess, T value, string error)
             : base(isSuccess, error)
         {
-            _value = value;
+            if(value != null)_value = value;
         }
 
         public static Result<T> Success(T value) => new(true, value, null);
         public static new Result<T> Failure(string error) => new(false, default, error);
-        public static new Result<T[]> Failure(string []error) => new(false, default, error[]);
     }
 
 

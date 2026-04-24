@@ -1,0 +1,535 @@
+2026-04-23 00:47:37.364 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 00:47:38.100 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 00:47:38.378 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 00:47:38.388 +03:00 [INF] Hosting environment: Development
+2026-04-23 00:47:38.398 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 00:47:40.335 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 00:47:40.750 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 437.7173ms
+2026-04-23 00:47:40.806 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 00:47:40.812 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 00:47:40.863 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 51.066ms
+2026-04-23 00:47:40.958 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 152.9422ms
+2026-04-23 00:47:41.057 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 00:47:41.082 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.217ms
+2026-04-23 00:48:15.245 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 100
+2026-04-23 00:48:15.298 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-23 00:48:15.340 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:48:15.555 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 00:48:15.744 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-23 00:48:15.992 +03:00 [INF] Handling RegisterCommand
+2026-04-23 00:48:21.718 +03:00 [INF] Handled RegisterCommand
+2026-04-23 00:48:21.769 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-04-23 00:48:21.793 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 6088.8431ms
+2026-04-23 00:48:21.802 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:48:21.845 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 400 null text/plain; charset=utf-8 6604.641ms
+2026-04-23 00:48:35.318 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 101
+2026-04-23 00:48:35.326 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:48:35.333 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 00:48:35.356 +03:00 [INF] Handling RegisterCommand
+2026-04-23 00:48:36.857 +03:00 [INF] Executed DbCommand (278ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 00:48:37.005 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 00:48:37.625 +03:00 [INF] Executed DbCommand (30ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 00:48:37.743 +03:00 [INF] User Registered Successfully
+2026-04-23 00:48:37.805 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2026-04-23 00:48:37.833 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2026-04-23 00:48:38.225 +03:00 [ERR] unexcepted error occurred.
+System.InvalidOperationException: Role USER does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at ClothingStore.Infrastructure.Identity.Services.IdentityService.RegisterAsync(String Email, String Password, String FirstName, String LastName) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Infrastructure\Identity\Services\IdentityService.cs:line 63
+2026-04-23 00:48:38.445 +03:00 [INF] Handled RegisterCommand
+2026-04-23 00:48:38.456 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-04-23 00:48:38.467 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 3119.8912ms
+2026-04-23 00:48:38.474 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:48:38.481 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 400 null text/plain; charset=utf-8 3162.5297ms
+2026-04-23 00:49:06.753 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 101
+2026-04-23 00:49:06.770 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:49:06.772 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 00:49:06.780 +03:00 [INF] Handling RegisterCommand
+2026-04-23 00:49:33.372 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 00:49:44.990 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 11617.9655ms
+2026-04-23 00:49:45.078 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 00:49:45.090 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 00:49:45.099 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 21.2852ms
+2026-04-23 00:49:45.116 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.3038ms
+2026-04-23 00:49:45.179 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 00:49:45.192 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 00:49:45.214 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 00:49:45.219 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 00:49:47.315 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2096.1463ms
+2026-04-23 00:49:54.578 +03:00 [INF] User Registered Successfully
+2026-04-23 00:49:54.984 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2026-04-23 00:49:55.048 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2026-04-23 00:50:19.458 +03:00 [ERR] unexcepted error occurred.
+System.InvalidOperationException: Role USER does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at ClothingStore.Infrastructure.Identity.Services.IdentityService.RegisterAsync(String Email, String Password, String FirstName, String LastName)
+2026-04-23 00:50:19.462 +03:00 [INF] Handled RegisterCommand
+2026-04-23 00:50:19.464 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-04-23 00:50:19.466 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 72688.7495ms
+2026-04-23 00:50:19.467 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:50:19.469 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 400 null text/plain; charset=utf-8 72717.7952ms
+2026-04-23 00:50:20.431 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 00:50:20.446 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 15.2171ms
+2026-04-23 00:50:20.502 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 00:50:20.506 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 00:50:20.542 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 40.5368ms
+2026-04-23 00:50:20.610 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 103.8351ms
+2026-04-23 00:50:20.742 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 00:50:20.757 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.3784ms
+2026-04-23 00:50:42.997 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 100
+2026-04-23 00:50:43.029 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:50:43.042 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 00:50:43.058 +03:00 [INF] Handling RegisterCommand
+2026-04-23 00:50:46.033 +03:00 [INF] Executed DbCommand (53ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 00:50:46.058 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 00:50:46.079 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 00:50:47.549 +03:00 [INF] User Registered Successfully
+2026-04-23 00:50:51.944 +03:00 [INF] Handled RegisterCommand
+2026-04-23 00:50:51.967 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 00:50:51.988 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 8931.9497ms
+2026-04-23 00:50:51.995 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 00:50:52.004 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 9006.6207ms
+2026-04-23 01:06:46.559 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 01:06:47.509 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 01:06:47.678 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 01:06:47.685 +03:00 [INF] Hosting environment: Development
+2026-04-23 01:06:47.688 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 01:06:48.790 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 01:06:49.132 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 356.4385ms
+2026-04-23 01:06:49.157 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 01:06:49.172 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 15.2638ms
+2026-04-23 01:06:49.195 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 01:06:49.267 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.0937ms
+2026-04-23 01:06:49.486 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 01:06:49.531 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.5041ms
+2026-04-23 01:07:19.120 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 105
+2026-04-23 01:07:19.171 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-23 01:07:19.194 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 01:07:19.327 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 01:07:19.373 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-23 01:07:19.540 +03:00 [INF] Handling RegisterCommand
+2026-04-23 01:07:30.240 +03:00 [INF] Executed DbCommand (378ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 01:07:30.485 +03:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 01:07:32.140 +03:00 [INF] Executed DbCommand (37ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 01:07:32.389 +03:00 [INF] User Registered Successfully
+2026-04-23 01:07:32.505 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2026-04-23 01:07:32.614 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2026-04-23 01:07:32.907 +03:00 [ERR] unexcepted error occurred.
+System.InvalidOperationException: Role USER does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at ClothingStore.Infrastructure.Identity.Services.IdentityService.RegisterAsync(String Email, String Password, String FirstName, String LastName) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Infrastructure\Identity\Services\IdentityService.cs:line 67
+2026-04-23 01:07:33.205 +03:00 [INF] Handled RegisterCommand
+2026-04-23 01:07:33.280 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-04-23 01:07:33.346 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 13977.2383ms
+2026-04-23 01:07:33.371 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 01:07:33.467 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 400 null text/plain; charset=utf-8 14346.1787ms
+2026-04-23 01:08:02.115 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 105
+2026-04-23 01:08:02.131 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 01:08:02.134 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 01:08:02.140 +03:00 [INF] Handling RegisterCommand
+2026-04-23 01:08:50.745 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 01:08:50.757 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 01:08:50.773 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 01:09:00.037 +03:00 [INF] User Registered Successfully
+2026-04-23 01:09:14.896 +03:00 [INF] Handled RegisterCommand
+2026-04-23 01:09:17.844 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 01:09:22.626 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 80488.368ms
+2026-04-23 01:09:22.633 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 01:09:22.641 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 80526.5673ms
+2026-04-23 23:23:17.173 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 23:23:17.766 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 23:23:17.882 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 23:23:17.931 +03:00 [INF] Hosting environment: Development
+2026-04-23 23:23:17.992 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 23:23:19.398 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 23:23:19.897 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 549.179ms
+2026-04-23 23:23:19.976 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 23:23:19.976 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 23:23:20.025 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 49.5704ms
+2026-04-23 23:23:20.106 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 130.2907ms
+2026-04-23 23:23:20.303 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 23:23:20.351 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.8303ms
+2026-04-23 23:23:46.419 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 108
+2026-04-23 23:23:46.467 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-23 23:23:46.488 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:23:46.605 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:23:46.648 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-23 23:23:46.739 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:24:15.516 +03:00 [INF] Executed DbCommand (393ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:24:15.623 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:24:16.245 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:24:31.450 +03:00 [INF] User Registered Successfully
+2026-04-23 23:25:24.742 +03:00 [INF] Handled RegisterCommand
+2026-04-23 23:25:41.209 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 23:25:41.314 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 114679.8608ms
+2026-04-23 23:25:41.326 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:25:41.343 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 114924.2406ms
+2026-04-23 23:27:14.117 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 109
+2026-04-23 23:27:14.125 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:27:14.136 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:27:14.152 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:27:36.191 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:27:36.269 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:27:36.297 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:28:24.247 +03:00 [INF] User Registered Successfully
+2026-04-23 23:29:09.364 +03:00 [INF] Handled RegisterCommand
+2026-04-23 23:29:12.898 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 23:29:16.962 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 122814.7551ms
+2026-04-23 23:29:16.965 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:29:16.969 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 122851.3963ms
+2026-04-23 23:29:21.598 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 110
+2026-04-23 23:29:21.603 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:29:21.615 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:29:21.630 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:29:25.862 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:29:25.884 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:29:25.920 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:29:47.345 +03:00 [INF] User Registered Successfully
+2026-04-23 23:30:02.278 +03:00 [INF] Handled RegisterCommand
+2026-04-23 23:30:02.313 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 23:30:02.370 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 40746.7377ms
+2026-04-23 23:30:02.392 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:30:02.400 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 40802.4711ms
+2026-04-23 23:30:19.680 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 111
+2026-04-23 23:30:19.688 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:30:19.691 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:30:19.701 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:30:24.054 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:30:24.140 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:30:24.165 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:30:26.362 +03:00 [INF] User Registered Successfully
+2026-04-23 23:33:07.170 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 23:33:07.852 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 23:33:08.059 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 23:33:08.069 +03:00 [INF] Hosting environment: Development
+2026-04-23 23:33:08.076 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 23:33:08.679 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 23:33:09.475 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 23:33:09.478 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 811.8161ms
+2026-04-23 23:33:09.552 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 77.5032ms
+2026-04-23 23:33:09.717 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 23:33:10.303 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 586.5041ms
+2026-04-23 23:33:10.397 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 23:33:10.705 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 307.9331ms
+2026-04-23 23:33:41.855 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 110
+2026-04-23 23:33:41.890 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-23 23:33:41.908 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:33:42.015 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:33:42.149 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-23 23:33:42.407 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:34:01.925 +03:00 [INF] Executed DbCommand (375ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:34:02.192 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:34:03.111 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:34:36.033 +03:00 [INF] User Registered Successfully
+2026-04-23 23:35:53.645 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 23:35:53.943 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 23:35:54.000 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 23:35:54.003 +03:00 [INF] Hosting environment: Development
+2026-04-23 23:35:54.005 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 23:35:55.180 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 23:35:55.472 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 311.1335ms
+2026-04-23 23:35:55.485 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 23:35:55.510 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 24.9146ms
+2026-04-23 23:35:55.534 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 23:35:55.633 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 98.7608ms
+2026-04-23 23:35:55.740 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 23:35:55.777 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.3636ms
+2026-04-23 23:36:23.840 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 115
+2026-04-23 23:36:23.875 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-23 23:36:23.894 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:36:23.974 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:36:24.001 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-23 23:36:24.088 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:36:37.112 +03:00 [INF] Executed DbCommand (191ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:36:37.203 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:36:37.692 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:37:34.684 +03:00 [INF] User Registered Successfully
+2026-04-23 23:38:11.195 +03:00 [INF] Handled RegisterCommand
+2026-04-23 23:38:11.222 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 23:38:11.247 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 107256.0044ms
+2026-04-23 23:38:11.253 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:38:11.292 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 107451.6923ms
+2026-04-23 23:38:12.157 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 23:38:12.340 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 184.6728ms
+2026-04-23 23:38:12.472 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 23:38:12.475 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 23:38:12.489 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 16.7328ms
+2026-04-23 23:38:12.527 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.3567ms
+2026-04-23 23:38:12.656 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 23:38:12.679 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.146ms
+2026-04-23 23:38:43.922 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 110
+2026-04-23 23:38:43.934 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:38:43.948 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:38:43.966 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:38:48.383 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:38:48.410 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:38:48.464 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:38:50.796 +03:00 [INF] User Registered Successfully
+2026-04-23 23:39:39.836 +03:00 [INF] User Registered: 18
+2026-04-23 23:39:51.912 +03:00 [INF] Handled RegisterCommand
+2026-04-23 23:39:54.429 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 23:39:54.441 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 70481.3212ms
+2026-04-23 23:39:54.446 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:39:54.451 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 70528.8778ms
+2026-04-23 23:42:44.528 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 110
+2026-04-23 23:42:44.552 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:42:44.558 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:42:44.577 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:43:01.775 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 23:43:02.136 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 23:43:02.198 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 23:43:02.225 +03:00 [INF] Hosting environment: Development
+2026-04-23 23:43:02.231 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 23:43:03.248 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 23:43:03.615 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 384.9656ms
+2026-04-23 23:43:03.642 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 23:43:03.660 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 18.374ms
+2026-04-23 23:43:03.732 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 23:43:03.929 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 196.6827ms
+2026-04-23 23:43:04.080 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 23:43:04.120 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.6344ms
+2026-04-23 23:43:38.297 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 108
+2026-04-23 23:43:38.331 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-23 23:43:38.351 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:43:38.431 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:43:38.467 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-23 23:43:38.571 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:43:50.033 +03:00 [INF] Executed DbCommand (389ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:43:50.309 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:43:51.296 +03:00 [INF] Executed DbCommand (38ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:43:55.958 +03:00 [INF] User Registered Successfully
+2026-04-23 23:44:57.414 +03:00 [INF] User Registered: 19
+2026-04-23 23:45:28.834 +03:00 [INF] Executed DbCommand (39ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 50), @p4='?' (Size = 50), @p5='?' (Size = 500), @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime2), @p8='?' (Size = 50), @p9='?' (Size = 50), @p10='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UserProfiles] ([ApplicationUserId], [BirthDate], [CreatedAt], [FirstName], [LastName], [ProfileImage], [PublicId], [UpdatedAt], [ContactInfo_Address], [ContactInfo_Email], [ContactInfo_PhoneNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2026-04-23 23:45:32.212 +03:00 [INF] Handled RegisterCommand
+2026-04-23 23:45:32.238 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 23:45:32.267 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 113814.1567ms
+2026-04-23 23:45:32.274 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:45:32.299 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 114001.94ms
+2026-04-23 23:51:11.737 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 23:51:12.296 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 23:51:12.401 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 23:51:12.407 +03:00 [INF] Hosting environment: Development
+2026-04-23 23:51:12.416 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 23:51:13.276 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 23:51:13.586 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 323.2831ms
+2026-04-23 23:51:13.649 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 23:51:13.654 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 23:51:13.668 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 18.6544ms
+2026-04-23 23:51:13.747 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.1416ms
+2026-04-23 23:51:14.267 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 23:51:14.323 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 55.8732ms
+2026-04-23 23:51:36.245 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 23:51:36.878 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-23 23:51:36.958 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 23:51:36.961 +03:00 [INF] Hosting environment: Development
+2026-04-23 23:51:36.962 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-23 23:51:38.348 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-23 23:51:39.289 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 989.354ms
+2026-04-23 23:51:39.312 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-23 23:51:39.333 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 21.1693ms
+2026-04-23 23:51:39.388 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-23 23:51:39.508 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 120.0476ms
+2026-04-23 23:51:39.737 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-23 23:51:39.778 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.5588ms
+2026-04-23 23:52:09.764 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/register - application/json 101
+2026-04-23 23:52:09.784 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-23 23:52:09.796 +03:00 [INF] Executing endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:52:09.871 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ClothingStore.Application.Features.Auth.Register.RegisterCommand) on controller AuthController (ClothingStore.API).
+2026-04-23 23:52:09.923 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-23 23:52:10.046 +03:00 [INF] Handling RegisterCommand
+2026-04-23 23:52:21.122 +03:00 [INF] Executed DbCommand (184ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2026-04-23 23:52:21.203 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-23 23:52:21.923 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 50), @p6='?' (DbType = Boolean), @p7='?' (Size = 50), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = Guid), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([AccessFailedCount], [ConcurrencyStamp], [CreatedAt], [Email], [EmailConfirmed], [FirstName], [IsActive], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PublicId], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2026-04-23 23:52:36.180 +03:00 [INF] User Registered Successfully
+2026-04-23 23:53:07.142 +03:00 [INF] User Registered: 20
+2026-04-23 23:53:14.839 +03:00 [INF] Executed DbCommand (41ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 50), @p4='?' (Size = 50), @p5='?' (Size = 500), @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime2), @p8='?' (Size = 50), @p9='?' (Size = 50), @p10='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UserProfiles] ([ApplicationUserId], [BirthDate], [CreatedAt], [FirstName], [LastName], [ProfileImage], [PublicId], [UpdatedAt], [ContactInfo_Address], [ContactInfo_Email], [ContactInfo_PhoneNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2026-04-23 23:53:22.334 +03:00 [INF] Handled RegisterCommand
+2026-04-23 23:53:22.365 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-23 23:53:22.405 +03:00 [INF] Executed action AuthController.Register (ClothingStore.API) in 72515.212ms
+2026-04-23 23:53:22.411 +03:00 [INF] Executed endpoint 'AuthController.Register (ClothingStore.API)'
+2026-04-23 23:53:22.434 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/register - 200 null application/json; charset=utf-8 72669.7863ms

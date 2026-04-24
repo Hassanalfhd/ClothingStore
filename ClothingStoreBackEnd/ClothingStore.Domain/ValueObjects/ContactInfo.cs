@@ -13,5 +13,6 @@ namespace ClothingStore.Domain.ValueObjects
             Address = address;
             PhoneNumber = phoneNumber;
         }
+
     }
 }

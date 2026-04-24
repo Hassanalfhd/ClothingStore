@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ClothingStore.Domain.DomainEvents;
 using ClothingStore.Domain.ValueObjects;
 
 namespace ClothingStore.Domain.Entities
@@ -10,7 +6,7 @@ namespace ClothingStore.Domain.Entities
     public class UserProfile : EntityBased
     {
 
-        public long UserId { get; private set; }
+        public long ApplicationUserId { get; private set; }
 
         // value object
         public ContactInfo ContactInfo { get; private set; } = new ContactInfo(null, null, null);
@@ -29,16 +25,18 @@ namespace ClothingStore.Domain.Entities
 
 
         private UserProfile() { } // for EF 
-        public UserProfile(long userId, ContactInfo contactInfo, string? firstName, string? lastName, DateTime? birthDate, string? profileImage)
-        : base()
+
+        public UserProfile(long applicationUserId, ContactInfo contactInfo, string? firstName, string? lastName, DateTime? birthDate, string? profileImage)
         {
-            UserId = userId;
+            ApplicationUserId = applicationUserId;
             ContactInfo = contactInfo;
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birthDate;
             ProfileImage = profileImage;
+
         }
+
 
 
         public void UpdatePersonalData(string? firstName, string? lastName, DateTime? birthDate)
