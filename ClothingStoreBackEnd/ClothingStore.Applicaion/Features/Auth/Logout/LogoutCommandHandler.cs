@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClothingStore.Application.Interfaces.Services;
+﻿using ClothingStore.Application.Interfaces.Services;
 using ClothingStore.Domain.Common;
 using MediatR;
+
 
 namespace ClothingStore.Application.Features.Auth.Logout
 {

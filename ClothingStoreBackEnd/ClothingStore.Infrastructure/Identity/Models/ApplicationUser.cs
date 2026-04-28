@@ -1,14 +1,11 @@
-﻿using ClothingStore.Domain.Common.Interfaces;
-using ClothingStore.Domain.DomainEvents;
-using ClothingStore.Domain.Entities;
+﻿using ClothingStore.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
 
 namespace ClothingStore.Identity.Models
 {
-    public class ApplicationUser : IdentityUser<long>, IHasDomainEvents
+    public class ApplicationUser : IdentityUser<long>
     {
-        
         public Guid PublicId { get; private set; } 
         public string FirstName { get; private set; }
         public string LastName{ get; private set; }
@@ -60,15 +57,5 @@ namespace ClothingStore.Identity.Models
         }
 
 
-        private readonly List<IDomainEvent> _domainEvents = new();
-        public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
-
-        public void AddDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
-        public void ClearDomainEvents() => _domainEvents.Clear();
-
-        internal void AddDomainEvent()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -27,7 +27,8 @@ namespace ClothingStore.Domain.Common
     {
         private readonly T _value;
 
-        public T GetValueOrDefault() => IsSuccess ? _value : default!;
+        public T Value => IsSuccess ? _value : default!;
+
 
         protected Result(bool isSuccess, T value, string error)
             : base(isSuccess, error)

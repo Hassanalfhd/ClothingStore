@@ -21,4 +21,8 @@
     <None Include="Interfaces\Repositories\IUserRepo.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\User\" />
+  </ItemGroup>
+
 </Project>

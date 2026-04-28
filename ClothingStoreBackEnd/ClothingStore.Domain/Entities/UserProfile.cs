@@ -1,5 +1,4 @@
-﻿using ClothingStore.Domain.DomainEvents;
-using ClothingStore.Domain.ValueObjects;
+﻿using ClothingStore.Domain.ValueObjects;
 
 namespace ClothingStore.Domain.Entities
 {

@@ -44,6 +44,7 @@ public class AuthController : ControllerBase
         RefreshTokenCommand command)
     {
         var result = await _mediator.Send(command);
+        
         return Ok(result);
     }
 

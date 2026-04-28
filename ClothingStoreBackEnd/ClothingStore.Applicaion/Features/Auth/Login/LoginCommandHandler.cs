@@ -14,7 +14,6 @@ namespace ClothingStore.Application.Features.Auth.Login
     {
 
         private readonly IIdentityService _identityService;
-
         public LoginCommandHandler(IIdentityService identityService)
         {
             _identityService = identityService;

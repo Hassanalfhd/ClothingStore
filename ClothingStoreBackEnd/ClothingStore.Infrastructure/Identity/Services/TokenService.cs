@@ -1,9 +1,12 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System.Data;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using ClothingStore.Application.DTOs;
+using ClothingStore.Application.Features.Auth.DTOs;
 using ClothingStore.Application.Interfaces.Services;
+using ClothingStore.Domain.Common;
 using ClothingStore.Identity.Models;
 using ClothingStore.Infrastructure.Settings;
 using Microsoft.AspNetCore.Identity;
@@ -14,20 +17,17 @@ using Microsoft.IdentityModel.Tokens;
 public class TokenService : ITokenService
 {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly IConfiguration _config;
     private readonly JwtSettings _jwtSettings;
 
     public TokenService(
         UserManager<ApplicationUser> userManager,
-        IConfiguration config,
         IOptions<JwtSettings> jwtSettings)
     {
         _userManager = userManager;
-        _config = config;
         _jwtSettings = jwtSettings.Value;
     }
 
-    public async Task<string> CreateAccessTokenAsync(TokenRequestDto user)
+    public async  Task<string> CreateAccessTokenAsync(TokenRequestDto user)
     {
         var claims = new List<Claim>
         {
@@ -35,7 +35,6 @@ public class TokenService : ITokenService
             new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
             new Claim("uid", user.publicId)
         };
-
 
         // Roles
         if (user.Roles != null)
@@ -45,7 +44,6 @@ public class TokenService : ITokenService
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
         }
-
 
         // Key
         var key = new SymmetricSecurityKey(
@@ -62,7 +60,7 @@ public class TokenService : ITokenService
             signingCredentials: creds
         );
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
+         return new  JwtSecurityTokenHandler().WriteToken(token);
     }
     public string CreateRefreshToken()
     {

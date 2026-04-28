@@ -60,8 +60,6 @@ namespace ClothingStore.Infrastructure.Identity.Services
                     return Result<Guid>.Failure(result.Errors.First()?.Description ?? "unexcepted error occurred");
                 }
 
-                //user.AddDomainEvent(new UserRegisteredEvent(user.Id, Email, FirstName, LastName));
-
                 var contactInfo = new ContactInfo(Email, null, null);
 
                 var userProfile = new ClothingStore.Domain.Entities.UserProfile(
@@ -97,7 +95,6 @@ namespace ClothingStore.Infrastructure.Identity.Services
             }
 
         }
-
 
 
         public async Task<Result<AuthResponseDto>> LoginAsync(string email, string password, CancellationToken cancellationToken = default)
@@ -145,7 +142,6 @@ namespace ClothingStore.Infrastructure.Identity.Services
             }
 
         }
-
 
         public async Task<Result<AuthResponseDto>> RefreshTokenAsync(string refreshToken, string AccessToken, CancellationToken cancellationToken = default)
         {

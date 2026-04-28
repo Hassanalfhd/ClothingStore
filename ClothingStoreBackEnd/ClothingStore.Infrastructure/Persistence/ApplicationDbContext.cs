@@ -22,6 +22,15 @@ namespace ClothingStore.Infrastructure.Persistence
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<RefreshToken>RefreshTokens { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Color> Colors { get; set; }
+
+        public DbSet<Size> Sizes { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductVariant> ProductsVariant { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
