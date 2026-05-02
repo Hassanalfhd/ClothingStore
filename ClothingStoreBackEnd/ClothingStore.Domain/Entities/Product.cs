@@ -11,16 +11,31 @@ namespace ClothingStore.Domain.Entities
 
         private Product() { }
 
-        public string Name { get; private set; } = string.Empty;
 
+        public Product(string name, string description, Money basePrice, bool isActive, long createdBy, long categoryId)
+        {
+            CreatedBy = createdBy;
+            CategoryId = categoryId;
+            IsActive = isActive;
+
+            SetName(name);
+            SetDescription(description);
+            SetBasePrice(basePrice);
+
+        }
+
+
+        public string Name { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
 
         public Money BasePrice { get; private set; }
         public bool IsActive { get; private set; }
 
-        public Guid CategoryId { get; private set; }
+        public long CreatedBy { get; private set; }
+        public long CategoryId { get; private set; }
 
         public Category Category { get; private set; } = null!;
+        public UserProfile UserProfile { get; private set; } = null!;
 
 
         public IReadOnlyCollection<ProductVariant> Variants

@@ -26,10 +26,10 @@ namespace ClothingStore.Infrastructure.Identity.Services
         private readonly JwtSettings _jwtSettings;
         private readonly IRefreshTokenRepo _refreshTokenRepo;
 
-        public IdentityService(UserManager<ApplicationUser> userManager, ApplicationDbContext context, 
-            IAppLogger<IdentityService> logger, 
+        public IdentityService(UserManager<ApplicationUser> userManager, ApplicationDbContext context,
+            IAppLogger<IdentityService> logger,
             IUnitOfWork unitOfWork,
-            IUserRepo userRepo, 
+            IUserRepo userRepo,
             ITokenService tokenService,
             IOptions<JwtSettings> jwtSettings,
             IRefreshTokenRepo refreshTokenRepo)
@@ -43,6 +43,7 @@ namespace ClothingStore.Infrastructure.Identity.Services
             _jwtSettings = jwtSettings.Value;
             _refreshTokenRepo = refreshTokenRepo;
         }
+
         public async Task<Result<Guid>> RegisterAsync(string Email, string Password, string FirstName, string LastName, CancellationToken cancellationToken = default)
         {
 
@@ -62,7 +63,7 @@ namespace ClothingStore.Infrastructure.Identity.Services
 
                 var contactInfo = new ContactInfo(Email, null, null);
 
-                var userProfile = new ClothingStore.Domain.Entities.UserProfile(
+                var userProfile = new UserProfile(
                     user.Id,
                     contactInfo,
                     FirstName,
@@ -121,7 +122,6 @@ namespace ClothingStore.Infrastructure.Identity.Services
 
             var refreshTokenValue = _tokenService.CreateRefreshToken();
 
-
             var refreshToken = new RefreshToken(user.Id, refreshTokenValue, _jwtSettings.RefreshTokenDays);
 
 
@@ -169,7 +169,7 @@ namespace ClothingStore.Infrastructure.Identity.Services
             return Result<AuthResponseDto>.Success(new AuthResponseDto(newAccessToken, newRefreshToken.Token));
 
         }
-    
+
         public async Task<Result> LogoutAsync(string refreshToken, CancellationToken cancellationToken = default)
         {
             var storedToken = await _refreshTokenRepo.GetRefreshTokenByTokenAsync(refreshToken, cancellationToken);

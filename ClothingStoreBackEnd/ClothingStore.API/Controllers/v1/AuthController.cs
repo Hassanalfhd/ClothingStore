@@ -5,8 +5,12 @@ using ClothingStore.Application.Features.Auth.Logout;
 using ClothingStore.Application.Features.Auth.Login;
 using ClothingStore.Application.Features.Auth.RefreshToken;
 
+
+namespace ClothingStore.API.Controllers.v1;
 [ApiController]
-[Route("api/auth")]
+[Route("api/v{version:apiVersion}/auth")]
+[ApiVersion("1.0")]
+
 public class AuthController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -25,7 +29,6 @@ public class AuthController : ControllerBase
 
         if (!result.IsSuccess)
             return BadRequest(result.Error);
-
 
         return Ok(result);
     }

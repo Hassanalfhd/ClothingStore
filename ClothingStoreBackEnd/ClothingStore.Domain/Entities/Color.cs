@@ -12,6 +12,12 @@ namespace ClothingStore.Domain.Entities
     
         private Color() { }
 
+        public Color(string name, string hexCode)
+        {
+            SetName(name);
+            SetHexCode(hexCode);
+        }
+
         public string Name { get; private set; } = string.Empty;
 
         public string HexCode { get; private set; } = string.Empty;

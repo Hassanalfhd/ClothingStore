@@ -1,4 +1,6 @@
 ﻿using ClothingStore.Application.Common.Behaviors;
+using ClothingStore.Application.Features.Catalog.Category;
+using ClothingStore.Application.Interfaces.Services;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +25,7 @@ public static class DependencyInjection
 
 
         //4. Services
+        services.AddScoped<ICategoryService, CategoryService>();
 
 
         return services;

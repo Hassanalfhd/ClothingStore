@@ -12,7 +12,6 @@ namespace ClothingStore.Application.Interfaces.Services
     {
         Task<string> CreateAccessTokenAsync(TokenRequestDto user);
         string CreateRefreshToken();
-        ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
         TokenRequestDto GetTokenRequestDtoFromToken(string token);
     }
 

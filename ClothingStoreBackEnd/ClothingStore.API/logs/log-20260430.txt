@@ -1,0 +1,66 @@
+2026-04-30 23:15:22.059 +03:00 [INF] User profile is available. Using 'C:\Users\hassan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-30 23:15:23.376 +03:00 [INF] Now listening on: http://localhost:5002
+2026-04-30 23:15:23.585 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-30 23:15:23.594 +03:00 [INF] Hosting environment: Development
+2026-04-30 23:15:23.598 +03:00 [INF] Content root path: C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API
+2026-04-30 23:15:30.344 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2026-04-30 23:15:30.837 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 519.1146ms
+2026-04-30 23:15:30.981 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-30 23:15:30.981 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2026-04-30 23:15:31.001 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 20.2338ms
+2026-04-30 23:15:31.179 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 198.5591ms
+2026-04-30 23:15:31.273 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2026-04-30 23:15:31.308 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.2464ms
+2026-04-30 23:15:50.493 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/api/auth/login - application/json 64
+2026-04-30 23:15:50.539 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-30 23:15:50.559 +03:00 [INF] Executing endpoint 'AuthController.Login (ClothingStore.API)'
+2026-04-30 23:15:50.669 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ClothingStore.Application.Features.Auth.Login.LoginCommand) on controller AuthController (ClothingStore.API).
+2026-04-30 23:15:50.715 +03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-30 23:15:50.897 +03:00 [INF] Handling LoginCommand
+2026-04-30 23:15:57.962 +03:00 [INF] Executed DbCommand (376ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2026-04-30 23:15:58.749 +03:00 [INF] Handled LoginCommand
+2026-04-30 23:15:58.779 +03:00 [INF] Executing OkObjectResult, writing value of type 'ClothingStore.Domain.Common.Result`1[[ClothingStore.Application.Features.Auth.DTOs.AuthResponseDto, ClothingStore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-30 23:15:58.816 +03:00 [INF] Executed action AuthController.Login (ClothingStore.API) in 8122.029ms
+2026-04-30 23:15:58.826 +03:00 [INF] Executed endpoint 'AuthController.Login (ClothingStore.API)'
+2026-04-30 23:15:58.857 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5002/api/auth/login - 200 null application/json; charset=utf-8 8364.6667ms
+[2026-04-30 23:32:48 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-04-30 23:32:48 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-04-30 23:32:48 INF] ClothingStore.Application.Features.Auth.Login.LoginCommand Handling LoginCommand
+[2026-04-30 23:32:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (88ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+[2026-04-30 23:32:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+[2026-04-30 23:32:51 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (130ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Guid), @p4='?' (Size = 450), @p5='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([ApplicationUserId], [CreatedAt], [ExpiryDate], [PublicId], [Token], [UpdatedAt])
+OUTPUT INSERTED.[Id], INSERTED.[IsRevoked], INSERTED.[IsUsed]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+[2026-04-30 23:32:51 INF] ClothingStore.Application.Features.Auth.Login.LoginCommand Handled LoginCommand
+[2026-04-30 23:36:02 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-04-30 23:36:02 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-04-30 23:36:02 INF] ClothingStore.Application.Features.Auth.Login.LoginCommand Handling LoginCommand
+[2026-04-30 23:36:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (174ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[CreatedAt], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[PublicId], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+[2026-04-30 23:36:08 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+[2026-04-30 23:36:09 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (25ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Guid), @p4='?' (Size = 450), @p5='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([ApplicationUserId], [CreatedAt], [ExpiryDate], [PublicId], [Token], [UpdatedAt])
+OUTPUT INSERTED.[Id], INSERTED.[IsRevoked], INSERTED.[IsUsed]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+[2026-04-30 23:36:09 INF] ClothingStore.Application.Features.Auth.Login.LoginCommand Handled LoginCommand

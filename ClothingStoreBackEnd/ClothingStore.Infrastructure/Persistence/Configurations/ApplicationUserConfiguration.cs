@@ -29,6 +29,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 });
 
 
+
             builder.HasIndex(u => u.UserName)
                 .IsUnique();
 

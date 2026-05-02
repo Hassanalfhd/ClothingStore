@@ -33,8 +33,6 @@ public static class DependencyInjection
         services.AddScoped(typeof(IAppLogger<>), typeof(SerilogAppLogger<>));
 
 
-
-
         return services;
     }
 }

@@ -36,7 +36,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.HasOne(x => x.ProductVariant)
                 .WithMany()
                 .HasForeignKey(x => x.ProductVariantId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.ClientCascade);
 
             builder.HasIndex(x => x.ProductId);
         }

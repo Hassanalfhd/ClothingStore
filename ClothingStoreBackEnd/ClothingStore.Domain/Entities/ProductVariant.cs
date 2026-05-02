@@ -12,6 +12,7 @@ namespace ClothingStore.Domain.Entities
         long productId,
         long colorId,
         long sizeId,
+        long createdBy,
         Money price,
         int stockQuantity,
         string sku)
@@ -19,7 +20,7 @@ namespace ClothingStore.Domain.Entities
             ProductId = productId;
             ColorId = colorId;
             SizeId = sizeId;
-
+            CreatedBy = createdBy;
             SetPrice(price);
             SetStock(stockQuantity);
             SetSku(sku);
@@ -29,6 +30,7 @@ namespace ClothingStore.Domain.Entities
 
         public long ProductId { get; private set; }
         public long ColorId { get; private set; }
+        public long CreatedBy { get; private set; }
         public long SizeId { get; private set; }
         public Money Price { get; private set; }
 

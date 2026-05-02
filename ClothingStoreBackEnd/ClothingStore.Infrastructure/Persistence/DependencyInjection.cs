@@ -18,8 +18,10 @@ public static class DependencyInjection
         services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
+
         services.Configure<JwtSettings>(
               config.GetSection("Jwt"));
+
 
 
         services.AddAuthentication()
@@ -48,6 +50,11 @@ public static class DependencyInjection
         services.AddScoped<IUserRepo, UserRepo>();
         services.AddScoped<IRefreshTokenRepo, RefreshTokenRepo>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<ICategoryRepo, CategoryRepo>();
+        services.AddScoped<ISizeRepo, SizeRepo>();
+        services.AddScoped<IColorRepo, ColorRepo>();
+        services.AddScoped<IProductRepo, ProductRepo>();
+
 
         return services;
     }

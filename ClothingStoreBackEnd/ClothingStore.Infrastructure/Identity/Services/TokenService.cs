@@ -4,13 +4,10 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using ClothingStore.Application.DTOs;
-using ClothingStore.Application.Features.Auth.DTOs;
 using ClothingStore.Application.Interfaces.Services;
-using ClothingStore.Domain.Common;
 using ClothingStore.Identity.Models;
 using ClothingStore.Infrastructure.Settings;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -72,7 +69,7 @@ public class TokenService : ITokenService
     }
 
 
-    public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
+    private ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
     {
         var tokenValidationParameters = new TokenValidationParameters
         {
