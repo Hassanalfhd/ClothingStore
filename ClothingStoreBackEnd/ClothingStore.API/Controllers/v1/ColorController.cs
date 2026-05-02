@@ -68,7 +68,7 @@ namespace ClothingStore.API.Controllers.v1
             if (!result.IsSuccess)
                 return NotFound(result.Error);
 
-            return Ok();
+            return NoContent();
         }
     }
 }

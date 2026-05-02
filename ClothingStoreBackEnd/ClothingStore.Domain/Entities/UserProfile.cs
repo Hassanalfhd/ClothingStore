@@ -5,6 +5,7 @@ namespace ClothingStore.Domain.Entities
     public class UserProfile : EntityBased
     {
 
+        private readonly List<ProductVariant> _productVariants = [];
         public long ApplicationUserId { get; private set; }
 
         // value object
@@ -21,6 +22,10 @@ namespace ClothingStore.Domain.Entities
         public string? ProfileImage { get; private set; }
 
         public bool IsAdult => BirthDate.HasValue && BirthDate.Value.AddYears(18) <= DateTime.UtcNow;
+
+
+        public IReadOnlyCollection<ProductVariant> ProductVariants
+            => _productVariants.AsReadOnly();
 
 
         private UserProfile() { } // for EF 

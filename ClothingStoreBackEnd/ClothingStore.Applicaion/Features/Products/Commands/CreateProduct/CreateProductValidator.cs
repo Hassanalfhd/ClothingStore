@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
 
-namespace ClothingStore.Application.Features.Products.CreateProduct
+namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
 {
     public  class CreateProductValidator: AbstractValidator<CreateProductCommand>
     {

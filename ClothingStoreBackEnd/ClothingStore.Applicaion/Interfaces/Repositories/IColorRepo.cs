@@ -12,6 +12,7 @@ namespace ClothingStore.Application.Interfaces.Repositories
         Task<Color?> GetByIdAsync(Guid publicId);
 
         Task<List<Color>> GetAllAsync();
+        Task<long?> GetIdAsync(Guid PublicId, CancellationToken cancellationToken = default);
 
         Task AddAsync(Color color);
 
@@ -19,7 +20,7 @@ namespace ClothingStore.Application.Interfaces.Repositories
 
         void Delete(Color color);
 
-        Task<bool> ExistsAsync(Guid id);
+        Task<bool> ExistsAsync(Guid publicId);
 
     }
 }

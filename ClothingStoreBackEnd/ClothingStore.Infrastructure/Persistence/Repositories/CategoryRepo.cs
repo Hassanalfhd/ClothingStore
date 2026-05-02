@@ -13,18 +13,25 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<Category?> GetByIdAsync(Guid publicId)
-            => await _context.Categories.FirstOrDefaultAsync(x=>x.PublicId == publicId);
+        public async Task<Category?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken )
+            => await _context.Categories.FirstOrDefaultAsync(x=>x.PublicId == publicId, cancellationToken);
 
-        public async Task<List<Category>> GetAllAsync()
-            => await _context.Categories.AsNoTracking().ToListAsync();
+        public async Task<List<Category>> GetAllAsync(CancellationToken cancellationToken = default)
+            => await _context.Categories.AsNoTracking().ToListAsync(cancellationToken);
 
 
-        public async Task<bool> ExistsAsync(Guid PublicId)
-            => await _context.Categories.AnyAsync(x => x.PublicId== PublicId);
+        public async Task<long?> GetIdAsync(Guid publicId, CancellationToken cancellationToken)
+        {
+            var result = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.PublicId == publicId, cancellationToken);
 
-        public async Task AddAsync(Category category)
-            => await _context.Categories.AddAsync(category);
+            return result.Id;
+        }
+
+        public async Task<bool> ExistsAsync(Guid publicId, CancellationToken cancellationToken )
+            => await _context.Categories.AnyAsync(x => x.PublicId== publicId, cancellationToken);
+
+        public async Task AddAsync(Category category, CancellationToken cancellationToken )
+            => await _context.Categories.AddAsync(category, cancellationToken);
 
         public void Update(Category category)
             => _context.Categories.Update(category);

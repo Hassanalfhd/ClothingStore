@@ -48,6 +48,11 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .WithMany(x => x.ProductVariants)
                 .HasForeignKey(x => x.SizeId);
 
+            builder.HasOne(u => u.UserProfile)
+                .WithMany(v => v.ProductVariants)
+                .HasForeignKey(x => x.CreatedBy);
+
+
             // منع التكرار (Color + Size لكل Product)
             builder.HasIndex(x => new { x.ProductId, x.ColorId, x.SizeId })
                 .IsUnique();

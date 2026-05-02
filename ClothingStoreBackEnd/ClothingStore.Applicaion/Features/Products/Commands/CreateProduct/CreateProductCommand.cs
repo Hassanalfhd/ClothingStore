@@ -7,11 +7,11 @@ using ClothingStore.Domain.Common;
 using ClothingStore.Domain.ValueObjects;
 using MediatR;
 
-namespace ClothingStore.Application.Features.Products.CreateProduct;
+namespace ClothingStore.Application.Features.Products.Commands.CreateProduct;
 
     public record CreateProductCommand
     (string Name, string Description, decimal Price, string Currency,
         bool IsActive,
-        long CreatedBy, long CategoryId):IRequest<Result<Guid>>;
+        Guid CreatedBy, Guid CategoryId):IRequest<Result<Guid>>;
 
 

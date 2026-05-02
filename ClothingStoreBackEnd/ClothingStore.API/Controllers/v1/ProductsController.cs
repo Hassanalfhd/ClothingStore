@@ -1,4 +1,4 @@
-﻿using ClothingStore.Application.Features.Products.CreateProduct;
+﻿using ClothingStore.Application.Features.Products.Commands.CreateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,16 +21,24 @@ namespace ClothingStore.API.Controllers.v1
 
 
         [HttpPost]
-        public async Task<IActionResult> AddNewProduct(CreateProductCommand createProductCommand)
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest )]
+        public async Task<IActionResult> AddNewProduct(CreateProductCommand createProductCommand, CancellationToken cancellationToken)
         {
 
-            var result = await _mediator.Send(createProductCommand);
+            var result = await _mediator.Send(createProductCommand, cancellationToken);
 
             if (result.IsFailure) return BadRequest(result);
 
-            return CreatedAtAction("ProductCreated",  new  {result.Value });
+            return CreatedAtAction(nameof(GetById),  new  {publicId = result.Value }, result.Value);
         }
 
 
+        [HttpGet("{publicId:guid}")]
+        public async Task<IActionResult> GetById(Guid publicId, CancellationToken cancellationToken)
+        {
+
+            return Ok();
+        }
     }
 }

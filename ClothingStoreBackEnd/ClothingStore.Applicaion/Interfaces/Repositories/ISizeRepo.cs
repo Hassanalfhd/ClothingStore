@@ -9,9 +9,11 @@ namespace ClothingStore.Application.Interfaces.Repositories
 {
     public interface ISizeRepo
     {
-        Task<Size?> GetByIdAsync(Guid id);
+        Task<Size?> GetByIdAsync(Guid publicId);
 
         Task<List<Size>> GetAllAsync();
+
+        Task<long?> GetIdAsync(Guid PublicId, CancellationToken cancellationToken = default);
 
         Task AddAsync(Size size);
 

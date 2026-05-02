@@ -18,12 +18,17 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<Color?> GetByIdAsync(Guid id)
-            => await _context.Colors.FindAsync(id);
+        public async Task<Color?> GetByIdAsync(Guid publicId)
+            => await _context.Colors.FirstOrDefaultAsync(x=>x.PublicId == publicId);
 
         public async Task<List<Color>> GetAllAsync()
             => await _context.Colors.AsNoTracking().ToListAsync();
 
+        public async Task<long?> GetIdAsync(Guid publicId, CancellationToken cancellationToken)
+        {
+            var result = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.PublicId == publicId, cancellationToken);
+            return result.Id;
+        }
         public async Task AddAsync(Color color)
             => await _context.Colors.AddAsync(color);
 

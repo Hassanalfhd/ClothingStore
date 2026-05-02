@@ -40,6 +40,7 @@ namespace ClothingStore.Domain.Entities
 
         public bool IsActive { get; private set; }
 
+        public UserProfile UserProfile { get; private set; } = null!;
         public Product Product { get; private set; } = null!;
 
         public Color Color { get; private set; } = null!;

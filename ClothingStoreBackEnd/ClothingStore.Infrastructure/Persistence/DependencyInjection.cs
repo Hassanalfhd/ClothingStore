@@ -23,7 +23,6 @@ public static class DependencyInjection
               config.GetSection("Jwt"));
 
 
-
         services.AddAuthentication()
                 .AddJwtBearer(options =>
                 {

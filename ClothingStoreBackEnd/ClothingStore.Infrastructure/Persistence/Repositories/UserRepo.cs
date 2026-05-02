@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClothingStore.Infrastructure.Persistence.Repositories
 {
@@ -23,6 +24,12 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
            _context.UserProfiles.AddAsync(userProfile);
 
             return userProfile.Id;
+        }
+
+        public async Task<long?> GetIdAsync(Guid publicId, CancellationToken cancellationToken)
+        {
+            var result = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.PublicId == publicId, cancellationToken);
+            return result.Id;
         }
     }
 }

@@ -10,11 +10,11 @@ using ClothingStore.Domain.Common;
 
 namespace ClothingStore.Application.Features.Catalog.Size
 {
-    public class ColorService : ISizeService
+    public class SizeService : ISizeService
     {
         private readonly ISizeRepo  _repo;
         private readonly IUnitOfWork _unitOfWork;
-        public ColorService(ISizeRepo repo, IUnitOfWork unitOfWork)
+        public SizeService(ISizeRepo repo, IUnitOfWork unitOfWork)
         {
             _repo = repo;
             _unitOfWork = unitOfWork;
