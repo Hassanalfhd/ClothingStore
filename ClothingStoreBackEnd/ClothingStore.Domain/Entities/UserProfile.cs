@@ -6,6 +6,8 @@ namespace ClothingStore.Domain.Entities
     {
 
         private readonly List<ProductVariant> _productVariants = [];
+        private readonly List<Product> _products = [];
+
         public long ApplicationUserId { get; private set; }
 
         // value object
@@ -26,6 +28,7 @@ namespace ClothingStore.Domain.Entities
 
         public IReadOnlyCollection<ProductVariant> ProductVariants
             => _productVariants.AsReadOnly();
+        public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
 
 
         private UserProfile() { } // for EF 

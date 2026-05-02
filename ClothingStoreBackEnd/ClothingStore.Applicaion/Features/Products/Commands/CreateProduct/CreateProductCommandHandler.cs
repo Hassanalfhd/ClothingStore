@@ -38,15 +38,23 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
                     request.Description,
                     new Money(request.Price, request.Currency),
                     request.IsActive, CreatedBy.Value, CategoryId.Value
+
                 );
 
 
             await _productRepo.AddAsync(newProduct, cancellationToken);
 
-            await _unitOfWork.SaveChangesAsync();
+            try
+            {
+                await _unitOfWork.SaveChangesAsync();
 
-            return Result<Guid>.Success(newProduct.PublicId);
+                return Result<Guid>.Success(newProduct.PublicId);
 
+            }
+            catch (Exception ex)
+            {
+                return Result<Guid>.Failure(ex.Message);
+            }
 
         }
 

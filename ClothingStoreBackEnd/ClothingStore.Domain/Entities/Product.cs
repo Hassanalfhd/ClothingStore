@@ -17,7 +17,7 @@ namespace ClothingStore.Domain.Entities
             CreatedBy = createdBy;
             CategoryId = categoryId;
             IsActive = isActive;
-
+            
             SetName(name);
             SetDescription(description);
             SetBasePrice(basePrice);
@@ -68,6 +68,19 @@ namespace ClothingStore.Domain.Entities
         public void SetBasePrice(Money price)
         {
             BasePrice = price;
+            
+        }
+
+
+        public void UpdateProduct(Product product)
+        {
+            SetName(product.Name);
+            SetName(product.Description);
+            SetBasePrice(product.BasePrice);
+
+            CategoryId = product.CategoryId;
+            CreatedBy = product.CreatedBy;
+            base.MarAsUpdated();
         }
 
 

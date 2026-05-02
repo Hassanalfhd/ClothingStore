@@ -50,7 +50,8 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.HasOne(u => u.UserProfile)
                 .WithMany(v => v.ProductVariants)
-                .HasForeignKey(x => x.CreatedBy);
+                .HasForeignKey(x => x.CreatedBy)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
             // منع التكرار (Color + Size لكل Product)

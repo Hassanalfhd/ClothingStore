@@ -26,7 +26,7 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
 
         public async Task<long?> GetIdAsync(Guid publicId, CancellationToken cancellationToken)
         {
-            var result = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.PublicId == publicId, cancellationToken);
+            var result = await _context.Colors.AsNoTracking().Select(x => new { x.Id, x.PublicId }).FirstOrDefaultAsync(x => x.PublicId == publicId, cancellationToken);
             return result.Id;
         }
         public async Task AddAsync(Color color)
