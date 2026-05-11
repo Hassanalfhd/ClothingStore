@@ -12,13 +12,15 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
         private readonly IProductRepo _productRepo;
         private readonly ICategoryRepo _categoryRepo;
         private readonly IUserRepo _userRepo;
+        private readonly IBrandRepo _brandRepo;
         private readonly IUnitOfWork _unitOfWork;
-        public CreateProductCommandHandler(IProductRepo productRepo, IUnitOfWork unitOfWork, ICategoryRepo categoryRepo, IUserRepo userRepo)
+        public CreateProductCommandHandler(IProductRepo productRepo, IUnitOfWork unitOfWork, ICategoryRepo categoryRepo, IUserRepo userRepo, IBrandRepo brandRepo)
         {
             _productRepo = productRepo;
             _unitOfWork = unitOfWork;
             _categoryRepo = categoryRepo;
             _userRepo = userRepo;
+            _brandRepo = brandRepo;
         }
 
         public async Task<Result<Guid>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
@@ -26,33 +28,30 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
 
             var CategoryId = await _categoryRepo.GetIdAsync(request.CategoryId);
             var CreatedBy = await _userRepo.GetIdAsync(request.CreatedBy);
+            var BrandId = await _brandRepo.GetIdAsync(request.BrandId);
 
 
-            if (CategoryId == null) return Result<Guid>.Failure($"Category with {CategoryId} is not found.");
-            if (CreatedBy == null) return Result<Guid>.Failure($"User with {CreatedBy} is not found.");
+            if (CategoryId == null) return Result<Guid>.Failure($"Category not found.");
+            if (CreatedBy == null) return Result<Guid>.Failure($"User not found.");
+            if (BrandId == null) return Result<Guid>.Failure($"Brand not found.");
 
 
             var newProduct = new Product(
                     request.Name,
                     request.Description,
                     new Money(request.Price, request.Currency),
-                    request.IsActive, CreatedBy.Value, CategoryId.Value, null
+                    request.IsActive, CreatedBy.Value, CategoryId.Value, BrandId
 
                 );
 
 
             await _productRepo.AddAsync(newProduct, cancellationToken);
 
-            try
-            {
-                await _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
 
-                return Result<Guid>.Success(newProduct.PublicId);
+            return Result<Guid>.Success(newProduct.PublicId);
 
-            }
-            catch (Exception ex)
-            {
-                return Result<Guid>.Failure(ex.Message);
+
             }
 
         }

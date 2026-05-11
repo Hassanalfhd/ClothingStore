@@ -26,7 +26,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Description)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(200);
 
 
             builder.HasMany(x => x.Products)

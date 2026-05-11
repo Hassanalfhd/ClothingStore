@@ -9,7 +9,7 @@ using MediatR;
 namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
 {
     public record UpdateProductCommand(Guid PublicId, string Name, string Description, decimal Price, string Currency,
-        Guid CategoryId, Guid CreatedBy): IRequest<Result>;
+        Guid CategoryId, Guid CreatedBy, Guid BrandId): IRequest<Result>;
     
 }
 

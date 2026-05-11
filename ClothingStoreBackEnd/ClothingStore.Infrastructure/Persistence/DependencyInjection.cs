@@ -50,6 +50,7 @@ public static class DependencyInjection
         services.AddScoped<IRefreshTokenRepo, RefreshTokenRepo>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ICategoryRepo, CategoryRepo>();
+        services.AddScoped<IBrandRepo, BrandRepo>();
         services.AddScoped<ISizeRepo, SizeRepo>();
         services.AddScoped<IColorRepo, ColorRepo>();
         services.AddScoped<IProductRepo, ProductRepo>();

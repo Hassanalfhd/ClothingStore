@@ -12,6 +12,6 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct;
     public record CreateProductCommand
     (string Name, string Description, decimal Price, string Currency,
         bool IsActive,
-        Guid CreatedBy, Guid CategoryId):IRequest<Result<Guid>>;
+        Guid CreatedBy, Guid CategoryId, Guid BrandId):IRequest<Result<Guid>>;
 
 
