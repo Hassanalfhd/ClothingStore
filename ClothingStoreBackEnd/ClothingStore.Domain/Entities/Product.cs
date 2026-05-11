@@ -79,11 +79,12 @@ namespace ClothingStore.Domain.Entities
         public void UpdateProduct(Product product)
         {
             SetName(product.Name);
-            SetName(product.Description);
+            SetDescription(product.Description);
             SetBasePrice(product.BasePrice);
 
             CategoryId = product.CategoryId;
             CreatedBy = product.CreatedBy;
+            BrandId = product.BrandId;
             base.MarAsUpdated();
         }
 

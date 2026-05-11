@@ -40,7 +40,7 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
                     request.Name,
                     request.Description,
                     new Money(request.Price, request.Currency),
-                    request.IsActive, CreatedBy.Value, CategoryId.Value, BrandId
+                    request.IsActive, CreatedBy.Value, CategoryId.Value, BrandId.Value
 
                 );
 
@@ -51,10 +51,7 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
 
             return Result<Guid>.Success(newProduct.PublicId);
 
-
             }
 
         }
-
-    }
 }

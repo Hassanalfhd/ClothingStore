@@ -19,7 +19,9 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
         private readonly IBrandRepo _brandRepo;
         private readonly IUserRepo _userRepo;
 
-        public UpdateProductCommandHandler(IProductRepo productRepo, IUnitOfWork unitOfWork, ICategoryRepo categoryRepo, IUserRepo userRepo, IBrandRepo brandRepo)
+        public UpdateProductCommandHandler(IProductRepo productRepo,
+            IUnitOfWork unitOfWork, ICategoryRepo categoryRepo,
+            IUserRepo userRepo, IBrandRepo brandRepo)
         {
             _productRepo = productRepo;
             _unitOfWork = unitOfWork;
@@ -42,9 +44,9 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
 
             var BrandId = await _brandRepo.GetIdAsync(request.BrandId);
 
-            if (CategoryId == null) return Result.Failure($"Category with {CategoryId} is not found.");
-            if (CreatedBy == null) return Result.Failure($"User with {CreatedBy} is not found.");
-            if (BrandId == null) return Result.Failure($"Brand with {BrandId} is not found.");
+            if (CategoryId == null) return Result.Failure($"Category  not found.");
+            if (CreatedBy == null) return Result.Failure($"User not found.");
+            if (BrandId == null) return Result.Failure($"Brand not found.");
 
 
 
@@ -53,7 +55,7 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
                     request.Description,
                     new Money(request.Price, request.Currency),
                     product.IsActive,
-                    CreatedBy.Value, CategoryId.Value, BrandId
+                    CreatedBy.Value, CategoryId.Value, BrandId.Value
                 );
 
             

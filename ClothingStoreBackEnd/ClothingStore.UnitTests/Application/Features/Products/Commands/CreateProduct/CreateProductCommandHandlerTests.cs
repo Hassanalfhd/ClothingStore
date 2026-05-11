@@ -35,14 +35,11 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
 
         }
 
-
-
-
         [Fact]
         public async Task Handle_Should_Create_Product_Successfully()
         {
             // Arrange 
-            var command = new CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            var command = CreateProductCommand();
 
             _brandRepoMock.Setup(x => x.GetIdAsync(command.BrandId, It.IsAny<CancellationToken>())).ReturnsAsync(10);
             _categoryRepoMock.Setup(x => x.GetIdAsync(command.CategoryId, It.IsAny<CancellationToken>())).ReturnsAsync(10);
@@ -50,6 +47,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
             
             _productRepoMock.Setup(x => x.AddAsync(It.IsAny<Product>(), It.IsAny<CancellationToken>()))
                     .Returns(Task.CompletedTask);
+
 
             _unitOfWorkMock.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>()))
                  .ReturnsAsync(1);
@@ -78,7 +76,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
         [Fact]
         public async Task Handle_Should_Return_Failure_When_Brand_NotFound()
         {
-            var command = new CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            var command = CreateProductCommand();
             _brandRepoMock.Setup(x => x.GetIdAsync(command.BrandId, It.IsAny<CancellationToken>())).ReturnsAsync((long?)null);
             _categoryRepoMock.Setup(x => x.GetIdAsync(command.CategoryId, It.IsAny<CancellationToken>())).ReturnsAsync(10);
             _userRepoMock.Setup(x => x.GetIdAsync(command.CreatedBy, It.IsAny<CancellationToken>())).ReturnsAsync(10);
@@ -94,7 +92,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
         [Fact]
         public async Task Handle_Should_Return_Failure_When_Category_NotFound()
         {
-            var command = new CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            var command = CreateProductCommand();
 
             _categoryRepoMock.Setup(x => x.GetIdAsync(command.CategoryId, It.IsAny<CancellationToken>())).ReturnsAsync((long?)null);
             _brandRepoMock.Setup(x => x.GetIdAsync(command.BrandId, It.IsAny<CancellationToken>())).ReturnsAsync(10);
@@ -111,7 +109,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
         [Fact]
         public async Task Handle_Should_Return_Failure_When_User_NotFound()
         {
-            var command = new CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            var command = CreateProductCommand();
             _userRepoMock.Setup(x => x.GetIdAsync(command.CreatedBy, It.IsAny<CancellationToken>())).ReturnsAsync((long?)null);
             _brandRepoMock.Setup(x => x.GetIdAsync(command.BrandId, It.IsAny<CancellationToken>())).ReturnsAsync(10);
             _categoryRepoMock.Setup(x => x.GetIdAsync(command.CategoryId, It.IsAny<CancellationToken>())).ReturnsAsync(10);
@@ -120,6 +118,13 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
 
             result.IsSuccess.Should().BeFalse();
             result.Error.Should().Contain("User");
+        }
+
+
+        private static CreateProductCommand CreateProductCommand()
+        {
+            return new CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            
         }
     }
 }
