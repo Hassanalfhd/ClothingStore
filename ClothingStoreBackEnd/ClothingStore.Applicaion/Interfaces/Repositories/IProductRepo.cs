@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClothingStore.Application.Features.Products.Queries.GetProductById;
 using ClothingStore.Domain.Entities;
 
 namespace ClothingStore.Application.Interfaces.Repositories
@@ -12,8 +13,6 @@ namespace ClothingStore.Application.Interfaces.Repositories
         Task AddAsync(Product product, CancellationToken cancellationToken);
         Task<Product?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken);
         void Update(Product product);
-
-
 
     }
 }

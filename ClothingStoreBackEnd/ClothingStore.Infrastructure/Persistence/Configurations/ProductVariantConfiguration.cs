@@ -40,6 +40,10 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .WithMany(x => x.Variants)
                 .HasForeignKey(x => x.ProductId);
 
+            builder.HasMany(x => x.Images)
+                .WithOne(x => x.ProductVariant)
+                .HasForeignKey(x => x.ProductVariantId);
+
             builder.HasOne(x => x.Color)
                 .WithMany(x => x.ProductVariants)
                 .HasForeignKey(x => x.ColorId);
@@ -59,6 +63,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .IsUnique();
 
             
+
             builder.HasIndex(x => x.SKU)
                 .IsUnique();
 

@@ -35,6 +35,7 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
             if (product == null) return Result.Failure($"Error:Product with id {request.PublicId} is not found.");
 
             var CategoryId = await _categoryRepo.GetIdAsync(request.CategoryId);
+            
             var CreatedBy = await _userRepo.GetIdAsync(request.CreatedBy);
 
             if (CategoryId == null) return Result.Failure($"Category with {CategoryId} is not found.");
@@ -46,7 +47,7 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
                     request.Description,
                     new Money(request.Price, request.Currency),
                     product.IsActive,
-                    CreatedBy.Value, CategoryId.Value
+                    CreatedBy.Value, CategoryId.Value, null
                 );
 
             

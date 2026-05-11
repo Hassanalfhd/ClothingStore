@@ -1,4 +1,5 @@
 ﻿using ClothingStore.Domain.ValueObjects;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ClothingStore.Domain.Entities
 {
@@ -42,10 +43,17 @@ namespace ClothingStore.Domain.Entities
 
         public UserProfile UserProfile { get; private set; } = null!;
         public Product Product { get; private set; } = null!;
+        
+        private readonly List<ProductImage> _images = [];
 
         public Color Color { get; private set; } = null!;
 
         public Size Size { get; private set; } = null!;
+
+
+        public IReadOnlyCollection<ProductImage> Images
+            => _images.AsReadOnly();
+
 
         public void SetPrice(Money price)
         {

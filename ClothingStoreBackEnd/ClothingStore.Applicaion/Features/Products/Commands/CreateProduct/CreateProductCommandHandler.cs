@@ -21,7 +21,6 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
             _userRepo = userRepo;
         }
 
-
         public async Task<Result<Guid>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
 
@@ -37,7 +36,7 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
                     request.Name,
                     request.Description,
                     new Money(request.Price, request.Currency),
-                    request.IsActive, CreatedBy.Value, CategoryId.Value
+                    request.IsActive, CreatedBy.Value, CategoryId.Value, null
 
                 );
 

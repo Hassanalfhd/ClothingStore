@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ClothingStore.Infrastructure.Persistence.Configurations
 {
-    internal class ColorConfiguration: IEntityTypeConfiguration<Color>
+    public class ColorConfiguration: IEntityTypeConfiguration<Color>
     {
 
         public void Configure(EntityTypeBuilder<Color> builder)

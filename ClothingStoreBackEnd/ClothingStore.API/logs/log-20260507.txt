@@ -1,0 +1,19 @@
+[2026-05-07 23:51:21 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-07 23:51:21 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-07 23:51:21 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-07 23:51:27 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (360ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[Description], [t].[BasePrice], [t].[Currency], [t].[Name0], [t].[Id], [t].[Id0], [t0].[PublicId], [t0].[Color], [t0].[Price], [t0].[Currency], [t0].[Size], [t0].[SKU], [t0].[StockQuantity], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [c].[Name] AS [Name0], [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [p0].[PublicId], [c0].[Name] AS [Color], [p0].[Price], [p0].[Currency], [s].[Name] AS [Size], [p0].[SKU], [p0].[StockQuantity], [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1], [p0].[ProductId]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0]
+[2026-05-07 23:51:27 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery

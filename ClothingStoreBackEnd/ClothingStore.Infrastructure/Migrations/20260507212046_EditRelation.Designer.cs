@@ -4,6 +4,7 @@ using ClothingStore.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothingStore.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260507212046_EditRelation")]
+    partial class EditRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,51 +24,6 @@ namespace ClothingStore.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("ClothingStore.Domain.Entities.Brand", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("LogoUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<Guid>("PublicId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Slug")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.HasIndex("PublicId");
-
-                    b.ToTable("Brands", (string)null);
-                });
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.Category", b =>
                 {
@@ -141,9 +99,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("BrandId")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
@@ -175,8 +130,6 @@ namespace ClothingStore.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
 
@@ -319,7 +272,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 11, 13, 24, 13, 997, DateTimeKind.Utc).AddTicks(9518));
+                        .HasDefaultValue(new DateTime(2026, 5, 7, 21, 20, 45, 529, DateTimeKind.Utc).AddTicks(1258));
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("datetime2");
@@ -417,7 +370,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 11, 13, 24, 14, 2, DateTimeKind.Utc).AddTicks(9189));
+                        .HasDefaultValue(new DateTime(2026, 5, 7, 21, 20, 45, 532, DateTimeKind.Utc).AddTicks(7045));
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
@@ -466,7 +419,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 11, 13, 24, 13, 975, DateTimeKind.Utc).AddTicks(3057));
+                        .HasDefaultValue(new DateTime(2026, 5, 7, 21, 20, 45, 514, DateTimeKind.Utc).AddTicks(853));
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -694,11 +647,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("ClothingStore.Domain.Entities.Brand", "Brand")
-                        .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("ClothingStore.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
@@ -737,8 +685,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.Navigation("BasePrice")
                         .IsRequired();
-
-                    b.Navigation("Brand");
 
                     b.Navigation("Category");
 
@@ -925,11 +871,6 @@ namespace ClothingStore.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ClothingStore.Domain.Entities.Brand", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.Category", b =>

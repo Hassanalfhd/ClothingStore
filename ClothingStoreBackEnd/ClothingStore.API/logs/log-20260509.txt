@@ -1,0 +1,393 @@
+[2026-05-09 16:29:31 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-09 16:29:32 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-09 16:29:32 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 16:29:36 WRN] Microsoft.EntityFrameworkCore.Query Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-05-09 16:29:38 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (320ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[Description], [t].[BasePrice], [t].[Currency], [t].[Id], [t].[Id0], [t0].[ImageUrl], [t0].[DisplayIrder], [t0].[IsPrimary], [t0].[Id], [t].[Name0], [t].[IsActive], [t1].[PublicId], [t1].[Color], [t1].[Price], [t1].[Currency], [t1].[Size], [t1].[SKU], [t1].[StockQuantity], [t1].[Id], [t1].[Id0], [t1].[Id1]
+FROM (
+    SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [c].[Name] AS [Name0], [p].[IsActive], [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder] AS [DisplayIrder], [p0].[IsPrimary], [p0].[Id], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+LEFT JOIN (
+    SELECT [p1].[PublicId], [c0].[Name] AS [Color], [p1].[Price], [p1].[Currency], [s].[Name] AS [Size], [p1].[SKU], [p1].[StockQuantity], [p1].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1], [p1].[ProductId]
+    FROM [ProductVariants] AS [p1]
+    INNER JOIN [Colors] AS [c0] ON [p1].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p1].[SizeId] = [s].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t1].[Id], [t1].[Id0]
+[2026-05-09 16:29:38 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 16:43:14 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 16:43:15 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (80ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[Description], [t].[BasePrice], [t].[Currency], [t].[Id], [t].[Id0], [t0].[ImageUrl], [t0].[DisplayIrder], [t0].[IsPrimary], [t0].[Id], [t].[Name0], [t].[IsActive], [t1].[PublicId], [t1].[Color], [t1].[Price], [t1].[Currency], [t1].[Size], [t1].[SKU], [t1].[StockQuantity], [t1].[Id], [t1].[Id0], [t1].[Id1]
+FROM (
+    SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [c].[Name] AS [Name0], [p].[IsActive], [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder] AS [DisplayIrder], [p0].[IsPrimary], [p0].[Id], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+LEFT JOIN (
+    SELECT [p1].[PublicId], [c0].[Name] AS [Color], [p1].[Price], [p1].[Currency], [s].[Name] AS [Size], [p1].[SKU], [p1].[StockQuantity], [p1].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1], [p1].[ProductId]
+    FROM [ProductVariants] AS [p1]
+    INNER JOIN [Colors] AS [c0] ON [p1].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p1].[SizeId] = [s].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t1].[Id], [t1].[Id0]
+[2026-05-09 16:43:15 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 16:53:23 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-09 16:53:23 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-09 16:53:23 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 16:53:25 WRN] Microsoft.EntityFrameworkCore.Query Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-05-09 16:53:27 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (524ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[Description], [t].[BasePrice], [t].[Currency], [t].[Id], [t].[Id0], [t0].[ImageUrl], [t0].[DisplayIrder], [t0].[IsPrimary], [t0].[Id], [t].[Name0], [t].[IsActive], [t1].[PublicId], [t1].[Color], [t1].[Price], [t1].[Currency], [t1].[Size], [t1].[SKU], [t1].[StockQuantity], [t1].[Id], [t1].[Id0], [t1].[Id1]
+FROM (
+    SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [c].[Name] AS [Name0], [p].[IsActive], [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder] AS [DisplayIrder], [p0].[IsPrimary], [p0].[Id], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+LEFT JOIN (
+    SELECT [p1].[PublicId], [c0].[Name] AS [Color], [p1].[Price], [p1].[Currency], [s].[Name] AS [Size], [p1].[SKU], [p1].[StockQuantity], [p1].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1], [p1].[ProductId]
+    FROM [ProductVariants] AS [p1]
+    INNER JOIN [Colors] AS [c0] ON [p1].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p1].[SizeId] = [s].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t1].[Id], [t1].[Id0]
+[2026-05-09 16:53:27 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 16:53:42 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 16:53:42 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (82ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[Description], [t].[BasePrice], [t].[Currency], [t].[Id], [t].[Id0], [t0].[ImageUrl], [t0].[DisplayIrder], [t0].[IsPrimary], [t0].[Id], [t].[Name0], [t].[IsActive], [t1].[PublicId], [t1].[Color], [t1].[Price], [t1].[Currency], [t1].[Size], [t1].[SKU], [t1].[StockQuantity], [t1].[Id], [t1].[Id0], [t1].[Id1]
+FROM (
+    SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [c].[Name] AS [Name0], [p].[IsActive], [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+LEFT JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder] AS [DisplayIrder], [p0].[IsPrimary], [p0].[Id], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+LEFT JOIN (
+    SELECT [p1].[PublicId], [c0].[Name] AS [Color], [p1].[Price], [p1].[Currency], [s].[Name] AS [Size], [p1].[SKU], [p1].[StockQuantity], [p1].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1], [p1].[ProductId]
+    FROM [ProductVariants] AS [p1]
+    INNER JOIN [Colors] AS [c0] ON [p1].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p1].[SizeId] = [s].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t1].[Id], [t1].[Id0]
+[2026-05-09 16:53:42 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 17:05:17 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-09 17:05:17 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-09 17:05:17 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 17:05:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (129ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [p].[Id], [c].[Id], [c].[Name], [p].[IsActive]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE [p].[PublicId] = @__publicId_0
+ORDER BY [p].[Id], [c].[Id]
+[2026-05-09 17:05:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (19ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[ImageUrl], [t0].[DisplayOrder], [t0].[IsPrimary], [t].[Id], [t].[Id0]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+INNER JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder], [p0].[IsPrimary], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+ORDER BY [t].[Id], [t].[Id0]
+[2026-05-09 17:05:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (81ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[PublicId], [t0].[Name], [t0].[Price], [t0].[Currency], [t0].[Name0], [t0].[SKU], [t0].[StockQuantity], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[PublicId], [c0].[Name], [p0].[Price], [p0].[Currency], [s].[Name] AS [Name0], [p0].[SKU], [p0].[StockQuantity], [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:05:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (77ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[ImageUrl], [t1].[DisplayOrder], [t1].[IsPrimary], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+INNER JOIN (
+    SELECT [p1].[ImageUrl], [p1].[DisplayOrder], [p1].[IsPrimary], [p1].[ProductId]
+    FROM [ProductImages] AS [p1]
+    WHERE [p1].[IsPrimary] = CAST(1 AS bit)
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:05:20 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 17:07:53 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-09 17:07:53 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-09 17:07:53 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 17:08:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (289ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [p].[Id], [c].[Id], [c].[Name], [p].[IsActive]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE [p].[PublicId] = @__publicId_0
+ORDER BY [p].[Id], [c].[Id]
+[2026-05-09 17:08:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (20ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[ImageUrl], [t0].[DisplayOrder], [t0].[IsPrimary], [t].[Id], [t].[Id0]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+INNER JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder], [p0].[IsPrimary], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+ORDER BY [t].[Id], [t].[Id0]
+[2026-05-09 17:08:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (54ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[PublicId], [t0].[Name], [t0].[Price], [t0].[Currency], [t0].[Name0], [t0].[SKU], [t0].[StockQuantity], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[PublicId], [c0].[Name], [p0].[Price], [p0].[Currency], [s].[Name] AS [Name0], [p0].[SKU], [p0].[StockQuantity], [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:08:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (75ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[ImageUrl], [t1].[DisplayOrder], [t1].[IsPrimary], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+INNER JOIN (
+    SELECT [p1].[ImageUrl], [p1].[DisplayOrder], [p1].[IsPrimary], [p1].[ProductId]
+    FROM [ProductImages] AS [p1]
+    WHERE [p1].[IsPrimary] = CAST(0 AS bit)
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:08:02 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 17:08:55 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 17:08:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (90ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [p].[Id], [c].[Id], [c].[Name], [p].[IsActive]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE [p].[PublicId] = @__publicId_0
+ORDER BY [p].[Id], [c].[Id]
+[2026-05-09 17:08:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (18ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[ImageUrl], [t0].[DisplayOrder], [t0].[IsPrimary], [t].[Id], [t].[Id0]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+INNER JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder], [p0].[IsPrimary], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+ORDER BY [t].[Id], [t].[Id0]
+[2026-05-09 17:08:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (33ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[PublicId], [t0].[Name], [t0].[Price], [t0].[Currency], [t0].[Name0], [t0].[SKU], [t0].[StockQuantity], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[PublicId], [c0].[Name], [p0].[Price], [p0].[Currency], [s].[Name] AS [Name0], [p0].[SKU], [p0].[StockQuantity], [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:08:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (94ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[ImageUrl], [t1].[DisplayOrder], [t1].[IsPrimary], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+INNER JOIN (
+    SELECT [p1].[ImageUrl], [p1].[DisplayOrder], [p1].[IsPrimary], [p1].[ProductId]
+    FROM [ProductImages] AS [p1]
+    WHERE [p1].[IsPrimary] = CAST(0 AS bit)
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:08:55 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 17:09:11 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 17:09:11 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (46ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [p].[Id], [c].[Id], [c].[Name], [p].[IsActive]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE [p].[PublicId] = @__publicId_0
+ORDER BY [p].[Id], [c].[Id]
+[2026-05-09 17:09:11 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (19ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[ImageUrl], [t0].[DisplayOrder], [t0].[IsPrimary], [t].[Id], [t].[Id0]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+INNER JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder], [p0].[IsPrimary], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+ORDER BY [t].[Id], [t].[Id0]
+[2026-05-09 17:09:11 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (26ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[PublicId], [t0].[Name], [t0].[Price], [t0].[Currency], [t0].[Name0], [t0].[SKU], [t0].[StockQuantity], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[PublicId], [c0].[Name], [p0].[Price], [p0].[Currency], [s].[Name] AS [Name0], [p0].[SKU], [p0].[StockQuantity], [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:09:11 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (18ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[ImageUrl], [t1].[DisplayOrder], [t1].[IsPrimary], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+INNER JOIN (
+    SELECT [p1].[ImageUrl], [p1].[DisplayOrder], [p1].[IsPrimary], [p1].[ProductId]
+    FROM [ProductImages] AS [p1]
+    WHERE [p1].[IsPrimary] = CAST(0 AS bit)
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:09:11 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery
+[2026-05-09 17:09:12 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handling GetProductByIdQuery
+[2026-05-09 17:09:12 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[PublicId], [p].[Name], [p].[Description], [p].[BasePrice], [p].[Currency], [p].[Id], [c].[Id], [c].[Name], [p].[IsActive]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE [p].[PublicId] = @__publicId_0
+ORDER BY [p].[Id], [c].[Id]
+[2026-05-09 17:09:12 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[ImageUrl], [t0].[DisplayOrder], [t0].[IsPrimary], [t].[Id], [t].[Id0]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+INNER JOIN (
+    SELECT [p0].[ImageUrl], [p0].[DisplayOrder], [p0].[IsPrimary], [p0].[ProductId]
+    FROM [ProductImages] AS [p0]
+    WHERE [p0].[IsPrimary] = CAST(1 AS bit)
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+ORDER BY [t].[Id], [t].[Id0]
+[2026-05-09 17:09:12 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[PublicId], [t0].[Name], [t0].[Price], [t0].[Currency], [t0].[Name0], [t0].[SKU], [t0].[StockQuantity], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[PublicId], [c0].[Name], [p0].[Price], [p0].[Currency], [s].[Name] AS [Name0], [p0].[SKU], [p0].[StockQuantity], [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:09:12 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[ImageUrl], [t1].[DisplayOrder], [t1].[IsPrimary], [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT TOP(1) [p].[Id], [c].[Id] AS [Id0]
+    FROM [Products] AS [p]
+    INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+    WHERE [p].[PublicId] = @__publicId_0
+) AS [t]
+CROSS APPLY (
+    SELECT [p0].[Id], [c0].[Id] AS [Id0], [s].[Id] AS [Id1]
+    FROM [ProductVariants] AS [p0]
+    INNER JOIN [Colors] AS [c0] ON [p0].[ColorId] = [c0].[Id]
+    INNER JOIN [Sizes] AS [s] ON [p0].[SizeId] = [s].[Id]
+    WHERE [t].[Id] = [p0].[ProductId]
+) AS [t0]
+INNER JOIN (
+    SELECT [p1].[ImageUrl], [p1].[DisplayOrder], [p1].[IsPrimary], [p1].[ProductId]
+    FROM [ProductImages] AS [p1]
+    WHERE [p1].[IsPrimary] = CAST(0 AS bit)
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t0].[Id], [t0].[Id0], [t0].[Id1]
+[2026-05-09 17:09:12 INF] ClothingStore.Application.Features.Products.Queries.GetProductById.GetProductByIdQuery Handled GetProductByIdQuery

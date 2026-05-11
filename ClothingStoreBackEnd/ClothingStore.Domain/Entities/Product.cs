@@ -7,16 +7,17 @@ namespace ClothingStore.Domain.Entities
     public class Product : EntityBased
     {
         private readonly List<ProductVariant> _variants = [];
+
         private readonly List<ProductImage> _images = [];
 
         private Product() { }
 
-
-        public Product(string name, string description, Money basePrice, bool isActive, long createdBy, long categoryId)
+        public Product(string name, string description, Money basePrice, bool isActive, long createdBy, long categoryId, long? brandId)
         {
             CreatedBy = createdBy;
             CategoryId = categoryId;
             IsActive = isActive;
+            BrandId = brandId;
             
             SetName(name);
             SetDescription(description);
@@ -33,10 +34,13 @@ namespace ClothingStore.Domain.Entities
 
         public long CreatedBy { get; private set; }
         public long CategoryId { get; private set; }
+        public long? BrandId { get; private set; }
 
         public Category Category { get; private set; } = null!;
+        public Brand? Brand { get; private set; } = null!;
         public UserProfile UserProfile { get; private set; } = null!;
 
+        
 
         public IReadOnlyCollection<ProductVariant> Variants
             => _variants.AsReadOnly();

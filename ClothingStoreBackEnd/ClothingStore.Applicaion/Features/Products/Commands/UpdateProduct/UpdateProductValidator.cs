@@ -13,7 +13,7 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
         public UpdateProductValidator()
         {
             RuleFor(x => x.Name).MaximumLength(200).NotEmpty().NotNull();
-            RuleFor(x => x.Description).MaximumLength(200).Null();
+            RuleFor(x => x.Description).MaximumLength(200).NotEmpty();
             RuleFor(x => x.CategoryId).NotNull().NotEmpty();
             RuleFor(x => x.CreatedBy).NotNull().NotEmpty();
             RuleFor(x => x.Price).GreaterThan(0);
