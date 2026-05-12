@@ -14,7 +14,7 @@ namespace ClothingStore.Domain.Entities
         long colorId,
         long sizeId,
         long createdBy,
-        Money price,
+        Money money,
         int stockQuantity,
         string sku)
         {
@@ -22,7 +22,7 @@ namespace ClothingStore.Domain.Entities
             ColorId = colorId;
             SizeId = sizeId;
             CreatedBy = createdBy;
-            SetPrice(price);
+            SetPrice(money);
             SetStock(stockQuantity);
             SetSku(sku);
 
@@ -33,7 +33,7 @@ namespace ClothingStore.Domain.Entities
         public long ColorId { get; private set; }
         public long CreatedBy { get; private set; }
         public long SizeId { get; private set; }
-        public Money Price { get; private set; }
+        public Money Money { get; private set; }
 
         public int StockQuantity { get; private set; }
 
@@ -55,9 +55,9 @@ namespace ClothingStore.Domain.Entities
             => _images.AsReadOnly();
 
 
-        public void SetPrice(Money price)
+        public void SetPrice(Money money)
         {
-            Price = price;
+            Money = money;
         }
 
         public void SetStock(int stockQuantity)

@@ -55,6 +55,7 @@ public static class DependencyInjection
         services.AddScoped<IColorRepo, ColorRepo>();
         services.AddScoped<IProductRepo, ProductRepo>();
         services.AddScoped<IProductReadRepos, ProductReadRepo>();
+        services.AddScoped<IProductVariantRepo, ProductVariantRepo>();
 
         return services;
     }

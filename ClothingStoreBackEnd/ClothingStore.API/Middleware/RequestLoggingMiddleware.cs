@@ -12,26 +12,31 @@ public class RequestLoggingMiddleware
         _next = next;
         _logger = logger;
     }
-
     public async Task InvokeAsync(HttpContext context)
     {
         var start = DateTime.UtcNow;
 
-        _logger.LogInformation("Incoming request: {Method} {Path}",
-            context.Request.Method,
-            context.Request.Path);
-        
         await _next(context);
 
         var duration = DateTime.UtcNow - start;
 
+        var statusCode = context.Response.StatusCode;
 
-        if (duration.TotalSeconds < 1)
-            _logger.LogWarning("Request is slow. it completed in {Duration} ms", duration.TotalMilliseconds);
+        _logger.LogInformation(
+            "HTTP {Method} {Path} responded {StatusCode} in {Duration} ms",
+            context.Request.Method,
+            context.Request.Path,
+            statusCode,
+            duration.TotalMilliseconds);
 
 
-        _logger.LogInformation("Request completed in {Duration} ms", duration.TotalMilliseconds);
-
+        if (duration.TotalMilliseconds > 1000)
+        {
+            _logger.LogWarning(
+                "Slow request: {Path} took {Duration} ms",
+                context.Request.Path,
+                duration.TotalMilliseconds);
+        }
     }
 }
 

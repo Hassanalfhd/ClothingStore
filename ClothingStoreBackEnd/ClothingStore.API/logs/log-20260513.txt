@@ -1,0 +1,26 @@
+[2026-05-13 00:32:22 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-13 00:32:22 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-13 00:32:22 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling CreateProductVariantCommand
+[2026-05-13 00:32:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (58ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-13 00:32:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-13 00:32:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-13 00:32:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-13 00:32:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int64), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int64), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = Int64), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime2), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ProductVariants] ([ColorId], [CreatedAt], [CreatedBy], [IsActive], [ProductId], [PublicId], [SKU], [SizeId], [StockQuantity], [UpdatedAt], [Price], [Currency])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+[2026-05-13 00:32:23 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled CreateProductVariantCommand in 1561.6259 ms

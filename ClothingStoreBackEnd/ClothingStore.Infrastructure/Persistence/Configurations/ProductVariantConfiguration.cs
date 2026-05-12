@@ -17,7 +17,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.HasKey(x => x.Id);
 
-            builder.OwnsOne(x => x.Price, price =>
+            builder.OwnsOne(x => x.Money, price =>
             {
                 price.Property(p => p.Amount)
                     .HasColumnName("Price")
@@ -28,9 +28,9 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                     .HasMaxLength(3);
             });
 
+
             builder.Property(x => x.StockQuantity)
                 .IsRequired();
-
 
             builder.Property(x => x.SKU)
                 .HasMaxLength(100)
@@ -61,8 +61,6 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             // منع التكرار (Color + Size لكل Product)
             builder.HasIndex(x => new { x.ProductId, x.ColorId, x.SizeId })
                 .IsUnique();
-
-            
 
             builder.HasIndex(x => x.SKU)
                 .IsUnique();

@@ -14,9 +14,9 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
             _context = context;
         }
 
-        public async Task AddAsync(Product product, CancellationToken cancellationToken) => await _context.AddAsync(product,  cancellationToken);
-        public void Update(Product product) => _context.Update(product);
 
+        public async Task AddAsync(Product product, CancellationToken cancellationToken) => await _context.AddAsync(product, cancellationToken);
+        
         public async Task<Product?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken) => await _context.Products.AsNoTracking().FirstOrDefaultAsync(x=>x.PublicId == publicId, cancellationToken);
 
 

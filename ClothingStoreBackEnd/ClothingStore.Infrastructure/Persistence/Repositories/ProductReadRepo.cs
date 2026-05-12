@@ -12,6 +12,15 @@ public sealed class ProductReadRepo : IProductReadRepos
         _context = context;
     }
 
+    public async Task<long?> GetProductId(Guid PublicId, CancellationToken cancellationToken)
+    {
+        var result = await _context.Products.AsNoTracking().FirstOrDefaultAsync(x=>x.PublicId == PublicId, cancellationToken);
+
+        return result == null ? null : result.Id;
+
+
+    }
+
     public async Task<ProductDetailsDto?> GetDetailsByPublicIdAsync(
         Guid publicId,
         CancellationToken cancellationToken = default)
@@ -41,8 +50,8 @@ public sealed class ProductReadRepo : IProductReadRepos
                 {
                     PublicId = v.PublicId,
                     Color = v.Color.Name,
-                    Price = v.Price.Amount,
-                    Currency = v.Price.Currency,
+                    Price = v.Money.Amount,
+                    Currency = v.Money.Currency,
                     Size = v.Size.Name,
                     SKU = v.SKU,
                     StockQuantity = v.StockQuantity,

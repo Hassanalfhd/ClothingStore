@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Azure.Core;
-using ClothingStore.Application.Features.Products.Commands.CreateProduct;
-using ClothingStore.Application.Features.Products.Commands.UpdateProduct;
+﻿using ClothingStore.Application.Features.Products.Commands.UpdateProduct;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Domain.Entities;
 using ClothingStore.Domain.ValueObjects;

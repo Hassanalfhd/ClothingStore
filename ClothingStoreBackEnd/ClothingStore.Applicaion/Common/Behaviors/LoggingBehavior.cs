@@ -1,14 +1,13 @@
 ﻿using MediatR;
-using ClothingStore.Application.Interfaces.Services;
+using Microsoft.Extensions.Logging;
 
 namespace ClothingStore.Application.Common.Behaviors;
-
-public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public class LoggingBehavior<TRequest, TResponse>
+    : IPipelineBehavior<TRequest, TResponse>
 {
+    private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
 
-    private readonly IAppLogger<TRequest> _logger;
-
-    public LoggingBehavior(IAppLogger<TRequest> logger)
+    public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
     {
         _logger = logger;
     }
@@ -19,11 +18,19 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Handling {Request}", typeof(TRequest).Name);
+        var requestName = typeof(TRequest).Name;
+        var start = DateTime.UtcNow;
+
+        _logger.LogInformation("Handling {Request}", requestName);
 
         var response = await next();
 
-        _logger.LogInformation("Handled {Request}", typeof(TRequest).Name);
+        var duration = DateTime.UtcNow - start;
+
+        _logger.LogInformation(
+            "Handled {Request} in {Duration} ms",
+            requestName,
+            duration.TotalMilliseconds);
 
         return response;
     }
