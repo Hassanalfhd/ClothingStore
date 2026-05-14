@@ -44,7 +44,6 @@ namespace ClothingStore.Application.Features.ProductVariants.Commands.CreateVari
 
             var variant = new ProductVariant(ProductId.Value, ColorId.Value, SizeId.Value, CreatedBy.Value, money, request.StockQuantity, request.SKU);
 
-
             await _productVariantRepo.AddAsync(variant, cancellationToken);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);

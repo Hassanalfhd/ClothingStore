@@ -26,14 +26,16 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
         public async Task<Result<Guid>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
 
-            var CategoryId = await _categoryRepo.GetIdAsync(request.CategoryId);
-            var CreatedBy = await _userRepo.GetIdAsync(request.CreatedBy);
+            var CategoryId =  await _categoryRepo.GetIdAsync(request.CategoryId);
+            var CreatedBy = await  _userRepo.GetIdAsync(request.CreatedBy);
             var BrandId = await _brandRepo.GetIdAsync(request.BrandId);
+
 
 
             if (CategoryId == null) return Result<Guid>.Failure($"Category not found.");
             if (CreatedBy == null) return Result<Guid>.Failure($"User not found.");
             if (BrandId == null) return Result<Guid>.Failure($"Brand not found.");
+
 
 
             var newProduct = new Product(

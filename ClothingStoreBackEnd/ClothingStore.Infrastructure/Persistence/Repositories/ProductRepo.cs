@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClothingStore.Infrastructure.Persistence.Repositories
 {
-    public class ProductRepo: IProductRepo
+    public class ProductRepo : IProductRepo
     {
 
         private readonly ApplicationDbContext _context;
@@ -16,8 +16,8 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
 
 
         public async Task AddAsync(Product product, CancellationToken cancellationToken) => await _context.AddAsync(product, cancellationToken);
-        
-        public async Task<Product?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken) => await _context.Products.AsNoTracking().FirstOrDefaultAsync(x=>x.PublicId == publicId, cancellationToken);
+
+        public async Task<Product?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken) => await _context.Products.FirstOrDefaultAsync(x => x.PublicId == publicId, cancellationToken);
 
 
     }

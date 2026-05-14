@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClothingStore.Application.Interfaces.Repositories;
+﻿using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Domain.Common;
 using ClothingStore.Domain.Entities;
 using ClothingStore.Domain.ValueObjects;
 using MediatR;
+
 
 namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
 {
@@ -56,10 +52,11 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
                     new Money(request.Price, request.Currency),
                     product.IsActive,
                     CreatedBy.Value, CategoryId.Value, BrandId.Value
-                );
+                    );
 
             
             product.UpdateProduct( newProduct );
+
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 

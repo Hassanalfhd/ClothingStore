@@ -1,6 +1,7 @@
 ﻿using ClothingStore.Application.Features.Products.Commands.CreateProduct;
 using ClothingStore.Application.Features.Products.Queries.GetProductById;
 using ClothingStore.Application.Features.ProductVariants.Commands.CreateVariant;
+using ClothingStore.Application.Features.ProductVariants.Commands.UpdateVariant;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,24 @@ namespace ClothingStore.API.Controllers.v1
                 nameof(GetById),
                 new { publicId = result.Value },
                 result.Value);
+        }
+
+
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateProductVariant(
+    [FromBody] UpdateVariantCommand command,
+    CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(command, cancellationToken);
+
+            if (result.IsFailure)
+                return BadRequest(result.Error);
+
+
+            return Ok(result);
         }
 
 

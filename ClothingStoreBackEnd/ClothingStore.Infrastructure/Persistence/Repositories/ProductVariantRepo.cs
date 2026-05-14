@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClothingStore.Infrastructure.Persistence.Repositories
 {
@@ -19,15 +20,9 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
         }
 
 
-
         public async Task AddAsync(ProductVariant productVariant, CancellationToken cancellationToken) => await _context.ProductsVariant.AddAsync(productVariant, cancellationToken);
 
-        /*
-            -- Add Product --> public id -->  image and variant
-            -- Add Variant --> public id for image
-         */
-
-
-
+        public async Task<ProductVariant?> GetByIdAsync(Guid PublicId, CancellationToken cancellationToken) => await _context.ProductsVariant.FirstOrDefaultAsync(x=>x.PublicId == PublicId, cancellationToken);
+        
     }
 }

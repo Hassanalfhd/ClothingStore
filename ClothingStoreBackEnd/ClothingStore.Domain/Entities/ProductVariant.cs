@@ -1,4 +1,5 @@
-﻿using ClothingStore.Domain.ValueObjects;
+﻿using System.Drawing;
+using ClothingStore.Domain.ValueObjects;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace ClothingStore.Domain.Entities
@@ -43,7 +44,7 @@ namespace ClothingStore.Domain.Entities
 
         public UserProfile UserProfile { get; private set; } = null!;
         public Product Product { get; private set; } = null!;
-        
+
         private readonly List<ProductImage> _images = [];
 
         public Color Color { get; private set; } = null!;
@@ -100,6 +101,21 @@ namespace ClothingStore.Domain.Entities
 
         public void Activate() => IsActive = true;
         public void Deactivate() => IsActive = false;
+
+
+        public void UpdateVariant(ProductVariant variant)
+        {
+            ProductId = variant.ProductId;
+            ColorId = variant.ColorId;
+            SizeId = variant.SizeId;
+            CreatedBy = variant.CreatedBy;
+            SetPrice(variant.Money);
+            SetStock(variant.StockQuantity);
+            SetSku(variant.SKU);
+            IsActive = variant.IsActive;
+            MarAsUpdated();
+        }
+
 
     }
 }

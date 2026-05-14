@@ -1,0 +1,320 @@
+[2026-05-14 23:18:14 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-14 23:18:14 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-14 23:18:14 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateProductCommand
+[2026-05-14 23:18:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (197ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-14 23:18:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (18ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Categories] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:18:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:18:18 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (42ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[PublicId]
+FROM [Brands] AS [b]
+WHERE [b].[PublicId] = @__publicId_0
+[2026-05-14 23:18:18 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateProductCommand in 3742.0856 ms
+[2026-05-14 23:19:13 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-14 23:19:13 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-14 23:19:14 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateProductCommand
+[2026-05-14 23:19:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (431ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-14 23:19:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (36ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Categories] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:19:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (26ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:19:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (18ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[PublicId]
+FROM [Brands] AS [b]
+WHERE [b].[PublicId] = @__publicId_0
+[2026-05-14 23:19:22 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (96ms) [Parameters=[@p4='?' (DbType = Int64), @p0='?' (DbType = Int64), @p1='?' (Size = 200), @p2='?' (DbType = DateTime2), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [BrandId] = @p0, [Name] = @p1, [UpdatedAt] = @p2, [BasePrice] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+[2026-05-14 23:19:22 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateProductCommand in 8099.2278 ms
+[2026-05-14 23:20:49 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-14 23:20:49 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-14 23:20:50 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateProductCommand
+[2026-05-14 23:20:58 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (292ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-14 23:20:58 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (66ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Categories] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:20:58 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (22ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:20:58 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (31ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[PublicId]
+FROM [Brands] AS [b]
+WHERE [b].[PublicId] = @__publicId_0
+[2026-05-14 23:20:58 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateProductCommand in 8685.7675 ms
+[2026-05-14 23:21:20 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateProductCommand
+[2026-05-14 23:21:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (32ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-14 23:21:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (23ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Categories] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:21:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (25ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:21:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (22ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[PublicId]
+FROM [Brands] AS [b]
+WHERE [b].[PublicId] = @__publicId_0
+[2026-05-14 23:21:20 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateProductCommand in 479.5676 ms
+[2026-05-14 23:22:12 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-14 23:22:12 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-14 23:22:12 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateProductCommand
+[2026-05-14 23:22:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (124ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-14 23:22:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (28ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Categories] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:22:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:22:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[PublicId]
+FROM [Brands] AS [b]
+WHERE [b].[PublicId] = @__publicId_0
+[2026-05-14 23:22:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (29ms) [Parameters=[@p6='?' (DbType = Int64), @p0='?' (DbType = Int64), @p1='?' (Size = 2000), @p2='?' (Size = 200), @p3='?' (DbType = DateTime2), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [BrandId] = @p0, [Description] = @p1, [Name] = @p2, [UpdatedAt] = @p3, [BasePrice] = @p4, [Currency] = @p5
+OUTPUT 1
+WHERE [Id] = @p6;
+[2026-05-14 23:22:21 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateProductCommand in 8655.9556 ms
+[2026-05-14 23:23:55 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateProductCommand
+[2026-05-14 23:23:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (28ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-14 23:23:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Categories] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:23:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:23:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[PublicId]
+FROM [Brands] AS [b]
+WHERE [b].[PublicId] = @__publicId_0
+[2026-05-14 23:23:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [UpdatedAt] = @p0, [BasePrice] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-05-14 23:23:55 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateProductCommand in 163.0866 ms
+[2026-05-14 23:44:43 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-14 23:44:43 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-14 23:44:44 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateVariantCommand
+[2026-05-14 23:44:52 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (223ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:44:52 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (20ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:44:52 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:44:52 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-14 23:44:52 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:44:52 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateVariantCommand in 8689.2306 ms
+[2026-05-14 23:45:07 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateVariantCommand
+[2026-05-14 23:45:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:45:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:45:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:45:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-14 23:45:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:45:07 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateVariantCommand in 278.2514 ms
+[2026-05-14 23:45:43 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateVariantCommand
+[2026-05-14 23:45:47 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (38ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:46:05 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (24ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:46:08 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (34ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:46:10 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (32ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-14 23:46:10 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:46:56 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateVariantCommand in 72060.6487 ms
+[2026-05-14 23:48:04 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateVariantCommand
+[2026-05-14 23:48:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (35ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:48:15 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:48:16 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (29ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:48:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-14 23:48:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:50:41 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateVariantCommand in 157289.0857 ms
+[2026-05-14 23:50:57 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateVariantCommand
+[2026-05-14 23:50:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (10ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:50:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (19ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:50:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:50:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-14 23:50:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (18ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:50:57 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateVariantCommand in 199.4649 ms
+[2026-05-14 23:51:15 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateVariantCommand
+[2026-05-14 23:51:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:51:18 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:51:19 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:51:22 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-14 23:51:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:57:08 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-14 23:57:09 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-14 23:57:09 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateVariantCommand
+[2026-05-14 23:57:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (325ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:57:22 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (79ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-14 23:57:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (20ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[PublicId]
+FROM [Colors] AS [c]
+WHERE [c].[PublicId] = @__publicId_0
+[2026-05-14 23:57:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (14ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[PublicId]
+FROM [Sizes] AS [s]
+WHERE [s].[PublicId] = @__publicId_0
+[2026-05-14 23:57:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-05-14 23:57:27 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (72ms) [Parameters=[@p7='?' (DbType = Int64), @p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (Size = 100), @p3='?' (DbType = Int64), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [ProductVariants] SET [ColorId] = @p0, [ProductId] = @p1, [SKU] = @p2, [SizeId] = @p3, [StockQuantity] = @p4, [UpdatedAt] = @p5, [Price] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+[2026-05-14 23:57:31 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled UpdateVariantCommand in 21810.9134 ms
+[2026-05-14 23:59:24 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling UpdateProductCommand
+[2026-05-14 23:59:25 ERR] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware An unhandled exception has occurred while executing the request.
+FluentValidation.ValidationException: Validation failed: 
+ -- Price: 'Price' must be greater than '0'. Severity: Error
+   at ClothingStore.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Applicaion\Common\Behaviors\ValidationBehavior.cs:line 35
+   at ClothingStore.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Applicaion\Common\Behaviors\LoggingBehavior.cs:line 26
+   at ClothingStore.API.Controllers.v1.ProductsController.UpdateProduct(UpdateProductCommand command, CancellationToken cancellationToken) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API\Controllers\v1\ProductsController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at StackExchange.Profiling.MiniProfilerMiddleware.Invoke(HttpContext context) in C:\projects\dotnet\src\MiniProfiler.AspNetCore\MiniProfilerMiddleware.cs:line 94
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
