@@ -5,8 +5,22 @@
 
         private ProductImage() { }
 
-        public long ProductId { get; private set; }
-        public long ProductVariantId { get; private set; }
+        public ProductImage(
+            long productId,
+            long? productVariantId,
+            string imageUrl,
+            bool isPrimary,
+            int displayOrder)
+        {
+            ProductId = productId;
+            ProductVariantId = productVariantId;
+
+            SetImageUrl(imageUrl);
+            SetPrimary(isPrimary);
+            SetOrder(displayOrder);
+        }
+        public long? ProductId { get; private set; }
+        public long? ProductVariantId { get; private set; }
         public string ImageUrl { get; private set; } = string.Empty;
 
         public bool IsPrimary { get; private set; }
@@ -15,7 +29,7 @@
 
         public bool IsProcessed { get; private set; }
 
-        public Product Product { get; private set; } = null!;
+        public Product? Product { get; private set; } = null!;
         public ProductVariant? ProductVariant { get; private set; }
 
         public void SetImageUrl(string url)
@@ -42,6 +56,11 @@
                 throw new ArgumentOutOfRangeException(nameof(order));
 
             DisplayOrder = order;
+        }
+
+        public void AssignVariant(long? variantId)
+        {
+            ProductVariantId = variantId;
         }
 
     }

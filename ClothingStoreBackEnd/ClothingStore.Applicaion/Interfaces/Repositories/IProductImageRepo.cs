@@ -1,0 +1,13 @@
+﻿using ClothingStore.Domain.Entities;
+
+namespace ClothingStore.Application.Interfaces.Repositories;
+
+public interface IProductImageRepo
+{
+    Task AddAsync(ProductImage image, CancellationToken cancellationToken);
+    Task<ProductImage?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken);
+    Task<ProductImage?> GetByIdAsync(long id, CancellationToken cancellationToken);
+    Task<List<ProductImage>> GetByVariantIdAsync(long variantId, CancellationToken cancellationToken);
+    Task DeleteAsync(ProductImage image);
+
+}

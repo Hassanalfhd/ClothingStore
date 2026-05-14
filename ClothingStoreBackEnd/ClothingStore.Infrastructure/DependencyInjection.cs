@@ -4,6 +4,7 @@ using ClothingStore.Infrastructure.Identity.Services;
 using ClothingStore.Infrastructure.Logging;
 using ClothingStore.Infrastructure.Persistence;
 using ClothingStore.Infrastructure.Persistence.Repositories;
+using ClothingStore.Infrastructure.Services;
 using ClothingStore.Infrastructure.Settings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -27,11 +28,11 @@ public static class DependencyInjection
         .AddDefaultTokenProviders();
 
 
-
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IIdentityService, IdentityService>();
+        services.AddScoped<IImageStorageService, LocalImageStorageService>();
         services.AddScoped(typeof(IAppLogger<>), typeof(SerilogAppLogger<>));
-
+        services.AddSingleton<IBackgroundTaskQueue,IBackgroundTaskQueue>();
 
         return services;
     }

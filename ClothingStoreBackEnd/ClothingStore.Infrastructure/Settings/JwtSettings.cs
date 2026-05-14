@@ -13,5 +13,6 @@ namespace ClothingStore.Infrastructure.Settings
         public string Audience { get; init; } = default!;
         public int AccessTokenMinutes { get; init; }
         public int RefreshTokenDays { get; init; }
+
     }
 }

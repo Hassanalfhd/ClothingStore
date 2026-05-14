@@ -31,12 +31,14 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.Images)
-                .HasForeignKey(x => x.ProductId);
+                .HasForeignKey(x => x.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(x => x.ProductVariant)
-                .WithMany()
+                .WithMany(x=>x.Images)
                 .HasForeignKey(x => x.ProductVariantId)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.SetNull);
+
 
             builder.HasIndex(x => x.ProductId);
         }
