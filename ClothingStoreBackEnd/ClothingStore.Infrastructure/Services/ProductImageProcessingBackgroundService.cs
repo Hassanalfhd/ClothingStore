@@ -17,14 +17,15 @@ namespace ClothingStore.Infrastructure.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IBackgroundTaskQueue _queue;
         private readonly ILogger<ProductImageProcessingBackgroundService> _logger;
+        private readonly IImageProcessingService _processor;
 
-
-        public ProductImageProcessingBackgroundService(IServiceScopeFactory scopeFactory, IBackgroundTaskQueue queue, ILogger<ProductImageProcessingBackgroundService> logger, IUnitOfWork unitOfWork)
+        public ProductImageProcessingBackgroundService(IServiceScopeFactory scopeFactory, IBackgroundTaskQueue queue, ILogger<ProductImageProcessingBackgroundService> logger, IUnitOfWork unitOfWork, IImageProcessingService processor)
         {
             _scopeFactory = scopeFactory;
             _queue = queue;
             _logger = logger;
             _unitOfWork = unitOfWork;
+            _processor = processor;
         }
 
 
@@ -50,7 +51,15 @@ namespace ClothingStore.Infrastructure.Services
                         continue;
 
 
+                    // Move to temp
                     var relativePath = await imageStorageService.MoveToPermanentAsync(job.TempFilePath, job.FileName, stoppingToken);
+
+                    // Resize 
+                    var resized = await _processor.ResizeAsync(relativePath, 800, 800);
+
+                    // Convert to WebP
+                    var webp = await _processor.ConvertToWebPAsync(resized);
+
 
                     image.SetImageUrl(relativePath);
                     image.MarkAsProcessed();

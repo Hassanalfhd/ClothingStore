@@ -6,7 +6,7 @@
         private ProductImage() { }
 
         public ProductImage(
-            long productId,
+            long? productId,
             long? productVariantId,
             string imageUrl,
             bool isPrimary,
