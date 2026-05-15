@@ -19,33 +19,6 @@ public static class DependencyInjection
         options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
 
-        services.Configure<JwtSettings>(
-              config.GetSection("Jwt"));
-
-
-        services.AddAuthentication()
-                .AddJwtBearer(options =>
-                {
-                    var jwt = config
-                        .GetSection("Jwt")
-                        .Get<JwtSettings>()!;
-
-                    options.TokenValidationParameters =
-                        new TokenValidationParameters
-                        {
-                            ValidateIssuer = true,
-                            ValidateAudience = true,
-                            ValidateLifetime = true,
-                            ValidateIssuerSigningKey = true,
-                            ValidIssuer = jwt.Issuer,
-                            ValidAudience = jwt.Audience,
-                            IssuerSigningKey =
-                                new SymmetricSecurityKey(
-                                    Encoding.UTF8.GetBytes(jwt.SecretKey))
-                        };
-                });
-
-
         services.AddScoped<IUserRepo, UserRepo>();
         services.AddScoped<IRefreshTokenRepo, RefreshTokenRepo>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();

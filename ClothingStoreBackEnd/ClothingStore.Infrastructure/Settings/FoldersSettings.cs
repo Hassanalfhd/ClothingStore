@@ -11,6 +11,7 @@ namespace ClothingStore.Infrastructure.Settings
     {
 
         public string RootFolder { get; init; } = default!;
+        public string TempFolder { get; init; } = default!;
         public string ProductsFolder { get; init; } = default!;
 
     }

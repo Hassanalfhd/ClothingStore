@@ -26,8 +26,9 @@ try
 
     // Modules
     builder.Services.AddApplication();
-    builder.Services.AddInfrastructure();
+    builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.AddPersistence(builder.Configuration);
+
 
 
     builder.Services.AddControllers();
@@ -38,6 +39,7 @@ try
         options.RouteBasePath = "/profiler"; 
         options.TrackConnectionOpenClose = true;
     }).AddEntityFramework();
+
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
