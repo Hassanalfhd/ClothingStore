@@ -38,6 +38,8 @@ namespace ClothingStore.Application.Features.ProductImages.Commands.CreateImage
             long? productId = null;
 
             if (request.ProductVariantId.HasValue)
+
+            if (request.ProductVariantId.HasValue )
             {
                 productVariantId = await _variantRepo.GetProductVariantId(request.ProductVariantId.Value, cancellationToken);
 

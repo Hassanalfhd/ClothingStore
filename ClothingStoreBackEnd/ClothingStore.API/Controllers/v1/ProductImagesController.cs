@@ -48,6 +48,3 @@ namespace ClothingStore.API.Controllers.v1
 
     }
 }
-
-
-

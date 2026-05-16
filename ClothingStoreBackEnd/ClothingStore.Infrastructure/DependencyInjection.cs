@@ -32,6 +32,8 @@ public static class DependencyInjection
 
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IIdentityService, IdentityService>();
+        services.AddScoped<IImageStorageService, LocalImageStorageService>();
+        services.AddScoped<IImageProcessingService, ImageProcessingService>();
         services.AddScoped(typeof(IAppLogger<>), typeof(SerilogAppLogger<>));
         services.AddScoped<IImageStorageService, LocalImageStorageService>();
         services.AddSingleton<IBackgroundTaskQueue,BackgroundTaskQueue>();

@@ -468,3 +468,17 @@ Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
    at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
    at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
    at Program.<Main>$(String[] args) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API\Program.cs:line 66
+[2026-05-17 00:52:15 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-17 00:52:15 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-17 00:52:15 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling CreateProductImageCommand
+[2026-05-17 00:52:24 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (248ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-17 00:52:29 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (57ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ProductImages] ([CreatedAt], [DisplayOrder], [ImageUrl], [IsPrimary], [ProductId], [ProductVariantId], [PublicId], [UpdatedAt])
+OUTPUT INSERTED.[Id], INSERTED.[IsProcessed]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+[2026-05-17 00:52:35 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled CreateProductImageCommand in 19611.9881 ms

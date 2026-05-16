@@ -20,17 +20,15 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
         }
 
 
+        public async Task<long?> GetProductVariantId(Guid PublicId, CancellationToken cancellationToken)
+        {
+            var result = await _context.Products.AsNoTracking().FirstOrDefaultAsync(x => x.PublicId == PublicId, cancellationToken);
+            return result == null ? null : result.Id;
+        }
+
         public async Task AddAsync(ProductVariant productVariant, CancellationToken cancellationToken) => await _context.ProductsVariant.AddAsync(productVariant, cancellationToken);
 
         public async Task<ProductVariant?> GetByIdAsync(Guid PublicId, CancellationToken cancellationToken) => await _context.ProductsVariant.FirstOrDefaultAsync(x=>x.PublicId == PublicId, cancellationToken);
-
-        public async Task<long?> GetProductVariantId(Guid PublicId, CancellationToken cancellationToken)
-        {
-            var result = await _context.ProductsVariant.FirstOrDefaultAsync(x => x.PublicId == PublicId, cancellationToken);
-
-            return result == null ? null : result.Id;
-
-        }
 
     }
 }
