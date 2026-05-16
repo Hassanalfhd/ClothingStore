@@ -1,8 +1,10 @@
 ﻿using System.Text;
 using ClothingStore.Application.Interfaces.Repositories;
+using ClothingStore.Identity.Models;
 using ClothingStore.Infrastructure.Persistence;
 using ClothingStore.Infrastructure.Persistence.Repositories;
 using ClothingStore.Infrastructure.Settings;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +21,35 @@ public static class DependencyInjection
         options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
 
+
+        services.Configure<JwtSettings>(
+          config.GetSection("Jwt"));
+
+        services.Configure<FoldersSettings>(config.GetSection("FoldersSettings"));
+
+        services.AddAuthentication()
+                .AddJwtBearer(options =>
+                {
+                    var jwt = config
+                        .GetSection("Jwt")
+                        .Get<JwtSettings>()!;
+
+                    options.TokenValidationParameters =
+                        new TokenValidationParameters
+                        {
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
+                            ValidIssuer = jwt.Issuer,
+                            ValidAudience = jwt.Audience,
+                            IssuerSigningKey =
+                                new SymmetricSecurityKey(
+                                    Encoding.UTF8.GetBytes(jwt.SecretKey))
+                        };
+                });
+
+
         services.AddScoped<IUserRepo, UserRepo>();
         services.AddScoped<IRefreshTokenRepo, RefreshTokenRepo>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -29,6 +60,7 @@ public static class DependencyInjection
         services.AddScoped<IProductRepo, ProductRepo>();
         services.AddScoped<IProductReadRepos, ProductReadRepo>();
         services.AddScoped<IProductVariantRepo, ProductVariantRepo>();
+        services.AddScoped<IProductImageRepo, ProductImageRepo>();
 
         return services;
     }

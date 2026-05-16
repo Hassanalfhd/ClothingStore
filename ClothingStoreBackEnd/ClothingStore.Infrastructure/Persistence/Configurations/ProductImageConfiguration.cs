@@ -32,15 +32,25 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.Images)
                 .HasForeignKey(x => x.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.ProductVariant)
                 .WithMany(x=>x.Images)
                 .HasForeignKey(x => x.ProductVariantId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
 
 
             builder.HasIndex(x => x.ProductId);
+
+            builder.ToTable(t =>
+            {
+                t.HasCheckConstraint(
+                    "CK_ProductImage_Product_Or_Variant",
+                        @"(ProductId IS NOT NULL AND ProductVariantId IS NULL)
+                    OR
+                    (ProductId IS NULL AND ProductVariantId IS NOT NULL)"
+            );
+            });
         }
     }
 }

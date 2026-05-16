@@ -13,7 +13,7 @@ namespace ClothingStore.Infrastructure.Services
     {
         private readonly Channel<ProcessProductImageJob> _queue;
 
-        private BackgroundTaskQueue()
+        public BackgroundTaskQueue()
         {
             _queue = Channel.CreateBounded<ProcessProductImageJob>(new BoundedChannelOptions(1000)
             {

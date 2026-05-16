@@ -7,5 +7,7 @@ namespace ClothingStore.Application.Interfaces.Repositories
         Task AddAsync(ProductVariant productVariant, CancellationToken cancellationToken);
 
         Task<ProductVariant?> GetByIdAsync(Guid PublicId, CancellationToken cancellationToken);
+        Task<long?> GetProductVariantId(Guid PublicId, CancellationToken cancellationToken);
+
     }
 }

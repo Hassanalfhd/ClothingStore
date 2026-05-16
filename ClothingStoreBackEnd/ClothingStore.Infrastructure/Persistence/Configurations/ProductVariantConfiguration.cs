@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClothingStore.Domain.Entities;
+﻿using ClothingStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,11 +33,9 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.Variants)
-                .HasForeignKey(x => x.ProductId);
+                .HasForeignKey(x => x.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(x => x.Images)
-                .WithOne(x => x.ProductVariant)
-                .HasForeignKey(x => x.ProductVariantId);
 
             builder.HasOne(x => x.Color)
                 .WithMany(x => x.ProductVariants)
@@ -50,7 +43,8 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.HasOne(x => x.Size)
                 .WithMany(x => x.ProductVariants)
-                .HasForeignKey(x => x.SizeId);
+                .HasForeignKey(x => x.SizeId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(u => u.UserProfile)
                 .WithMany(v => v.ProductVariants)

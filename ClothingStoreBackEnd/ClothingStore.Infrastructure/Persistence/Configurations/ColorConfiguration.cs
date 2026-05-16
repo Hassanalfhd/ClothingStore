@@ -29,11 +29,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .HasMaxLength(7)
                 .IsRequired();
 
-            builder.HasMany(x => x.ProductVariants)
-                .WithOne(x => x.Color)
-                .HasForeignKey(x => x.ColorId)
-                .OnDelete(DeleteBehavior.Restrict);
-
+            
 
             builder.HasIndex(x => x.Name)
                 .IsUnique();

@@ -25,11 +25,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.Property(x => x.DisplayOrder)
                 .IsRequired();
 
-            builder.HasMany(x => x.ProductVariants)
-                .WithOne(x => x.Size)
-                .HasForeignKey(x => x.SizeId)
-                .OnDelete(DeleteBehavior.Restrict);
-
+            
             builder.HasIndex(x => x.Name).IsUnique();
             builder.HasIndex(x => x.DisplayOrder);
         }

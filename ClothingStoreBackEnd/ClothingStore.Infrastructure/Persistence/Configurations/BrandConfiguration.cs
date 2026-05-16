@@ -29,10 +29,6 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .HasMaxLength(200);
 
 
-            builder.HasMany(x => x.Products)
-                .WithOne(x => x.Brand)
-                .HasForeignKey(x => x.BrandId)
-                .OnDelete(DeleteBehavior.Restrict);
 
 
             builder.HasIndex(x => x.Name)

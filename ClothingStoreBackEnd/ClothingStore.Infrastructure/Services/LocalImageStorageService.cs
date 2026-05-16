@@ -31,12 +31,13 @@ namespace ClothingStore.Infrastructure.Services
 
             var fileName = $"{Guid.NewGuid()}{extension}";
 
-            var tempFolder = Path.Combine(
-             _environment.WebRootPath,
-             _folderSettings.RootFolder,
-             _folderSettings.TempFolder);
-
-
+            try
+            {
+                var tempFolder = Path.Combine(
+                 _environment.WebRootPath,
+                 _folderSettings.RootFolder,
+                 _folderSettings.TempFolder);
+            
             Directory.CreateDirectory(tempFolder);
 
             var fullPath = Path.Combine(tempFolder, fileName);
@@ -50,10 +51,16 @@ namespace ClothingStore.Infrastructure.Services
                 FileName = fileName,
                 TempFilePath = fullPath,
             };
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
 
 
-         public async Task<string> MoveToPermanentAsync(
+        public async Task<string> MoveToPermanentAsync(
         string tempFilePath,
         string fileName,
         CancellationToken cancellationToken = default)

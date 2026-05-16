@@ -16,7 +16,7 @@ namespace Infrastructure;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
 
         // Identity
@@ -30,38 +30,10 @@ public static class DependencyInjection
         .AddDefaultTokenProviders();
 
 
-        services.Configure<JwtSettings>(
-          config.GetSection("Jwt"));
-
-        services.Configure<FoldersSettings>(config.GetSection("FoldersSettings"));
-
-        services.AddAuthentication()
-                .AddJwtBearer(options =>
-                {
-                    var jwt = config
-                        .GetSection("Jwt")
-                        .Get<JwtSettings>()!;
-
-                    options.TokenValidationParameters =
-                        new TokenValidationParameters
-                        {
-                            ValidateIssuer = true,
-                            ValidateAudience = true,
-                            ValidateLifetime = true,
-                            ValidateIssuerSigningKey = true,
-                            ValidIssuer = jwt.Issuer,
-                            ValidAudience = jwt.Audience,
-                            IssuerSigningKey =
-                                new SymmetricSecurityKey(
-                                    Encoding.UTF8.GetBytes(jwt.SecretKey))
-                        };
-                });
-
-
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IIdentityService, IdentityService>();
-        services.AddScoped<IImageStorageService, LocalImageStorageService>();
         services.AddScoped(typeof(IAppLogger<>), typeof(SerilogAppLogger<>));
+        services.AddScoped<IImageStorageService, LocalImageStorageService>();
         services.AddSingleton<IBackgroundTaskQueue,BackgroundTaskQueue>();
 
         return services;

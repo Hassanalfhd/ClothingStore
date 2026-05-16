@@ -57,19 +57,11 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .WithMany(x => x.Products)
                 .HasForeignKey(x => x.CreatedBy)
                 .OnDelete(DeleteBehavior.Restrict);
-
-
-            builder.HasMany(x => x.Variants)
-                 .WithOne(x => x.Product)
-                 .HasForeignKey(x => x.ProductId)
-                 .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasMany(x => x.Images)
-                .WithOne(x => x.Product)
-                .HasForeignKey(x => x.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
+            
+            builder.HasOne(x => x.Brand)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.BrandId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
         }

@@ -222,10 +222,10 @@ namespace ClothingStore.Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<long>("ProductId")
+                    b.Property<long?>("ProductId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("ProductVariantId")
+                    b.Property<long?>("ProductVariantId")
                         .HasColumnType("bigint");
 
                     b.Property<Guid>("PublicId")
@@ -240,7 +240,10 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("ProductVariantId");
 
-                    b.ToTable("ProductImages", (string)null);
+                    b.ToTable("ProductImages", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_ProductImage_Product_Or_Variant", "(ProductId IS NOT NULL AND ProductVariantId IS NULL)\r\n                    OR\r\n                    (ProductId IS NULL AND ProductVariantId IS NOT NULL)");
+                        });
                 });
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.ProductVariant", b =>
@@ -319,7 +322,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 11, 13, 31, 20, 268, DateTimeKind.Utc).AddTicks(7550));
+                        .HasDefaultValue(new DateTime(2026, 5, 16, 21, 49, 32, 76, DateTimeKind.Utc).AddTicks(6183));
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("datetime2");
@@ -417,7 +420,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 11, 13, 31, 20, 272, DateTimeKind.Utc).AddTicks(1743));
+                        .HasDefaultValue(new DateTime(2026, 5, 16, 21, 49, 32, 81, DateTimeKind.Utc).AddTicks(880));
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
@@ -466,7 +469,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 11, 13, 31, 20, 253, DateTimeKind.Utc).AddTicks(576));
+                        .HasDefaultValue(new DateTime(2026, 5, 16, 21, 49, 32, 57, DateTimeKind.Utc).AddTicks(1299));
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -750,14 +753,12 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.HasOne("ClothingStore.Domain.Entities.Product", "Product")
                         .WithMany("Images")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("ClothingStore.Domain.Entities.ProductVariant", "ProductVariant")
                         .WithMany("Images")
                         .HasForeignKey("ProductVariantId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Product");
 
@@ -769,7 +770,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.HasOne("ClothingStore.Domain.Entities.Color", "Color")
                         .WithMany("ProductVariants")
                         .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ClothingStore.Domain.Entities.UserProfile", "UserProfile")
@@ -781,7 +782,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.HasOne("ClothingStore.Domain.Entities.Product", "Product")
                         .WithMany("Variants")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ClothingStore.Domain.Entities.Size", "Size")
@@ -790,7 +791,7 @@ namespace ClothingStore.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.OwnsOne("ClothingStore.Domain.ValueObjects.Money", "Price", b1 =>
+                    b.OwnsOne("ClothingStore.Domain.ValueObjects.Money", "Money", b1 =>
                         {
                             b1.Property<long>("ProductVariantId")
                                 .HasColumnType("bigint");
@@ -816,7 +817,7 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.Navigation("Color");
 
-                    b.Navigation("Price")
+                    b.Navigation("Money")
                         .IsRequired();
 
                     b.Navigation("Product");

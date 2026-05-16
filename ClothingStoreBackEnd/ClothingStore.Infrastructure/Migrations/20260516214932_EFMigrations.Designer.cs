@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothingStore.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260501210231_ProductsSystemEntities")]
-    partial class ProductsSystemEntities
+    [Migration("20260516214932_EFMigrations")]
+    partial class EFMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,51 @@ namespace ClothingStore.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ClothingStore.Domain.Entities.Brand", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("LogoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<Guid>("PublicId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.HasIndex("PublicId");
+
+                    b.ToTable("Brands", (string)null);
+                });
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.Category", b =>
                 {
@@ -99,6 +144,9 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<long?>("BrandId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
@@ -129,12 +177,13 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("UserProfileId")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
 
+                    b.HasIndex("BrandId");
+
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("CreatedBy");
 
                     b.HasIndex("IsActive");
 
@@ -142,8 +191,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("PublicId")
                         .IsUnique();
-
-                    b.HasIndex("UserProfileId");
 
                     b.ToTable("Products", (string)null);
                 });
@@ -178,10 +225,10 @@ namespace ClothingStore.Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<long>("ProductId")
+                    b.Property<long?>("ProductId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("ProductVariantId")
+                    b.Property<long?>("ProductVariantId")
                         .HasColumnType("bigint");
 
                     b.Property<Guid>("PublicId")
@@ -196,7 +243,10 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("ProductVariantId");
 
-                    b.ToTable("ProductImages", (string)null);
+                    b.ToTable("ProductImages", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_ProductImage_Product_Or_Variant", "(ProductId IS NOT NULL AND ProductVariantId IS NULL)\r\n                    OR\r\n                    (ProductId IS NULL AND ProductVariantId IS NOT NULL)");
+                        });
                 });
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.ProductVariant", b =>
@@ -243,6 +293,8 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("ColorId");
 
+                    b.HasIndex("CreatedBy");
+
                     b.HasIndex("SKU")
                         .IsUnique();
 
@@ -273,7 +325,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 1, 21, 2, 31, 639, DateTimeKind.Utc).AddTicks(8919));
+                        .HasDefaultValue(new DateTime(2026, 5, 16, 21, 49, 32, 76, DateTimeKind.Utc).AddTicks(6183));
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("datetime2");
@@ -371,7 +423,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 1, 21, 2, 31, 641, DateTimeKind.Utc).AddTicks(8390));
+                        .HasDefaultValue(new DateTime(2026, 5, 16, 21, 49, 32, 81, DateTimeKind.Utc).AddTicks(880));
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
@@ -420,7 +472,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 1, 21, 2, 31, 633, DateTimeKind.Utc).AddTicks(3243));
+                        .HasDefaultValue(new DateTime(2026, 5, 16, 21, 49, 32, 57, DateTimeKind.Utc).AddTicks(1299));
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -648,6 +700,11 @@ namespace ClothingStore.Infrastructure.Migrations
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.Product", b =>
                 {
+                    b.HasOne("ClothingStore.Domain.Entities.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("ClothingStore.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
@@ -655,9 +712,9 @@ namespace ClothingStore.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("ClothingStore.Domain.Entities.UserProfile", "UserProfile")
-                        .WithMany()
-                        .HasForeignKey("UserProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithMany("Products")
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.OwnsOne("ClothingStore.Domain.ValueObjects.Money", "BasePrice", b1 =>
@@ -687,6 +744,8 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Navigation("BasePrice")
                         .IsRequired();
 
+                    b.Navigation("Brand");
+
                     b.Navigation("Category");
 
                     b.Navigation("UserProfile");
@@ -697,14 +756,12 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.HasOne("ClothingStore.Domain.Entities.Product", "Product")
                         .WithMany("Images")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("ClothingStore.Domain.Entities.ProductVariant", "ProductVariant")
-                        .WithMany()
+                        .WithMany("Images")
                         .HasForeignKey("ProductVariantId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Product");
 
@@ -716,13 +773,19 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.HasOne("ClothingStore.Domain.Entities.Color", "Color")
                         .WithMany("ProductVariants")
                         .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClothingStore.Domain.Entities.UserProfile", "UserProfile")
+                        .WithMany("ProductVariants")
+                        .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ClothingStore.Domain.Entities.Product", "Product")
                         .WithMany("Variants")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ClothingStore.Domain.Entities.Size", "Size")
@@ -731,7 +794,7 @@ namespace ClothingStore.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.OwnsOne("ClothingStore.Domain.ValueObjects.Money", "Price", b1 =>
+                    b.OwnsOne("ClothingStore.Domain.ValueObjects.Money", "Money", b1 =>
                         {
                             b1.Property<long>("ProductVariantId")
                                 .HasColumnType("bigint");
@@ -757,12 +820,14 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.Navigation("Color");
 
-                    b.Navigation("Price")
+                    b.Navigation("Money")
                         .IsRequired();
 
                     b.Navigation("Product");
 
                     b.Navigation("Size");
+
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("ClothingStore.Domain.Entities.RefreshToken", b =>
@@ -866,6 +931,11 @@ namespace ClothingStore.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ClothingStore.Domain.Entities.Brand", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("ClothingStore.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Products");
@@ -883,9 +953,21 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Navigation("Variants");
                 });
 
+            modelBuilder.Entity("ClothingStore.Domain.Entities.ProductVariant", b =>
+                {
+                    b.Navigation("Images");
+                });
+
             modelBuilder.Entity("ClothingStore.Domain.Entities.Size", b =>
                 {
                     b.Navigation("ProductVariants");
+                });
+
+            modelBuilder.Entity("ClothingStore.Domain.Entities.UserProfile", b =>
+                {
+                    b.Navigation("ProductVariants");
+
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ClothingStore.Identity.Models.ApplicationUser", b =>
