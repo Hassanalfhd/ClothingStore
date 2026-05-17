@@ -38,6 +38,8 @@ namespace ClothingStore.Infrastructure.Services
 
                     var job = await _queue.DequeueAsync(stoppingToken);
 
+                    _logger.LogInformation("Processing image {ImageId}", job.ProductImageId);
+
                     using var scope = _scopeFactory.CreateScope();
 
                     var imageStorageService = scope.ServiceProvider.GetRequiredService<IImageStorageService>();
@@ -54,6 +56,7 @@ namespace ClothingStore.Infrastructure.Services
                     // Move to temp
                     var relativePath = await imageStorageService.MoveToPermanentAsync(job.TempFilePath, job.FileName, stoppingToken);
 
+                    _logger.LogInformation("Moving file {File}", job.FileName);
                     // Resize 
                     var resized = await _processor.ResizeAsync(relativePath, 800, 800);
 
@@ -66,7 +69,10 @@ namespace ClothingStore.Infrastructure.Services
 
                     await _unitOfWork.SaveChangesAsync(stoppingToken);
 
-                    
+                    _logger.LogInformation("Image processed successfully {ImageId}", job.ProductImageId);
+
+
+
                 }
                 catch (Exception ex)
                 {

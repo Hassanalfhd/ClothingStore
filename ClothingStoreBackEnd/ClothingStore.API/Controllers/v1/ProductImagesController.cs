@@ -1,4 +1,7 @@
 ﻿using ClothingStore.Application.Features.ProductImages.Commands.CreateImage;
+using ClothingStore.Application.Features.ProductImages.Commands.DeleteImage;
+using ClothingStore.Application.Features.ProductImages.Commands.ReorderImages;
+using ClothingStore.Application.Features.ProductImages.Commands.SetPrimaryImage;
 using ClothingStore.Application.Features.Products.Commands.CreateProduct;
 using ClothingStore.Application.Features.Products.Commands.UpdateProduct;
 using ClothingStore.Application.Features.Products.Queries.GetProductById;
@@ -34,7 +37,23 @@ namespace ClothingStore.API.Controllers.v1
 
             if (result.IsFailure) return BadRequest(result);
 
-            return CreatedAtAction(nameof(GetById), new { publicId = result.Value }, result.Value);
+            return CreatedAtAction(nameof(GetById), new { publicId = result.Value }, result);
+        }
+
+
+        [HttpPatch("{id:guid}/set-primary")]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> SetPrimaryImage(Guid id, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new SetPrimaryProductImageCommand
+            {
+                ProductImageId = id
+            }, cancellationToken);
+
+            if (result.IsFailure) return BadRequest(result);
+
+            return Ok(result);
         }
 
 
@@ -44,7 +63,36 @@ namespace ClothingStore.API.Controllers.v1
             return Ok();
         }
 
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> DeleteProductImage(
+    Guid id,
+    CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(
+                new DeleteProductImageCommand
+                {
+                    ProductImageId = id
+                },
+                cancellationToken);
 
+            if (!result.IsSuccess)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        [HttpPut("reorder")]
+        public async Task<IActionResult> ReorderImages(
+    [FromBody] ReorderProductImagesCommand command,
+    CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(command, cancellationToken);
+
+            if (!result.IsSuccess)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
 
     }
 }

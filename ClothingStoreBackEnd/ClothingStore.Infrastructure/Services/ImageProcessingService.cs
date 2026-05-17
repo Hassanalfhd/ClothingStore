@@ -1,5 +1,7 @@
-﻿using System;
-using ClothingStore.Application.Interfaces.Services;
+﻿using ClothingStore.Application.Interfaces.Services;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+
 
 namespace ClothingStore.Infrastructure.Services
 {

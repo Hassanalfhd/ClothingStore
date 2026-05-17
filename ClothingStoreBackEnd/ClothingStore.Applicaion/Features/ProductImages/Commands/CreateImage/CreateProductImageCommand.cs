@@ -14,8 +14,6 @@ namespace ClothingStore.Application.Features.ProductImages.Commands.CreateImage
         public Guid? ProductId { get; set; }
         public Guid? ProductVariantId { get; set; }
         public IFormFile File { get; set; } = default!;
-
-        public bool IsPrimary { get; set; }
         public int DisplayOrder { get; set; }
     }
 }

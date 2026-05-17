@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClothingStore.Application.DTOs;
+﻿using ClothingStore.Application.DTOs;
 using ClothingStore.Application.Interfaces.Services;
 using ClothingStore.Infrastructure.Settings;
 using Microsoft.AspNetCore.Hosting;

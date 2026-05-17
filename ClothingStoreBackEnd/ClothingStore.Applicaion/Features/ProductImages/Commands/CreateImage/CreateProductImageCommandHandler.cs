@@ -48,6 +48,7 @@ namespace ClothingStore.Application.Features.ProductImages.Commands.CreateImage
 
             }
 
+
             if (request.ProductId.HasValue)
             {
                 productId = await _productReadRepos.GetProductId(request.ProductId.Value, cancellationToken);
@@ -56,7 +57,7 @@ namespace ClothingStore.Application.Features.ProductImages.Commands.CreateImage
             }
 
             
-            var image = new ProductImage(productId, productVariantId, tempResult.FileName, request.IsPrimary, request.DisplayOrder);
+            var image = new ProductImage(productId, productVariantId, tempResult.FileName, request.DisplayOrder);
             
             await _productImageRepo.AddAsync(image, cancellationToken);
             await _unitOfWork.SaveChangesAsync(cancellationToken);

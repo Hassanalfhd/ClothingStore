@@ -22,7 +22,7 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
 
         public async Task<long?> GetProductVariantId(Guid PublicId, CancellationToken cancellationToken)
         {
-            var result = await _context.Products.AsNoTracking().FirstOrDefaultAsync(x => x.PublicId == PublicId, cancellationToken);
+            var result = await _context.ProductsVariant.AsNoTracking().FirstOrDefaultAsync(x => x.PublicId == PublicId, cancellationToken);
             return result == null ? null : result.Id;
         }
 

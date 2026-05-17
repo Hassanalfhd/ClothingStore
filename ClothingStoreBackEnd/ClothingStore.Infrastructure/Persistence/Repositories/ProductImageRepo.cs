@@ -37,7 +37,30 @@ public class ProductImageRepo : IProductImageRepo
             .ToListAsync(cancellationToken);
     }
 
+    public async Task<List<ProductImage>> GetByProductIdAsync(long productId, CancellationToken cancellationToken)
+    {
+        return await _context.ProductImages
+            .Where(x => x.ProductId == productId)
+            .OrderBy(x => x.DisplayOrder)
+            .ToListAsync(cancellationToken);
+    }
 
+    public async Task<ProductImage?> GetFirstVariantImageAsync(long? variantId, CancellationToken cancellationToken)
+    {
+        return await _context.ProductImages
+            .Where(x => x.ProductVariantId == variantId)
+            .OrderBy(x => x.DisplayOrder)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
+    public async Task<ProductImage?> GetFirstProductImageAsync(long? productId, CancellationToken cancellationToken)
+    {
+        return await _context.ProductImages
+            .Where(x => x.ProductId== productId)
+            .OrderBy(x=>x.DisplayOrder)
+            .FirstOrDefaultAsync(cancellationToken);
+
+    }
+    
     public async Task DeleteAsync(ProductImage image)
     {
         _context.ProductImages.Remove(image);
@@ -45,5 +68,21 @@ public class ProductImageRepo : IProductImageRepo
         await Task.CompletedTask;
     }
 
-    
+    public async Task<List<ProductImage>> GetByPublicIdsAsync(
+      List<Guid> publicIds,
+      CancellationToken cancellationToken)
+    {
+        if (publicIds is null || publicIds.Count == 0)
+            return [];
+
+        var ids = publicIds
+            .Distinct()
+            .ToList();
+
+        return await _context.ProductImages
+            .Where(x => ids.Contains(x.PublicId))
+            .ToListAsync(cancellationToken);
+    }
+
+
 }

@@ -9,15 +9,15 @@
             long? productId,
             long? productVariantId,
             string imageUrl,
-            bool isPrimary,
             int displayOrder)
         {
             ProductId = productId;
             ProductVariantId = productVariantId;
 
             SetImageUrl(imageUrl);
-            SetPrimary(isPrimary);
             SetOrder(displayOrder);
+            IsProcessed = false;
+            IsPrimary = false;
         }
         public long? ProductId { get; private set; }
         public long? ProductVariantId { get; private set; }
@@ -31,6 +31,7 @@
 
         public Product? Product { get; private set; } = null!;
         public ProductVariant? ProductVariant { get; private set; }
+
 
         public void SetImageUrl(string url)
         {

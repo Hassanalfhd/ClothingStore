@@ -482,3 +482,100 @@ INSERT INTO [ProductImages] ([CreatedAt], [DisplayOrder], [ImageUrl], [IsPrimary
 OUTPUT INSERTED.[Id], INSERTED.[IsProcessed]
 VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
 [2026-05-17 00:52:35 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled CreateProductImageCommand in 19611.9881 ms
+[2026-05-17 22:12:42 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-17 22:12:42 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-17 22:12:42 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling CreateProductImageCommand
+[2026-05-17 22:12:47 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (135ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-17 22:12:47 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled CreateProductImageCommand in 5073.1159 ms
+[2026-05-17 22:13:04 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling CreateProductImageCommand
+[2026-05-17 22:13:12 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-17 22:13:33 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled CreateProductImageCommand in 29878.6976 ms
+[2026-05-17 22:13:40 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling CreateProductImageCommand
+[2026-05-17 22:14:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (31ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-17 22:14:07 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Guid), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ProductImages] ([CreatedAt], [DisplayOrder], [ImageUrl], [ProductId], [ProductVariantId], [PublicId], [UpdatedAt])
+OUTPUT INSERTED.[Id], INSERTED.[IsPrimary], INSERTED.[IsProcessed]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-05-17 22:14:07 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled CreateProductImageCommand in 27020.5206 ms
+[2026-05-17 22:45:25 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-17 22:45:25 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-17 22:45:25 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling CreateProductImageCommand
+[2026-05-17 22:45:34 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (303ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[CategoryId], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[UpdatedAt], [p].[BasePrice], [p].[Currency]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-05-17 22:45:36 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (63ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Guid), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ProductImages] ([CreatedAt], [DisplayOrder], [ImageUrl], [ProductId], [ProductVariantId], [PublicId], [UpdatedAt])
+OUTPUT INSERTED.[Id], INSERTED.[IsPrimary], INSERTED.[IsProcessed]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-05-17 22:45:36 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled CreateProductImageCommand in 10756.0933 ms
+[2026-05-17 22:47:16 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling SetPrimaryProductImageCommand
+[2026-05-17 22:47:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (22ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedAt], [p].[DisplayOrder], [p].[ImageUrl], [p].[IsPrimary], [p].[IsProcessed], [p].[ProductId], [p].[ProductVariantId], [p].[PublicId], [p].[UpdatedAt]
+FROM [ProductImages] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-17 22:47:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (21ms) [Parameters=[@__productId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedAt], [p].[DisplayOrder], [p].[ImageUrl], [p].[IsPrimary], [p].[IsProcessed], [p].[ProductId], [p].[ProductVariantId], [p].[PublicId], [p].[UpdatedAt]
+FROM [ProductImages] AS [p]
+WHERE [p].[ProductId] = @__productId_0
+ORDER BY [p].[DisplayOrder]
+[2026-05-17 22:47:17 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[@p1='?' (DbType = Int64), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [ProductImages] SET [IsPrimary] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+[2026-05-17 22:47:17 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled SetPrimaryProductImageCommand in 330.208 ms
+[2026-05-17 23:23:38 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-17 23:23:39 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-17 23:23:39 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling ReorderProductImagesCommand
+[2026-05-17 23:23:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (339ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedAt], [p].[DisplayOrder], [p].[ImageUrl], [p].[IsPrimary], [p].[IsProcessed], [p].[ProductId], [p].[ProductVariantId], [p].[PublicId], [p].[UpdatedAt]
+FROM [ProductImages] AS [p]
+WHERE [p].[PublicId] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] uniqueidentifier '$') AS [i]
+)
+[2026-05-17 23:23:51 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (51ms) [Parameters=[@p1='?' (DbType = Int64), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [ProductImages] SET [DisplayOrder] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+[2026-05-17 23:23:51 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled ReorderProductImagesCommand in 12106.7191 ms
+[2026-05-17 23:24:13 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling DeleteProductImageCommand
+[2026-05-17 23:24:14 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (12ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedAt], [p].[DisplayOrder], [p].[ImageUrl], [p].[IsPrimary], [p].[IsProcessed], [p].[ProductId], [p].[ProductVariantId], [p].[PublicId], [p].[UpdatedAt]
+FROM [ProductImages] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-05-17 23:24:14 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [ProductImages]
+OUTPUT 1
+WHERE [Id] = @p0;
+[2026-05-17 23:24:14 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[@__productId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CreatedAt], [p].[DisplayOrder], [p].[ImageUrl], [p].[IsPrimary], [p].[IsProcessed], [p].[ProductId], [p].[ProductVariantId], [p].[PublicId], [p].[UpdatedAt]
+FROM [ProductImages] AS [p]
+WHERE [p].[ProductId] = @__productId_0
+ORDER BY [p].[DisplayOrder]
+[2026-05-17 23:24:14 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[@p1='?' (DbType = Int64), @p0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [ProductImages] SET [IsPrimary] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+[2026-05-17 23:24:14 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled DeleteProductImageCommand in 347.666 ms

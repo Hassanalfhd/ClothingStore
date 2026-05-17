@@ -36,7 +36,7 @@ public sealed class ProductReadRepo : IProductReadRepos
                 Description = x.Description,
                 BasePrice = x.BasePrice.Amount,
                 Currency = x.BasePrice.Currency,
-                Images = x.Images.Where(i=>i.IsPrimary == true)
+                Images = x.Images.Where(i=>i.IsProcessed == true)
                 .Select(i=>new ProductImageDto
                 {
                     ImageUrl = i.ImageUrl,
@@ -55,7 +55,7 @@ public sealed class ProductReadRepo : IProductReadRepos
                     Size = v.Size.Name,
                     SKU = v.SKU,
                     StockQuantity = v.StockQuantity,
-                    Images = x.Images.Where(i => i.IsPrimary != true)
+                    Images = x.Images.Where(i => i.IsProcessed!= true)
                         .Select(i => new ProductImageDto
                         {
                             ImageUrl = i.ImageUrl,
