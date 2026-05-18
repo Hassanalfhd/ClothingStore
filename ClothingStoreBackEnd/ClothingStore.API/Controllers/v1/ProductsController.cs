@@ -1,6 +1,7 @@
 ﻿using ClothingStore.Application.Features.Products.Commands.CreateProduct;
 using ClothingStore.Application.Features.Products.Commands.UpdateProduct;
 using ClothingStore.Application.Features.Products.Queries.GetProductById;
+using ClothingStore.Application.Features.Products.Queries.GetProducts;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -57,7 +58,16 @@ namespace ClothingStore.API.Controllers.v1
             return Ok(result);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetProducts(
+    [FromQuery] GetProductsQuery query,
+    CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(query, cancellationToken);
 
+            return Ok(result);
+        }
 
     }
+    
 }

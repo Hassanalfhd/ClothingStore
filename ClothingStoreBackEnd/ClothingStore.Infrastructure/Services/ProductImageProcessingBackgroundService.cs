@@ -14,18 +14,14 @@ namespace ClothingStore.Infrastructure.Services
     public class ProductImageProcessingBackgroundService : BackgroundService
     {
         private readonly IServiceScopeFactory _scopeFactory;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IBackgroundTaskQueue _queue;
         private readonly ILogger<ProductImageProcessingBackgroundService> _logger;
-        private readonly IImageProcessingService _processor;
 
-        public ProductImageProcessingBackgroundService(IServiceScopeFactory scopeFactory, IBackgroundTaskQueue queue, ILogger<ProductImageProcessingBackgroundService> logger, IUnitOfWork unitOfWork, IImageProcessingService processor)
+        public ProductImageProcessingBackgroundService(IServiceScopeFactory scopeFactory, IBackgroundTaskQueue queue, ILogger<ProductImageProcessingBackgroundService> logger)
         {
             _scopeFactory = scopeFactory;
             _queue = queue;
             _logger = logger;
-            _unitOfWork = unitOfWork;
-            _processor = processor;
         }
 
 
@@ -37,7 +33,6 @@ namespace ClothingStore.Infrastructure.Services
                 {
 
                     var job = await _queue.DequeueAsync(stoppingToken);
-
                     _logger.LogInformation("Processing image {ImageId}", job.ProductImageId);
 
                     using var scope = _scopeFactory.CreateScope();
@@ -52,26 +47,23 @@ namespace ClothingStore.Infrastructure.Services
                     if(image is null)
                         continue;
 
-
-                    // Move to temp
-                    var relativePath = await imageStorageService.MoveToPermanentAsync(job.TempFilePath, job.FileName, stoppingToken);
+                    var outputFolder = Path.Combine("wwwroot/images/products", image.PublicId.ToString());
 
                     _logger.LogInformation("Moving file {File}", job.FileName);
-                    // Resize 
-                    var resized = await _processor.ResizeAsync(relativePath, 800, 800);
 
-                    // Convert to WebP
-                    var webp = await _processor.ConvertToWebPAsync(resized);
+                    var processor = scope.ServiceProvider.GetRequiredService<IImageProcessingService>();
+                    var result = await processor.ProcessAsync(job.TempFilePath, outputFolder, stoppingToken);
 
-
-                    image.SetImageUrl(relativePath);
+                    image.SetImageUrl(result.WebpPath);
                     image.MarkAsProcessed();
 
-                    await _unitOfWork.SaveChangesAsync(stoppingToken);
+                    var unitOfWork = scope.ServiceProvider
+    .GetRequiredService<IUnitOfWork>();
+
+                    await unitOfWork.SaveChangesAsync(stoppingToken);
+
 
                     _logger.LogInformation("Image processed successfully {ImageId}", job.ProductImageId);
-
-
 
                 }
                 catch (Exception ex)

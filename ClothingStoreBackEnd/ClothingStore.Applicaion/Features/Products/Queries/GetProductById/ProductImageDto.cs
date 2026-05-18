@@ -8,8 +8,8 @@ namespace ClothingStore.Application.Features.Products.Queries.GetProductById
 {
     public sealed class ProductImageDto
     {
-        public string ImageUrl { get; set; } = default;
-
+        public Guid PublicId { get; set; }
+        public string? ImageUrl {  get; set; }
         public bool IsPrimary { get; set; }
         public int DisplayOrder { get; set;  }
     }

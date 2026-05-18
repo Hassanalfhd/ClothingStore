@@ -1,5 +1,6 @@
 ﻿
 
+using ClothingStore.Domain.Enums;
 using ClothingStore.Domain.ValueObjects;
 
 namespace ClothingStore.Domain.Entities
@@ -40,7 +41,7 @@ namespace ClothingStore.Domain.Entities
         public Brand? Brand { get; private set; } = null!;
         public UserProfile UserProfile { get; private set; } = null!;
 
-        
+        public ProductStatus Status { get; private set; }
 
         public IReadOnlyCollection<ProductVariant> Variants
             => _variants.AsReadOnly();

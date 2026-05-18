@@ -4,13 +4,9 @@ using ClothingStore.Identity.Models;
 using ClothingStore.Infrastructure.Identity.Services;
 using ClothingStore.Infrastructure.Logging;
 using ClothingStore.Infrastructure.Persistence;
-using ClothingStore.Infrastructure.Persistence.Repositories;
 using ClothingStore.Infrastructure.Services;
-using ClothingStore.Infrastructure.Settings;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure;
 
@@ -37,6 +33,9 @@ public static class DependencyInjection
         services.AddScoped(typeof(IAppLogger<>), typeof(SerilogAppLogger<>));
         services.AddScoped<IImageStorageService, LocalImageStorageService>();
         services.AddSingleton<IBackgroundTaskQueue,BackgroundTaskQueue>();
+        services.AddHostedService<ProductImageProcessingBackgroundService>();
+        services.AddScoped<IImageUrlBuilder, ImageUrlBuilder>();
+
 
         return services;
     }

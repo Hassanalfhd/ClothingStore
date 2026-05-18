@@ -23,7 +23,6 @@ namespace ClothingStore.Application.Features.Products.Queries.GetProductById
 
         public bool IsActive { get; set; }
 
-
         public List<ProductImageDto> Images { get; set; } = [];
         public List<ProductVariantDto> Variants { get; set; } = [];
     }
