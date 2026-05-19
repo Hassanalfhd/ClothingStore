@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Catalog\Brand\" />
     <Folder Include="Features\User\" />
   </ItemGroup>
 

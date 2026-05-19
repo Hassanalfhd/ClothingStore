@@ -9,6 +9,8 @@ using ClothingStore.Application.Interfaces.Services;
 using ClothingStore.Domain.Common;
 using ClothingStore.Domain.Entities;
 
+using ClothingStore.Domain.Entities;
+
 namespace ClothingStore.Application.Features.Catalog.Category
 {
     public class CategoryService : ICategoryService
@@ -69,7 +71,10 @@ namespace ClothingStore.Application.Features.Catalog.Category
 
             if (category == null)
                 return Result.Failure("Error: somethings went wrong");
-            _categoryRepo.Update(category);
+
+            var newCategory= new Domain.Entities.Category(dto.Name, dto.Description);
+
+            category.Update(newCategory);   
 
             await _unitOfWork.SaveChangesAsync();
 

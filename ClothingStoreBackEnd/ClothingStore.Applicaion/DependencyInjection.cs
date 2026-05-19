@@ -1,4 +1,5 @@
 ﻿using ClothingStore.Application.Common.Behaviors;
+using ClothingStore.Application.Features.Catalog.Brand;
 using ClothingStore.Application.Features.Catalog.Category;
 using ClothingStore.Application.Features.Catalog.Color;
 using ClothingStore.Application.Features.Catalog.Size;
@@ -31,7 +32,7 @@ public static class DependencyInjection
         services.AddScoped<IColorService, ColorService>();
         services.AddScoped<ISizeService, SizeService>();
         services.AddScoped<ICategoryService, CategoryService>();
-
+        services.AddScoped<IBrandService, BrandService>();
 
         return services;
     }

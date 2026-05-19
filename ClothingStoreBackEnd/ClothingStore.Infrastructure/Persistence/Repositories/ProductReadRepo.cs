@@ -84,7 +84,7 @@ public sealed class ProductReadRepo : IProductReadRepos
             TotalStock = x.Variants.Sum(v => v.StockQuantity),
 
             ImageUrl = x.Images
-                .Where(i => i.IsPrimary && i.IsProcessed)
+                .Where(i => i.IsPrimary && i.Processed == Processed.Completed)
                 .Select(i => i.ImageUrl)
                 .FirstOrDefault()
         })
@@ -115,7 +115,7 @@ public sealed class ProductReadRepo : IProductReadRepos
                 Description = x.Description,
                 BasePrice = x.BasePrice.Amount,
                 Currency = x.BasePrice.Currency,
-                Images = x.Images.Where(i=>i.IsProcessed)
+                Images = x.Images.Where(i=>i.Processed == Processed.Completed)
                 .Select(i=>new ProductImageDto
                 {
                     PublicId = i.PublicId,
@@ -135,7 +135,7 @@ public sealed class ProductReadRepo : IProductReadRepos
                     Size = v.Size.Name,
                     SKU = v.SKU,
                     StockQuantity = v.StockQuantity,
-                    Images = v.Images.Where(i => i.IsProcessed)
+                    Images = v.Images.Where(i => i.Processed == Processed.Completed)
                         .Select(i => new ProductImageDto
                         {
                             PublicId =  i.PublicId,

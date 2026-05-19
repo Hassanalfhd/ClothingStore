@@ -56,7 +56,6 @@ namespace ClothingStore.Application.Features.Catalog.Size
 
             var size = new Domain.Entities.Size(dto.Name, dto.displayOrder);
             
-            
 
             await _repo.AddAsync(size);
             await _unitOfWork.SaveChangesAsync();
@@ -70,7 +69,10 @@ namespace ClothingStore.Application.Features.Catalog.Size
             if (size == null)
                 return Result.Failure("Size not found");
 
-            _repo.Update(size);
+
+            var newSize = new Domain.Entities.Size(dto.Name, dto.displayOrder);
+
+            size.Update(newSize);
 
             await _unitOfWork.SaveChangesAsync();
             return Result.Success();

@@ -18,6 +18,12 @@ namespace ClothingStore.Domain.Entities
             SetHexCode(hexCode);
         }
 
+        public void Update(Color color)
+        {
+            SetName(color.Name);
+            SetHexCode(color.HexCode);
+            MarkAsUpdated();
+        }
         public string Name { get; private set; } = string.Empty;
 
         public string HexCode { get; private set; } = string.Empty;

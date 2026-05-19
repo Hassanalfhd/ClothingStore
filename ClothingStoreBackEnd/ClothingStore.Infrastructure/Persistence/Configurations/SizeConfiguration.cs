@@ -25,7 +25,9 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.Property(x => x.DisplayOrder)
                 .IsRequired();
 
-            
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+
+
             builder.HasIndex(x => x.Name).IsUnique();
             builder.HasIndex(x => x.DisplayOrder);
         }

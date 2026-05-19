@@ -55,6 +55,7 @@ namespace ClothingStore.Infrastructure.Services
                     var result = await processor.ProcessAsync(job.TempFilePath, outputFolder, stoppingToken);
 
                     image.SetImageUrl(result.WebpPath);
+
                     image.MarkAsProcessed();
 
                     var unitOfWork = scope.ServiceProvider

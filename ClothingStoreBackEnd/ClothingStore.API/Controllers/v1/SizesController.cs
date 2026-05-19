@@ -1,20 +1,22 @@
-﻿using ClothingStore.Application.Features.Catalog.Color.Dtos;
+﻿using ClothingStore.Application.Features.Catalog.Size.Dtos;
 using ClothingStore.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClothingStore.API.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/colors")]
-    public class ColorController : ControllerBase
+    [Route("api/v{version:apiVersion}/sizes")]
+    public class SizesController : ControllerBase
     {
-        private readonly IColorService _service;
+        private readonly ISizeService _service;
 
-        public ColorController(IColorService service)
+        public SizesController(ISizeService service)
         {
             _service = service;
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -39,7 +41,7 @@ namespace ClothingStore.API.Controllers.v1
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateColorDto dto)
+        public async Task<IActionResult> Create(CreateSizeDto dto)
         {
             var result = await _service.CreateAsync(dto);
 
@@ -50,7 +52,7 @@ namespace ClothingStore.API.Controllers.v1
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, CreateColorDto dto)
+        public async Task<IActionResult> Update(Guid id, CreateSizeDto dto)
         {
             var result = await _service.UpdateAsync(id, dto);
 

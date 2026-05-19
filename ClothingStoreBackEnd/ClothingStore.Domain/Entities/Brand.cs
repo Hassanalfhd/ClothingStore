@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ClothingStore.Domain.Entities
 {
+    
     public class Brand: EntityBased
     {
 
@@ -33,6 +35,14 @@ namespace ClothingStore.Domain.Entities
         public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
 
 
+        public void Update(Brand brand)
+        {
+            SetName(brand.Name);
+            SetDescription(brand.Description);
+            SetSlug(brand.Slug);
+            LogoUrl = brand.LogoUrl;
+            MarkAsUpdated();
+        }
         
 
         public void SetName(string name)

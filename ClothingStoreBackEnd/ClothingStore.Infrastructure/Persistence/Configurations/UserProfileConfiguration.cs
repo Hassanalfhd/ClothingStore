@@ -27,6 +27,8 @@ namespace ClothingStore.Persistence.Configurations
                .HasMaxLength(500)
                .IsRequired(false);
 
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+
 
             builder.OwnsOne(u => u.ContactInfo, contact =>
             {
@@ -36,9 +38,6 @@ namespace ClothingStore.Persistence.Configurations
                 contact.Property(c => c.Address).HasMaxLength(50).IsRequired(false);
             });
 
-
-            builder.Property(u => u.CreatedAt)
-            .HasDefaultValue(DateTime.UtcNow);
 
             builder.Property(u => u.UpdatedAt)
                    .IsRequired(false);

@@ -1,18 +1,18 @@
-﻿using ClothingStore.Application.Features.Catalog.Category.Dtos;
+﻿using ClothingStore.Application.Features.Catalog.Brand.Dtos;
+using ClothingStore.Application.Features.Catalog.Color.Dtos;
 using ClothingStore.Application.Interfaces.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClothingStore.API.Controllers.v1
 {
     [ApiController]
-    [Route("api/v{version:apiVersion}/categories")]
     [ApiVersion("1.0")]
-    public class CategoryController : ControllerBase
+    [Route("api/v{version:apiVersion}/brands")]
+    public class BrandsController : ControllerBase
     {
-        private readonly ICategoryService _service;
+        private readonly IBrandService _service;
 
-        public CategoryController(ICategoryService service)
+        public BrandsController(IBrandService service)
         {
             _service = service;
         }
@@ -22,7 +22,7 @@ namespace ClothingStore.API.Controllers.v1
         {
             var result = await _service.GetAllAsync();
 
-            if (result.IsFailure)
+            if (!result.IsSuccess)
                 return BadRequest(result.Error);
 
             return Ok(result);
@@ -33,14 +33,14 @@ namespace ClothingStore.API.Controllers.v1
         {
             var result = await _service.GetByIdAsync(id);
 
-            if (result.IsFailure)
+            if (!result.IsSuccess)
                 return NotFound(result.Error);
 
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateCategoryDto dto)
+        public async Task<IActionResult> Create(CreateBrandDto dto)
         {
             var result = await _service.CreateAsync(dto);
 
@@ -51,14 +51,14 @@ namespace ClothingStore.API.Controllers.v1
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, CreateCategoryDto dto)
+        public async Task<IActionResult> Update(Guid id, CreateBrandDto dto)
         {
             var result = await _service.UpdateAsync(id, dto);
 
             if (!result.IsSuccess)
                 return NotFound(result.Error);
 
-            return Ok(result);
+            return Ok();
         }
 
         [HttpDelete("{id}")]

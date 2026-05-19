@@ -31,6 +31,8 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .HasMaxLength(100)
                 .IsRequired();
 
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.Variants)
                 .HasForeignKey(x => x.ProductId)

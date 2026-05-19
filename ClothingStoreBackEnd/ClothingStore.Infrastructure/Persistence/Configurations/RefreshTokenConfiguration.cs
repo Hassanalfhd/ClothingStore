@@ -27,6 +27,8 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.HasIndex(r => r.PublicId)
                 .IsUnique();
 
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+
             builder.HasIndex(r=>r.Token).IsUnique().IncludeProperties(x=>new
             {
                 x.Id,

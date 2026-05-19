@@ -9,6 +9,6 @@ namespace ClothingStore.Application.Features.Catalog.Color.Dtos
     public class CreateColorDto
     {
         public string Name { get; set; } = string.Empty;
-        public string? Hex { get; set; }
+        public string Hex { get; set; } = string.Empty ;
     }
 }

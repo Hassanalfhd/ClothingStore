@@ -8,6 +8,7 @@ using ClothingStore.Application.Features.Catalog.Size.Dtos;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Application.Interfaces.Services;
 using ClothingStore.Domain.Common;
+using ClothingStore.Domain.Entities;
 
 namespace ClothingStore.Application.Features.Catalog.Color
 {
@@ -58,7 +59,7 @@ namespace ClothingStore.Application.Features.Catalog.Color
             var color = new Domain.Entities.Color
             (
                 dto.Name.Trim(),
-                 dto.Hex?.Trim()
+                 dto.Hex.Trim()
             );
 
             await _repo.AddAsync(color);
@@ -74,7 +75,10 @@ namespace ClothingStore.Application.Features.Catalog.Color
             if (color == null)
                 return Result.Failure("Color not found");
 
-            _repo.Update(color);
+            var newColor = new Domain.Entities.Color(dto.Name, dto.Hex);
+            
+            color.Update(newColor);
+
             await   _unitOfWork.SaveChangesAsync();
             return Result.Success();
         }

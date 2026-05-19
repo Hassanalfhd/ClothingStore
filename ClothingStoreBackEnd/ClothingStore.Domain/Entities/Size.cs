@@ -24,6 +24,12 @@ namespace ClothingStore.Domain.Entities
             IsActive = true;
         }
 
+        public void Update(Size size)
+        {
+            SetName(size.Name);
+            SetDisplayOrder(size.DisplayOrder);
+            MarkAsUpdated();
+        }
         public string Name { get; private set; } = string.Empty;
 
         public int DisplayOrder { get; private set; }

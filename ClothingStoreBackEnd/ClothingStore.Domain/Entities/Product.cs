@@ -77,6 +77,7 @@ namespace ClothingStore.Domain.Entities
         }
 
 
+
         public void UpdateProduct(Product product)
         {
             SetName(product.Name);
@@ -86,7 +87,7 @@ namespace ClothingStore.Domain.Entities
             CategoryId = product.CategoryId;
             CreatedBy = product.CreatedBy;
             BrandId = product.BrandId;
-            base.MarAsUpdated();
+            base.MarkAsUpdated();
         }
 
 

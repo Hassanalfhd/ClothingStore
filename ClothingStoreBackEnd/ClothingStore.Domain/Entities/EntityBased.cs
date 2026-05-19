@@ -19,7 +19,7 @@ namespace ClothingStore.Domain.Entities
         }
 
 
-        public void MarAsUpdated() => UpdatedAt = DateTime.Now;
+        public void MarkAsUpdated() => UpdatedAt = DateTime.Now;
 
 
 

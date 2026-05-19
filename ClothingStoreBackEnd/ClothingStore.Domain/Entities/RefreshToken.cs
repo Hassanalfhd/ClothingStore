@@ -40,13 +40,13 @@ namespace ClothingStore.Domain.Entities
 
             IsUsed = true;
 
-            base.MarAsUpdated();
+            base.MarkAsUpdated();
         }
 
         public void Revoke()
         {
             IsRevoked = true;
-            base.MarAsUpdated();
+            base.MarkAsUpdated();
 
         }
         public void ExtendExpiry(int additionalMinutes)

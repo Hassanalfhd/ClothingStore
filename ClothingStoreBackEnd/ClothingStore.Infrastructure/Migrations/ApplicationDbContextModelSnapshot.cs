@@ -220,10 +220,10 @@ namespace ClothingStore.Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<bool>("IsProcessed")
+                    b.Property<int>("Processed")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<long?>("ProductId")
                         .HasColumnType("bigint");
@@ -325,7 +325,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 18, 22, 33, 27, 953, DateTimeKind.Utc).AddTicks(7222));
+                        .HasDefaultValue(new DateTime(2026, 5, 19, 21, 38, 14, 902, DateTimeKind.Utc).AddTicks(1115));
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("datetime2");
@@ -423,7 +423,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 18, 22, 33, 27, 957, DateTimeKind.Utc).AddTicks(1274));
+                        .HasDefaultValue(new DateTime(2026, 5, 19, 21, 38, 14, 904, DateTimeKind.Utc).AddTicks(998));
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
@@ -472,7 +472,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2026, 5, 18, 22, 33, 27, 939, DateTimeKind.Utc).AddTicks(5295));
+                        .HasDefaultValue(new DateTime(2026, 5, 19, 21, 38, 14, 892, DateTimeKind.Utc).AddTicks(3641));
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)

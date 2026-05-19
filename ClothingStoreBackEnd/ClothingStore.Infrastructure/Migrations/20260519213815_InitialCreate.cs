@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ClothingStore.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class EFMigrations : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -108,7 +108,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     PublicId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2026, 5, 16, 21, 49, 32, 57, DateTimeKind.Utc).AddTicks(1299)),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 892, DateTimeKind.Utc).AddTicks(3641)),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -248,7 +248,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     IsRevoked = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     IsUsed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     PublicId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2026, 5, 16, 21, 49, 32, 76, DateTimeKind.Utc).AddTicks(6183)),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 902, DateTimeKind.Utc).AddTicks(1115)),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -277,7 +277,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ProfileImage = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     PublicId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2026, 5, 16, 21, 49, 32, 81, DateTimeKind.Utc).AddTicks(880)),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 904, DateTimeKind.Utc).AddTicks(998)),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -305,6 +305,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     CreatedBy = table.Column<long>(type: "bigint", nullable: false),
                     CategoryId = table.Column<long>(type: "bigint", nullable: false),
                     BrandId = table.Column<long>(type: "bigint", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: false),
                     PublicId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -393,7 +394,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsPrimary = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     DisplayOrder = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
-                    IsProcessed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    Processed = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     PublicId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)

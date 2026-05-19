@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ClothingStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using ClothingStore.Domain.Enums;
 
 namespace ClothingStore.Infrastructure.Persistence.Configurations
 {
@@ -26,8 +27,10 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.Property(x => x.DisplayOrder)
                 .HasDefaultValue(0);
 
-            builder.Property(x => x.IsProcessed)
-                .HasDefaultValue(false);
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+
+            builder.Property(x => x.Processed)
+                .HasDefaultValue(Processed.Pending);
 
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.Images)

@@ -1,4 +1,4 @@
-﻿using ClothingStore.Application.Features.Catalog.Size.Dtos;
+﻿using ClothingStore.Application.Features.Catalog.Category.Dtos;
 using ClothingStore.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,24 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace ClothingStore.API.Controllers.v1
 {
     [ApiController]
+    [Route("api/v{version:apiVersion}/categories")]
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/sizes")]
-    public class SizeController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
-        private readonly ISizeService _service;
+        private readonly ICategoryService _service;
 
-        public SizeController(ISizeService service)
+        public CategoriesController(ICategoryService service)
         {
             _service = service;
         }
-
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetAllAsync();
 
-            if (!result.IsSuccess)
+            if (result.IsFailure)
                 return BadRequest(result.Error);
 
             return Ok(result);
@@ -34,14 +33,14 @@ namespace ClothingStore.API.Controllers.v1
         {
             var result = await _service.GetByIdAsync(id);
 
-            if (!result.IsSuccess)
+            if (result.IsFailure)
                 return NotFound(result.Error);
 
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateSizeDto dto)
+        public async Task<IActionResult> Create(CreateCategoryDto dto)
         {
             var result = await _service.CreateAsync(dto);
 
@@ -52,14 +51,14 @@ namespace ClothingStore.API.Controllers.v1
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, CreateSizeDto dto)
+        public async Task<IActionResult> Update(Guid id, CreateCategoryDto dto)
         {
             var result = await _service.UpdateAsync(id, dto);
 
             if (!result.IsSuccess)
                 return NotFound(result.Error);
 
-            return Ok();
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]

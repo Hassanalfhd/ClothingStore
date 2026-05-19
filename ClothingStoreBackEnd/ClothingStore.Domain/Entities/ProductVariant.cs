@@ -113,7 +113,7 @@ namespace ClothingStore.Domain.Entities
             SetStock(variant.StockQuantity);
             SetSku(variant.SKU);
             IsActive = variant.IsActive;
-            MarAsUpdated();
+            MarkAsUpdated();
         }
 
 

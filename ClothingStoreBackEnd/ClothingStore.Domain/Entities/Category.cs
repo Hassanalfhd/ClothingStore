@@ -21,6 +21,12 @@ namespace ClothingStore.Domain.Entities
             SetDescription(description);
         }
 
+        public void Update(Category category)
+        {
+            SetName(category.Name);
+            SetDescription(category.Description);
+            MarkAsUpdated();
+        }
         public string Name { get; private set; } = string.Empty;
         public string? Description { get; private set; }
 

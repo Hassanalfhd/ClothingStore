@@ -1,4 +1,6 @@
-﻿namespace ClothingStore.Domain.Entities
+﻿using ClothingStore.Domain.Enums;
+
+namespace ClothingStore.Domain.Entities
 {
     public class ProductImage : EntityBased
     {
@@ -16,9 +18,10 @@
 
             SetImageUrl(imageUrl);
             SetOrder(displayOrder);
-            IsProcessed = false;
+            Processed = Processed.Pending;
             IsPrimary = false;
         }
+
         public long? ProductId { get; private set; }
         public long? ProductVariantId { get; private set; }
         public string ImageUrl { get; private set; } = string.Empty;
@@ -27,8 +30,8 @@
 
         public int DisplayOrder { get; private set; }
 
-        public bool IsProcessed { get; private set; }
-
+        public Processed Processed { get; private set; }
+        
         public Product? Product { get; private set; } = null!;
         public ProductVariant? ProductVariant { get; private set; }
 
@@ -41,9 +44,20 @@
             ImageUrl = url.Trim();
         }
 
+
+        public void MarkAsProcessedFailed()
+        {
+            Processed = Processed.Failed;
+        }
+
+        public void MarkAsProcessing()
+        {
+            Processed = Processed.Processing;
+        }
+
         public void MarkAsProcessed()
         {
-            IsProcessed = true;
+            Processed = Processed.Completed;
         }
 
         public void SetPrimary(bool isPrimary)
