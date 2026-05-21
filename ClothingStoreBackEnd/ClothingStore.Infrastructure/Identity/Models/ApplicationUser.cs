@@ -15,7 +15,7 @@ namespace ClothingStore.Identity.Models
         public virtual UserProfile UserProfile { get; private set; }
         public virtual ICollection<RefreshToken> RefreshTokens { get; set; }
 
-        public ApplicationUser() { }
+        private ApplicationUser() { }
 
         public ApplicationUser(string email, string firstName, string lastName)
         {

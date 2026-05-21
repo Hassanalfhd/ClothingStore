@@ -59,7 +59,7 @@ namespace ClothingStore.Infrastructure.Services
                     image.MarkAsProcessed();
 
                     var unitOfWork = scope.ServiceProvider
-    .GetRequiredService<IUnitOfWork>();
+                        .GetRequiredService<IUnitOfWork>();
 
                     await unitOfWork.SaveChangesAsync(stoppingToken);
 
@@ -71,6 +71,7 @@ namespace ClothingStore.Infrastructure.Services
                 {
                     _logger.LogError(ex,
                    "Error while processing product image.");
+                    
                 }
             }
         }

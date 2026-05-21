@@ -31,6 +31,8 @@ namespace ClothingStore.Application.Features.Products.Queries.GetProducts
                 request.MaxPrice,
                 request.PageNumber,
                 request.PageSize, 
+                request.Specifications,
+                request.SortBy,
                 cancellationToken);
 
         }

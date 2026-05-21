@@ -22,7 +22,6 @@ public sealed class ProductReadRepo : IProductReadRepos
 
         return result == null ? null : result.Id;
 
-
     }
 
     public async Task<PagedResult<ProductListDto>> GetProductsAsync(
@@ -33,6 +32,8 @@ public sealed class ProductReadRepo : IProductReadRepos
         decimal? maxPrice,
         int pageNumber,
         int pageSize,
+        List<string>? specifications,
+        ProductSortBy sortBy,
         CancellationToken cancellationToken)
     {
 
@@ -46,6 +47,21 @@ public sealed class ProductReadRepo : IProductReadRepos
             query = query.Where(x => x.Name.Contains(search));
         }
 
+        if (specifications is not null && specifications.Any())
+        {
+            foreach (var specification in specifications)
+            {
+                var parts = specification.Split(":");
+                if (parts.Length != 2)
+                    continue;
+
+                var key = parts[0].Trim();
+                var value = parts[1].Trim();
+
+                query = query.Where(p => p.Specifications.Any(s => s.Key.ToLower() == key.ToLower() && s.Value.ToLower() == value.ToLower()));
+            }
+
+        }
 
         if (categoryId.HasValue)
         {
@@ -66,6 +82,26 @@ public sealed class ProductReadRepo : IProductReadRepos
         {
             query = query.Where(x => x.BasePrice.Amount <= maxPrice);
         }
+
+
+
+        query = sortBy switch
+        {
+            ProductSortBy.Newest => query.OrderByDescending(x => x.CreatedAt),
+
+            ProductSortBy.Oldest => query.OrderBy(x => x.CreatedAt),
+
+            ProductSortBy.PriceAsc => query.OrderBy(x => x.BasePrice.Amount),
+            
+            ProductSortBy.PriceDesc => query.OrderByDescending(x => x.BasePrice.Amount),
+
+            ProductSortBy.NameAsc => query.OrderBy(x=>x.Name),
+            
+            ProductSortBy.NameDesc => query.OrderByDescending(x=>x.Name),
+
+            _=> query.OrderByDescending(x=>x.CreatedAt),
+
+        };
 
         var totalCount = await query.CountAsync(cancellationToken);
 
@@ -115,7 +151,11 @@ public sealed class ProductReadRepo : IProductReadRepos
                 Description = x.Description,
                 BasePrice = x.BasePrice.Amount,
                 Currency = x.BasePrice.Currency,
-                Images = x.Images.Where(i=>i.Processed == Processed.Completed)
+                IsActive = x.IsActive,
+                CategoryName = x.Category.Name,
+
+                Images = x.Images
+                .Where(i=>i.Processed == Processed.Completed)
                 .Select(i=>new ProductImageDto
                 {
                     PublicId = i.PublicId,
@@ -123,18 +163,17 @@ public sealed class ProductReadRepo : IProductReadRepos
                     DisplayOrder = i.DisplayOrder,
                     IsPrimary = i.IsPrimary,
                 }).ToList(),
-                CategoryName = x.Category.Name,
-                IsActive = x.IsActive,
 
                 Variants = x.Variants.Select(v => new ProductVariantDto
                 {
                     PublicId = v.PublicId,
                     Color = v.Color.Name,
+                    Size = v.Size.Name,
                     Price = v.Money.Amount,
                     Currency = v.Money.Currency,
-                    Size = v.Size.Name,
                     SKU = v.SKU,
                     StockQuantity = v.StockQuantity,
+                    
                     Images = v.Images.Where(i => i.Processed == Processed.Completed)
                         .Select(i => new ProductImageDto
                         {
@@ -145,6 +184,9 @@ public sealed class ProductReadRepo : IProductReadRepos
                         }).ToList(),
                     
                 }).ToList(),
+
+                Specifications = x.Specifications
+                    .ToDictionary(s=>s.Key, s=>s.Value)
                 
             })
             .FirstOrDefaultAsync(cancellationToken);

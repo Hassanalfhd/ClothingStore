@@ -60,7 +60,6 @@ public class ArchitectureTests
             .HaveDependencyOn(ApplicationNamespace)
             .GetResult();
 
-
         result.IsSuccessful.Should().BeTrue("Just Application can pass to Controllers.");
 
     }

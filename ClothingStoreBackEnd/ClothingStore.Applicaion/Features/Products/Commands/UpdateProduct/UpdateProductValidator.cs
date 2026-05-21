@@ -18,6 +18,17 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
             RuleFor(x => x.CreatedBy).NotNull().NotEmpty();
             RuleFor(x => x.Price).GreaterThan(0);
             RuleFor(x => x.Currency).NotEmpty();
+            RuleForEach(x => x.Specifications)
+                .ChildRules(spec =>
+                {
+                    spec.RuleFor(x => x.Key)
+                        .NotEmpty()
+                        .MaximumLength(100);
+
+                    spec.RuleFor(x => x.Value)
+                        .NotEmpty()
+                        .MaximumLength(500);
+                });
         }
     }
 }

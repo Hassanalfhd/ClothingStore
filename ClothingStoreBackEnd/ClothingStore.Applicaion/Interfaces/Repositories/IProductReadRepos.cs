@@ -26,6 +26,8 @@ namespace ClothingStore.Application.Interfaces.Repositories
         decimal? maxPrice,
         int pageNumber,
         int pageSize,
+        List<string>? specifications,
+        ProductSortBy sortBy,
         CancellationToken cancellationToken);
 
 

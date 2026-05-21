@@ -24,8 +24,22 @@ namespace ClothingStore.Domain.Enums
     public enum Processed
     {
         Pending = 0,
-        Processing =1, 
-        Completed =2, 
+        Processing = 1,
+        Completed = 2,
         Failed = 3
     }
+
+    public enum ProductSortBy
+    {
+        Newest = 0,
+        Oldest = 1,
+
+        PriceAsc = 2,
+        PriceDesc = 3,
+
+        NameAsc = 4,
+        NameDesc = 5
+    }
+
+
 }

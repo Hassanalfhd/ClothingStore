@@ -43,12 +43,19 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct
                     request.Description,
                     new Money(request.Price, request.Currency),
                     request.IsActive, CreatedBy.Value, CategoryId.Value, BrandId.Value
-
                 );
+
+
+            foreach (var sepcification in request.Specifications)
+            {
+                newProduct.AddSepecifiaction(sepcification.Key, sepcification.Value);
+
+            }
 
 
             await _productRepo.AddAsync(newProduct, cancellationToken);
 
+            
             await _unitOfWork.SaveChangesAsync();
 
             return Result<Guid>.Success(newProduct.PublicId);

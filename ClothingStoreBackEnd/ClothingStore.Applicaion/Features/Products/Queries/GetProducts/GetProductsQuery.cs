@@ -19,10 +19,10 @@ namespace ClothingStore.Application.Features.Products.Queries.GetProducts
 
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
-
         public List<string>? Specifications { get; set; }
-
+        public ProductSortBy SortBy { get; set; } = ProductSortBy.Newest;
         public int PageNumber { get; set; } = 1;
         public int PageSize { get; set; } = 10;
+
     }
 }

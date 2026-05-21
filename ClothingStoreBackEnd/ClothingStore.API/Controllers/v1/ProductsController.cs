@@ -1,4 +1,6 @@
-﻿using ClothingStore.Application.Features.Products.Commands.CreateProduct;
+﻿using System.Formats.Asn1;
+using ClothingStore.Application.Features.Products.Commands.CreateProduct;
+using ClothingStore.Application.Features.Products.Commands.ToggleActivateProduct;
 using ClothingStore.Application.Features.Products.Commands.UpdateProduct;
 using ClothingStore.Application.Features.Products.Queries.GetProductById;
 using ClothingStore.Application.Features.Products.Queries.GetProducts;
@@ -67,6 +69,18 @@ namespace ClothingStore.API.Controllers.v1
 
             return Ok(result);
         }
+
+
+        [HttpPatch]
+        public async Task<IActionResult> ToggleActivate(Guid publicId, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new ToggleActivateCommand (publicId), cancellationToken);
+
+            if (result.IsFailure) return BadRequest(result);
+
+            return Ok(result);
+        }
+
 
     }
     

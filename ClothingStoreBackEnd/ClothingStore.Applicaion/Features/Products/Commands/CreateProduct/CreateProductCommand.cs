@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClothingStore.Application.DTOs;
 using ClothingStore.Domain.Common;
 using ClothingStore.Domain.ValueObjects;
 using MediatR;
@@ -12,6 +13,6 @@ namespace ClothingStore.Application.Features.Products.Commands.CreateProduct;
     public record CreateProductCommand
     (string Name, string Description, decimal Price, string Currency,
         bool IsActive,
-        Guid CreatedBy, Guid CategoryId, Guid BrandId):IRequest<Result<Guid>>;
+        Guid CreatedBy, Guid CategoryId, Guid BrandId, List<ProductSpecificationDto> Specifications) : IRequest<Result<Guid>>;
 
 

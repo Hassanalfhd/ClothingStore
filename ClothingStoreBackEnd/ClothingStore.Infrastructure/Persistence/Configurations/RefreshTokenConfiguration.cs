@@ -47,7 +47,6 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.Property(r=>r.IsUsed).HasDefaultValue(false);
             builder.Property(r=>r.IsRevoked).HasDefaultValue(false);
 
-            builder.Property(r => r.CreatedAt).HasDefaultValue(DateTime.UtcNow);
             
         }
 

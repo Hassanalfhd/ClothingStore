@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ClothingStore.Domain.Entities
 {
     public class ProductSpecification
@@ -15,5 +10,31 @@ namespace ClothingStore.Domain.Entities
         public string Value { get; private set; } = string.Empty;
 
         public Product Product { get; private set; } = null!;
+
+        private ProductSpecification() { }  
+
+        public ProductSpecification(long productId, string key, string value)
+        {
+            ProductId = productId;
+            SetKey(key);
+            SetValue(value);
+
+        }
+
+        public void SetKey(string key)
+        {
+            if (string.IsNullOrWhiteSpace(key))
+                throw new ArgumentException("Specification value is required.");
+
+            Key = key.Trim();
+        }
+
+        public void SetValue(string value)
+        {
+            if(string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Specification value is required.");
+
+            Value = value.Trim();
+        }
     }
 }

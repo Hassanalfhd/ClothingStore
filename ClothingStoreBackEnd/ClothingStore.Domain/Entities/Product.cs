@@ -1,4 +1,4 @@
-﻿
+﻿ 
 
 using ClothingStore.Domain.Enums;
 using ClothingStore.Domain.ValueObjects;
@@ -10,6 +10,7 @@ namespace ClothingStore.Domain.Entities
         private readonly List<ProductVariant> _variants = [];
 
         private readonly List<ProductImage> _images = [];
+        private readonly List<ProductSpecification> _specifications = new();
 
         private Product() { }
 
@@ -19,7 +20,6 @@ namespace ClothingStore.Domain.Entities
             CategoryId = categoryId;
             IsActive = isActive;
             BrandId = brandId;
-            
             SetName(name);
             SetDescription(description);
             SetBasePrice(basePrice);
@@ -48,6 +48,9 @@ namespace ClothingStore.Domain.Entities
 
         public IReadOnlyCollection<ProductImage> Images
             => _images.AsReadOnly();
+
+        public IReadOnlyCollection<ProductSpecification> Specifications 
+            => _specifications.AsReadOnly();
 
         public void SetName(string name)
         {
@@ -78,6 +81,7 @@ namespace ClothingStore.Domain.Entities
 
 
 
+
         public void UpdateProduct(Product product)
         {
             SetName(product.Name);
@@ -90,13 +94,36 @@ namespace ClothingStore.Domain.Entities
             base.MarkAsUpdated();
         }
 
+        public void AddSepecifiaction(string key, string value)
+        {
+            var sepecification = new ProductSpecification(Id, key, value);
+            _specifications.Add(sepecification);
+        }
+
+        public void RemoveSpecification(string key)
+        {
+            var specification = _specifications
+                .FirstOrDefault(x =>
+                    x.Key.ToLower() == key.ToLower());
+
+            if (specification is not null)
+            {
+                _specifications.Remove(specification);
+            }
+        }
+
+        public void ClearSpecifications()
+        {
+            _specifications.Clear();
+        }
 
         public void Activate() => IsActive = true;
 
         public void Deactivate() => IsActive = false;
 
-        public override string ToString() => Name;
+        public void ToggleActivate() => IsActive = !IsActive;
 
+        public override string ToString() => Name;
 
     }
 }

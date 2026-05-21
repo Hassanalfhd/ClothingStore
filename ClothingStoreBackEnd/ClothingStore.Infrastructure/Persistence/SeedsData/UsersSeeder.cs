@@ -1,5 +1,4 @@
-﻿using ClothingStore.Domain.Entities;
-using ClothingStore.Domain.ValueObjects;
+﻿using ClothingStore.Domain.ValueObjects;
 using ClothingStore.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,78 +8,60 @@ namespace ClothingStore.Infrastructure.Persistence.Seed
 {
     public static class UsersSeeder
     {
-        //public static async Task SeedAsync(IServiceProvider services)
-        //{
-        //    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+        public static async Task SeedAsync(IServiceProvider services)
+        {
+            var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 
-        //    var context = services.GetRequiredService<ApplicationDbContext>();
+            var context = services.GetRequiredService<ApplicationDbContext>();
 
-        //    var email = "Hassan@gmail.com";
+            var email = "Hassan@gmail.com";
 
-        //    var existingUser = await userManager.Users
-        //        .FirstOrDefaultAsync(x => x.Email == email);
+            string firstName = "Hassan";
+            string lastName = "Alfahd";
+            var existingUser = await userManager.Users
+                .FirstOrDefaultAsync(x => x.Email == email);
 
-        //    if (existingUser != null)
-        //        return;
-
-        //    var adminUser = new ApplicationUser
-        //    (
-        //        FirstName = "Hassan",
-        //        LastName = "Alfahd",
-        //        UserName = "Hassan",
-
-        //        Email = email,
-        //        NormalizedEmail = email.ToUpper(),
-
-        //        EmailConfirmed = true,
-
-        //        IsActive = true,
-
-        //        CreatedAt = DateTime.UtcNow
-        //    );
-
-        //    var result = await userManager.CreateAsync(
-        //        adminUser,
-        //        "Hassan123456"
-        //    );
-
-        //    if (!result.Succeeded)
-        //    {
-        //        var errors = string.Join(
-        //            ", ",
-        //            result.Errors.Select(x => x.Description)
-        //        );
-
-        //        throw new Exception(errors);
-        //    }
-
-        //    await userManager.AddToRoleAsync(adminUser, "Admin");
+            if (existingUser != null)
+                return;
 
 
-        //    var profile = new UserProfile
-        //    {
-        //        PublicId = Guid.NewGuid(),
+            var adminUser = new ApplicationUser
+            (
+              email,
+              firstName,
+              lastName
+            );
 
-        //        ApplicationUserId = adminUser.Id,
+            var result = await userManager.CreateAsync(
+                adminUser,
+                "Hassan123456"
+            );
 
-        //        FirstName = "Hassan",
-        //        LastName = "Alfahd",
 
-        //        ProfileImage = "profiles/default-admin.png",
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(
+                    ", ",
+                    result.Errors.Select(x => x.Description)
+                );
 
-        //        ContactInfo = new ContactInfo(
-        //            email,
-        //            "Sanaa, Yemen",
-        //            "+967700000000"
-        //        ),
+                throw new Exception(errors);
+            }
 
-        //        CreatedAt = DateTime.UtcNow
-        //    };
+            await userManager.AddToRoleAsync(adminUser, "Admin");
 
-        //    await context.UserProfiles.AddAsync(profile);
+            var contactInfo = new ContactInfo(email, null, null);
 
-        //    await context.SaveChangesAsync();
-        //}
-   
+
+            //var profile = new UserProfile
+            //(
+                
+                
+            //    );
+            //await context.UserProfiles.AddAsync(profile);
+
+            await context.SaveChangesAsync();
+        }
+
     }
 }
