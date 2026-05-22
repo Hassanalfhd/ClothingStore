@@ -27,7 +27,7 @@ namespace ClothingStore.Persistence.Configurations
                .HasMaxLength(500)
                .IsRequired(false);
 
-            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
 
 
             builder.OwnsOne(u => u.ContactInfo, contact =>

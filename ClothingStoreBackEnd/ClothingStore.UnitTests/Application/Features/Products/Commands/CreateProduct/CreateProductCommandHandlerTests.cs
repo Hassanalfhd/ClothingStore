@@ -124,7 +124,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
 
         private static CreateProductCommand CreateProductCommand()
         {
-            return new CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            return new CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), null);
             
         }
     }

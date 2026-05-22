@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ClothingStore.Application.Features.Products.Queries.GetProductById
 {
     public class ProductDetailsDto
@@ -28,6 +23,7 @@ namespace ClothingStore.Application.Features.Products.Queries.GetProductById
 
         public Dictionary<string, string> Specifications { get; set; }
             = new();
+
     }
 
 }

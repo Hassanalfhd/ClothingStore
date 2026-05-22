@@ -16,7 +16,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "Users",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
                 oldDefaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 892, DateTimeKind.Utc).AddTicks(3641));
@@ -26,7 +26,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "UserProfiles",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
                 oldDefaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 904, DateTimeKind.Utc).AddTicks(998));
@@ -36,7 +36,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "Sizes",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
 
@@ -45,7 +45,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "RefreshTokens",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
                 oldDefaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 902, DateTimeKind.Utc).AddTicks(1115));
@@ -55,7 +55,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "ProductVariants",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
 
@@ -64,7 +64,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "Products",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
 
@@ -73,7 +73,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "ProductImages",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
 
@@ -82,7 +82,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "Colors",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
 
@@ -91,7 +91,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 table: "Brands",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GETUTCDATE();",
+                defaultValueSql: "GETUTCDATE()",
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
 
@@ -136,8 +136,8 @@ namespace ClothingStore.Infrastructure.Migrations
                 defaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 892, DateTimeKind.Utc).AddTicks(3641),
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
-
+                oldDefaultValueSql: "GETUTCDATE()");
+                
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
                 table: "UserProfiles",
@@ -146,7 +146,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 defaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 904, DateTimeKind.Utc).AddTicks(998),
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
@@ -155,7 +155,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
@@ -165,7 +165,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 defaultValue: new DateTime(2026, 5, 19, 21, 38, 14, 902, DateTimeKind.Utc).AddTicks(1115),
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
@@ -174,7 +174,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
@@ -183,7 +183,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
@@ -192,7 +192,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
@@ -201,7 +201,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedAt",
@@ -210,7 +210,7 @@ namespace ClothingStore.Infrastructure.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValueSql: "GETUTCDATE();");
+                oldDefaultValueSql: "GETUTCDATE()");
         }
     }
 }

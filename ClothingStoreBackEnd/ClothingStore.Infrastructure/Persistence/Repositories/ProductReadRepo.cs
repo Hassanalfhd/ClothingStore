@@ -67,7 +67,6 @@ public sealed class ProductReadRepo : IProductReadRepos
         {
             query = query.Where(x => x.CategoryId == categoryId);
         }
-
         if (status.HasValue)
         {
             query = query.Where(x => x.Status == status);
@@ -82,8 +81,6 @@ public sealed class ProductReadRepo : IProductReadRepos
         {
             query = query.Where(x => x.BasePrice.Amount <= maxPrice);
         }
-
-
 
         query = sortBy switch
         {
@@ -136,59 +133,69 @@ public sealed class ProductReadRepo : IProductReadRepos
         };
     }
 
+    
     public async Task<ProductDetailsDto?> GetDetailsByPublicIdAsync(
-        Guid publicId,
-        CancellationToken cancellationToken = default)
+    Guid publicId,
+    CancellationToken cancellationToken = default)
     {
-        return await _context.Products
+        var productData = await _context.Products
             .AsNoTracking()
             .AsSplitQuery()
             .Where(x => x.PublicId == publicId)
-            .Select(x => new ProductDetailsDto
+            .Select(x => new
             {
-                PublicId = x.PublicId,
-                Name = x.Name,
-                Description = x.Description,
-                BasePrice = x.BasePrice.Amount,
-                Currency = x.BasePrice.Currency,
-                IsActive = x.IsActive,
-                CategoryName = x.Category.Name,
-
-                Images = x.Images
-                .Where(i=>i.Processed == Processed.Completed)
-                .Select(i=>new ProductImageDto
+                Dto = new ProductDetailsDto
                 {
-                    PublicId = i.PublicId,
-                    ImageUrl = i.ImageUrl,
-                    DisplayOrder = i.DisplayOrder,
-                    IsPrimary = i.IsPrimary,
-                }).ToList(),
+                    PublicId = x.PublicId,
+                    Name = x.Name,
+                    Description = x.Description,
+                    BasePrice = x.BasePrice.Amount,
+                    Currency = x.BasePrice.Currency,
+                    IsActive = x.IsActive,
+                    CategoryName = x.Category.Name,
 
-                Variants = x.Variants.Select(v => new ProductVariantDto
-                {
-                    PublicId = v.PublicId,
-                    Color = v.Color.Name,
-                    Size = v.Size.Name,
-                    Price = v.Money.Amount,
-                    Currency = v.Money.Currency,
-                    SKU = v.SKU,
-                    StockQuantity = v.StockQuantity,
-                    
-                    Images = v.Images.Where(i => i.Processed == Processed.Completed)
+                    Images = x.Images
+                        .Where(i => i.Processed == Processed.Completed)
                         .Select(i => new ProductImageDto
                         {
-                            PublicId =  i.PublicId,
+                            PublicId = i.PublicId,
                             ImageUrl = i.ImageUrl,
                             DisplayOrder = i.DisplayOrder,
                             IsPrimary = i.IsPrimary,
                         }).ToList(),
-                    
-                }).ToList(),
 
-                Specifications = x.Specifications
-                    .ToDictionary(s=>s.Key, s=>s.Value)
-                
+                    Variants = x.Variants.Select(v => new ProductVariantDto
+                    {
+                        PublicId = v.PublicId,
+                        Color = v.Color.Name,
+                        Size = v.Size.Name,
+                        Price = v.Money.Amount,
+                        Currency = v.Money.Currency,
+                        SKU = v.SKU,
+                        StockQuantity = v.StockQuantity,
+
+                        Images = v.Images.Where(i => i.Processed == Processed.Completed)
+                            .Select(i => new ProductImageDto
+                            {
+                                PublicId = i.PublicId,
+                                ImageUrl = i.ImageUrl,
+                                DisplayOrder = i.DisplayOrder,
+                                IsPrimary = i.IsPrimary,
+                            }).ToList(),
+
+                    }).ToList()
+    
+                },
+                RawSpecifications = x.Specifications.Select(s => new { s.Key, s.Value }).ToList()
             })
             .FirstOrDefaultAsync(cancellationToken);
+
+        if (productData == null) return null;
+
+        productData.Dto.Specifications = productData.RawSpecifications
+            .ToDictionary(s => s.Key, s => s.Value);
+
+        return productData.Dto;
     }
+
 }

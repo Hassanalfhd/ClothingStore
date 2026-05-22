@@ -22,7 +22,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
         [Fact]
         public void Should_Not_Have_Error_When_Command_Is_Valid()
         {
-            var command = new  CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            var command = new  CreateProductCommand("Nike T-Shirt", "none", 10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), null);
 
             var result = _validator.TestValidate(command);
 
@@ -34,7 +34,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.CreateP
         [Fact]
         public void Should_Have_Error_When_Price_Is_Less_Than_Zero()
         {
-            var command = new CreateProductCommand("Nike T-Shirt", "none", -10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            var command = new CreateProductCommand("Nike T-Shirt", "none", -10, "YR", true, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), null);
 
             var result = _validator.TestValidate(command);
 

@@ -25,7 +25,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(20);
 
-            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
 
 
             builder.Property(x => x.HexCode)

@@ -33,7 +33,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -109,7 +109,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("HexCode")
                         .IsRequired()
@@ -154,7 +154,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<long>("CreatedBy")
                         .HasColumnType("bigint");
@@ -212,7 +212,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<int>("DisplayOrder")
                         .ValueGeneratedOnAdd()
@@ -299,7 +299,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<long>("CreatedBy")
                         .HasColumnType("bigint");
@@ -363,7 +363,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("datetime2");
@@ -414,7 +414,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<int>("DisplayOrder")
                         .HasColumnType("int");
@@ -463,7 +463,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
@@ -512,7 +512,7 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE();");
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -611,7 +611,9 @@ namespace ClothingStore.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETUTCDATE()");
+                        
 
                     b.Property<string>("Description")
                         .IsRequired()

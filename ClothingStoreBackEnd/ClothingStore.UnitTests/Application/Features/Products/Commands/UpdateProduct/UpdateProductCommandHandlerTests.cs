@@ -128,7 +128,7 @@ namespace ClothingStore.UnitTests.Application.Features.Products.Commands.UpdateP
 
         private static UpdateProductCommand UpdateProductCommand()
         {
-            return new UpdateProductCommand(Guid.NewGuid(), "Nike T-Shirt", "none", 10, "YR", Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            return new UpdateProductCommand(Guid.NewGuid(), "Nike T-Shirt", "none", 10, "YR", Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), null);
 
         }
     }

@@ -36,7 +36,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.Property(u => u.FirstName).HasMaxLength(50).IsRequired();
             builder.Property(u => u.LastName).HasMaxLength(50).IsRequired();
             builder.Property(u => u.IsActive).HasDefaultValue(true);
-            builder.Property(u => u.CreatedAt).HasDefaultValueSql("GETUTCDATE();"); 
+            builder.Property(u => u.CreatedAt).HasDefaultValueSql("GETUTCDATE()"); 
 
 
             builder.HasOne(e => e.UserProfile)

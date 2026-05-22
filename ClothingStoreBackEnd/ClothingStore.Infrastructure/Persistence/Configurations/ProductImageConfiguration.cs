@@ -27,7 +27,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.Property(x => x.DisplayOrder)
                 .HasDefaultValue(0);
 
-            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE();");
+            builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
 
             builder.Property(x => x.Processed)
                 .HasDefaultValue(Processed.Pending);
