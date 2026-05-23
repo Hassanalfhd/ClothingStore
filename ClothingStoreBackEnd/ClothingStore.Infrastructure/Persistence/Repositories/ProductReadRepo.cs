@@ -133,6 +133,7 @@ public sealed class ProductReadRepo : IProductReadRepos
         };
     }
 
+
     
     public async Task<ProductDetailsDto?> GetDetailsByPublicIdAsync(
     Guid publicId,

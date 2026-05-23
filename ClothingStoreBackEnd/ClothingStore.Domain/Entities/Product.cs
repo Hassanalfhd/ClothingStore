@@ -81,7 +81,6 @@ namespace ClothingStore.Domain.Entities
 
 
 
-
         public void UpdateProduct(Product product)
         {
             SetName(product.Name);
@@ -96,8 +95,7 @@ namespace ClothingStore.Domain.Entities
 
         public void AddSepecifiaction(string key, string value)
         {
-            var sepecification = new ProductSpecification(Id, key, value);
-            _specifications.Add(sepecification);
+            _specifications.Add(new ProductSpecification(Id, key, value));
         }
 
         public void RemoveSpecification(string key)
