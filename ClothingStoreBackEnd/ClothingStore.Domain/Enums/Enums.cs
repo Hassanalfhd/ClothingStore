@@ -16,7 +16,7 @@ namespace ClothingStore.Domain.Enums
     public enum ProductStatus
     {
         Draft = 0,
-        Published = 1,
+        Active = 1,
         Archived = 2,
         OutOfStock = 3
     }
