@@ -54,6 +54,7 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
                     CreatedBy.Value, CategoryId.Value, BrandId.Value
                     );
 
+
             product.ClearSpecifications();
 
             foreach (var specification in request.Specifications)
@@ -62,6 +63,7 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
                     specification.Key,
                     specification.Value);
             }
+
 
             product.UpdateProduct( newProduct );
 

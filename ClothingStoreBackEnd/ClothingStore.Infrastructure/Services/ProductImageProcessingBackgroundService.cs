@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Application.Interfaces.Services;
+using ClothingStore.Infrastructure.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace ClothingStore.Infrastructure.Services
 {
@@ -16,14 +18,16 @@ namespace ClothingStore.Infrastructure.Services
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly IBackgroundTaskQueue _queue;
         private readonly ILogger<ProductImageProcessingBackgroundService> _logger;
+        private readonly FoldersSettings _folderSettings;
 
-        public ProductImageProcessingBackgroundService(IServiceScopeFactory scopeFactory, IBackgroundTaskQueue queue, ILogger<ProductImageProcessingBackgroundService> logger)
+        public ProductImageProcessingBackgroundService(IServiceScopeFactory scopeFactory, IBackgroundTaskQueue queue, ILogger<ProductImageProcessingBackgroundService> logger, IOptions<FoldersSettings> options)
         {
             _scopeFactory = scopeFactory;
             _queue = queue;
             _logger = logger;
-        }
+            _folderSettings = options.Value;
 
+        }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -47,7 +51,8 @@ namespace ClothingStore.Infrastructure.Services
                     if(image is null)
                         continue;
 
-                    var outputFolder = Path.Combine("wwwroot/images/products", image.PublicId.ToString());
+                    
+                    var outputFolder = Path.Combine("wwwroot/", _folderSettings.RootFolder, _folderSettings.ProductsFolder, image.PublicId.ToString()).Replace("\\", "/");
 
                     _logger.LogInformation("Moving file {File}", job.FileName);
 
