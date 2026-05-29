@@ -14,7 +14,7 @@ namespace ClothingStore.Domain.Entities
         private readonly List<Product> _products = [];
 
 
-        public Brand() { }
+        private Brand() { }
 
 
         public Brand(string name, string slug, string? description, string? logoUrl)

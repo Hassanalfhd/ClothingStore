@@ -57,6 +57,7 @@ namespace ClothingStore.Application.Features.ProductImages.Commands.CreateImage
             }
 
             
+            
             var image = new ProductImage(productId, productVariantId, tempResult.FileName, request.DisplayOrder);
             
             await _productImageRepo.AddAsync(image, cancellationToken);
@@ -69,6 +70,7 @@ namespace ClothingStore.Application.Features.ProductImages.Commands.CreateImage
                 TempFilePath = tempResult.TempFilePath,
                 FileName = tempResult.FileName,
             });
+
 
             return Result<Guid>.Success(image.PublicId);
 

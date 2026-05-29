@@ -57,11 +57,13 @@ namespace ClothingStore.Infrastructure.Services
                     _logger.LogInformation("Moving file {File}", job.FileName);
 
                     var processor = scope.ServiceProvider.GetRequiredService<IImageProcessingService>();
+                    
                     var result = await processor.ProcessAsync(job.TempFilePath, outputFolder, stoppingToken);
 
                     image.SetImageUrl(result.WebpPath);
 
                     image.MarkAsProcessed();
+                    
 
                     var unitOfWork = scope.ServiceProvider
                         .GetRequiredService<IUnitOfWork>();
@@ -76,6 +78,7 @@ namespace ClothingStore.Infrastructure.Services
                 {
                     _logger.LogError(ex,
                    "Error while processing product image.");
+
                     
                 }
             }
