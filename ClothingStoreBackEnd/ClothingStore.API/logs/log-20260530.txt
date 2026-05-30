@@ -1,0 +1,96 @@
+[2026-05-30 23:26:38 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-30 23:27:35 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-30 23:27:36 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-30 23:27:36 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling GetProductsQuery
+[2026-05-30 23:27:47 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (357ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+[2026-05-30 23:27:48 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (305ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[BasePrice], [t].[Currency], [t].[Status], [c].[Name], (
+    SELECT COALESCE(SUM([p0].[StockQuantity]), 0)
+    FROM [ProductVariants] AS [p0]
+    WHERE [t].[Id] = [p0].[ProductId]), (
+    SELECT TOP(1) [p1].[ImageUrl]
+    FROM [ProductImages] AS [p1]
+    WHERE [t].[Id] = [p1].[ProductId] AND [p1].[IsPrimary] = CAST(1 AS bit) AND [p1].[Processed] = 2)
+FROM (
+    SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Name], [p].[PublicId], [p].[Status], [p].[BasePrice], [p].[Currency]
+    FROM [Products] AS [p]
+    ORDER BY [p].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+ORDER BY [t].[CreatedAt] DESC
+[2026-05-30 23:27:48 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled GetProductsQuery in 12069.8983 ms
+[2026-05-30 23:32:01 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-30 23:32:02 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-30 23:32:02 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling GetProductsQuery
+[2026-05-30 23:32:10 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (203ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+[2026-05-30 23:32:11 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (230ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[BasePrice], [t].[Currency], [t].[Status], [c].[Name], (
+    SELECT COALESCE(SUM([p0].[StockQuantity]), 0)
+    FROM [ProductVariants] AS [p0]
+    WHERE [t].[Id] = [p0].[ProductId]), (
+    SELECT TOP(1) [p1].[ImageUrl]
+    FROM [ProductImages] AS [p1]
+    WHERE [t].[Id] = [p1].[ProductId] AND [p1].[IsPrimary] = CAST(1 AS bit) AND [p1].[Processed] = 2)
+FROM (
+    SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[Status], [p].[BasePrice], [p].[Currency]
+    FROM [Products] AS [p]
+    ORDER BY [p].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+WHERE [t].[IsActive] = CAST(1 AS bit)
+ORDER BY [t].[CreatedAt] DESC
+[2026-05-30 23:32:11 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled GetProductsQuery in 8733.7713 ms
+[2026-05-30 23:37:49 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-30 23:37:49 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-30 23:37:49 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling GetProductsQuery
+[2026-05-30 23:37:54 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (215ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+[2026-05-30 23:37:55 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (225ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[BasePrice], [t].[Currency], [t].[Status], [c].[Name], [t].[IsActive], (
+    SELECT COALESCE(SUM([p0].[StockQuantity]), 0)
+    FROM [ProductVariants] AS [p0]
+    WHERE [t].[Id] = [p0].[ProductId]), (
+    SELECT TOP(1) [p1].[ImageUrl]
+    FROM [ProductImages] AS [p1]
+    WHERE [t].[Id] = [p1].[ProductId] AND [p1].[IsPrimary] = CAST(1 AS bit) AND [p1].[Processed] = 2)
+FROM (
+    SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[IsActive], [p].[Name], [p].[PublicId], [p].[Status], [p].[BasePrice], [p].[Currency]
+    FROM [Products] AS [p]
+    ORDER BY [p].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+WHERE [t].[IsActive] = CAST(1 AS bit)
+ORDER BY [t].[CreatedAt] DESC
+[2026-05-30 23:37:55 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled GetProductsQuery in 5613.2342 ms
+[2026-05-30 23:39:06 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-30 23:39:06 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-30 23:39:06 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling GetProductsQuery
+[2026-05-30 23:39:10 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (114ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+[2026-05-30 23:39:10 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (264ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[BasePrice], [t].[Currency], [t].[Status], [c].[Name], (
+    SELECT COALESCE(SUM([p0].[StockQuantity]), 0)
+    FROM [ProductVariants] AS [p0]
+    WHERE [t].[Id] = [p0].[ProductId]), (
+    SELECT TOP(1) [p1].[ImageUrl]
+    FROM [ProductImages] AS [p1]
+    WHERE [t].[Id] = [p1].[ProductId] AND [p1].[IsPrimary] = CAST(1 AS bit) AND [p1].[Processed] = 2)
+FROM (
+    SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Name], [p].[PublicId], [p].[Status], [p].[BasePrice], [p].[Currency]
+    FROM [Products] AS [p]
+    WHERE [p].[IsActive] = CAST(1 AS bit)
+    ORDER BY [p].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+ORDER BY [t].[CreatedAt] DESC
+[2026-05-30 23:39:10 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled GetProductsQuery in 4478.7804 ms

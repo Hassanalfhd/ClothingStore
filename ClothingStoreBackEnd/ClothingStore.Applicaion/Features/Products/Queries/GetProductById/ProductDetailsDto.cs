@@ -16,6 +16,7 @@ namespace ClothingStore.Application.Features.Products.Queries.GetProductById
         public bool IsActive { get; set; }
 
         public string CategoryName { get; set; } = string.Empty;
+        public string? BrandName { get; set; } = string.Empty;
 
         public List<ProductImageDto> Images { get; set; } = new();
 

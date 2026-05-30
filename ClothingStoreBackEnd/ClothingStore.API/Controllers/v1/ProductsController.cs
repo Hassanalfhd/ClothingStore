@@ -5,6 +5,7 @@ using ClothingStore.Application.Features.Products.Commands.UpdateProduct;
 using ClothingStore.Application.Features.Products.Queries.GetProductById;
 using ClothingStore.Application.Features.Products.Queries.GetProducts;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

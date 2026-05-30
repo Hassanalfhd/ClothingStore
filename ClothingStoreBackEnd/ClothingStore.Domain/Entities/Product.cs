@@ -38,7 +38,7 @@ namespace ClothingStore.Domain.Entities
         public long? BrandId { get; private set; }
 
         public Category Category { get; private set; } = null!;
-        public Brand? Brand { get; private set; } = null!;
+        public Brand Brand { get; private set; } = null!;
         public UserProfile UserProfile { get; private set; } = null!;
 
         public ProductStatus Status { get; private set; }

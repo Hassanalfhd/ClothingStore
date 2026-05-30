@@ -24,6 +24,5 @@ namespace ClothingStore.Application.Features.Products.Queries.GetProducts
 
         public int TotalStock { get; set; }
 
-        public bool IsActive { get; set; }
     }
 }

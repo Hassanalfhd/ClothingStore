@@ -39,8 +39,10 @@ public sealed class ProductReadRepo : IProductReadRepos
 
         var query = _context.Products
             .AsNoTracking()
-            .AsQueryable();
+            .AsQueryable()
+            .Where(x=>x.IsActive);
 
+        
         // Filtering 
         if (!string.IsNullOrWhiteSpace(search))
         {
@@ -113,7 +115,6 @@ public sealed class ProductReadRepo : IProductReadRepos
             Currency = x.BasePrice.Currency,
             Status = x.Status.ToString(),
             CategoryName = x.Category.Name,
-
             TotalStock = x.Variants.Sum(v => v.StockQuantity),
 
             ImageUrl = x.Images
@@ -154,7 +155,7 @@ public sealed class ProductReadRepo : IProductReadRepos
                     Currency = x.BasePrice.Currency,
                     IsActive = x.IsActive,
                     CategoryName = x.Category.Name,
-
+                    BrandName = x.Brand.Name,
                     Images = x.Images
                         .Where(i => i.Processed == Processed.Completed)
                         .Select(i => new ProductImageDto

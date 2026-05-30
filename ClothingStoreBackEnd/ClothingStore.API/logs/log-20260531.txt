@@ -1,0 +1,48 @@
+[2026-05-31 00:05:40 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-05-31 00:05:40 WRN] LuckyPennySoftware.MediatR.License You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-31 00:05:40 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling GetProductsQuery
+[2026-05-31 00:05:43 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[IsActive] = CAST(1 AS bit)
+[2026-05-31 00:05:43 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (75ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[BasePrice], [t].[Currency], [t].[Status], [c].[Name], (
+    SELECT COALESCE(SUM([p0].[StockQuantity]), 0)
+    FROM [ProductVariants] AS [p0]
+    WHERE [t].[Id] = [p0].[ProductId]), (
+    SELECT TOP(1) [p1].[ImageUrl]
+    FROM [ProductImages] AS [p1]
+    WHERE [t].[Id] = [p1].[ProductId] AND [p1].[IsPrimary] = CAST(1 AS bit) AND [p1].[Processed] = 2)
+FROM (
+    SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Name], [p].[PublicId], [p].[Status], [p].[BasePrice], [p].[Currency]
+    FROM [Products] AS [p]
+    WHERE [p].[IsActive] = CAST(1 AS bit)
+    ORDER BY [p].[CreatedAt] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+ORDER BY [t].[CreatedAt] DESC
+[2026-05-31 00:05:43 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled GetProductsQuery in 2384.9428 ms
+[2026-05-31 00:06:49 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handling GetProductsQuery
+[2026-05-31 00:06:49 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[IsActive] = CAST(1 AS bit)
+[2026-05-31 00:06:49 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (32ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[PublicId], [t].[Name], [t].[BasePrice], [t].[Currency], [t].[Status], [c].[Name], (
+    SELECT COALESCE(SUM([p0].[StockQuantity]), 0)
+    FROM [ProductVariants] AS [p0]
+    WHERE [t].[Id] = [p0].[ProductId]), (
+    SELECT TOP(1) [p1].[ImageUrl]
+    FROM [ProductImages] AS [p1]
+    WHERE [t].[Id] = [p1].[ProductId] AND [p1].[IsPrimary] = CAST(1 AS bit) AND [p1].[Processed] = 2)
+FROM (
+    SELECT [p].[Id], [p].[CategoryId], [p].[Name], [p].[PublicId], [p].[Status], [p].[BasePrice], [p].[Currency]
+    FROM [Products] AS [p]
+    WHERE [p].[IsActive] = CAST(1 AS bit)
+    ORDER BY [p].[Name]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+) AS [t]
+INNER JOIN [Categories] AS [c] ON [t].[CategoryId] = [c].[Id]
+ORDER BY [t].[Name]
+[2026-05-31 00:06:49 INF] ClothingStore.Application.Common.Behaviors.LoggingBehavior Handled GetProductsQuery in 169.4264 ms

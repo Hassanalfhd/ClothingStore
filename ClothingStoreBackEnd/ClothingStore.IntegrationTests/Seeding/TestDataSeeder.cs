@@ -14,16 +14,15 @@ namespace ClothingStore.IntegrationTests.Seeding
     public static class TestDataSeeder
     {
 
-        public static void SeedProducts(ApplicationDbContext context)
+        public static void SeedProductsData(ApplicationDbContext context)
         {
             // =========================
-            // 1. USER (Admin/Test User)
+            // USER
             // =========================
             var user = new ApplicationUser(
                 "hassan.alfahd@example.com",
                 "Hassan",
-                "Alfahd"
-            );
+                "Alfahd");
 
             context.Users.Add(user);
             context.SaveChanges();
@@ -33,101 +32,143 @@ namespace ClothingStore.IntegrationTests.Seeding
                 new ContactInfo(
                     user.Email,
                     "Sanaa, Yemen",
-                    "+967700000000"
-                ),
+                    "+967700000000"),
                 user.FirstName,
                 user.LastName,
                 null,
-                null
-            );
+                null);
 
             // =========================
-            // 2. CATEGORIES
+            // CATEGORIES
             // =========================
-            var categorySport = new Category("Sport", "Sport products including shoes and activewear");
-            var categoryClothing = new Category("Clothing", "Casual and fashion clothing");
+            var sportCategory = new Category(
+                "Sport",
+                "Sport products");
 
+            var clothingCategory = new Category(
+                "Clothing",
+                "Clothing products");
+
+            var electronicsCategory = new Category(
+                "Electronics",
+                "Electronics products");
 
             // =========================
-            // 3. BRANDS
+            // BRANDS
             // =========================
-            var nike = new Brand("Nike", "nike", "Just Do It", null);
-            var adidas = new Brand("Adidas", "adidas", "Impossible is Nothing", null);
-            var puma = new Brand("Puma", "puma", "Forever Faster", null);
+            var nike = new Brand(
+                "Nike",
+                "nike",
+                "Just Do It",
+                null);
 
-            context.AddRange(userProfile, categorySport, categoryClothing, nike, adidas, puma);
+            var adidas = new Brand(
+                "Adidas",
+                "adidas",
+                "Impossible is Nothing",
+                null);
+
+            var puma = new Brand(
+                "Puma",
+                "puma",
+                "Forever Faster",
+                null);
+
+            var apple = new Brand(
+                "Apple",
+                "apple",
+                "Think Different",
+                null);
+
+            context.AddRange(
+                userProfile,
+                sportCategory,
+                clothingCategory,
+                electronicsCategory,
+                nike,
+                adidas,
+                puma,
+                apple);
+
             context.SaveChanges();
 
             // =========================
-            // 4. PRODUCTS (REALISTIC DATA)
+            // PRODUCTS
             // =========================
-            var products = new List<Product>
-    {
-        new Product(
-            "Nike Air Zoom Pegasus 40",
-            "Lightweight running shoes designed for daily training and long-distance comfort.",
-            new Money(120, "USD"),
-            true,
-            user.Id,
-            categorySport.Id,
-            nike.Id
-        ),
 
-        new Product(
-            "Adidas Ultraboost 22",
-            "Premium running shoes with responsive Boost midsole for energy return.",
-            new Money(180, "USD"),
-            true,
-            user.Id,
-            categorySport.Id,
-            adidas.Id
-        ),
+            var nikeAirZoom = new Product(
+                "Nike Air Zoom",
+                "Running shoes",
+                new Money(120m, "USD"),
+                true,
+                user.Id,
+                sportCategory.Id,
+                nike.Id);
 
-        new Product(
-            "Puma Essentials Hoodie",
-            "Comfortable cotton hoodie for everyday casual wear and street style.",
-            new Money(65, "USD"),
-            true,
-            user.Id,
-            categoryClothing.Id,
-            puma.Id
-        ),
+            nikeAirZoom.AddSepecifiaction("Brand", "Nike");
+            nikeAirZoom.AddSepecifiaction("Color", "Red");
+            nikeAirZoom.AddSepecifiaction("Size", "M");
 
-        new Product(
-            "Nike Dri-FIT Training T-Shirt",
-            "Breathable training shirt with moisture-wicking Dri-FIT technology.",
-            new Money(35, "USD"),
-            true,
-            user.Id,
-            categorySport.Id,
-            nike.Id
-        ),
+            var adidasUltraBoost = new Product(
+                "Adidas Ultraboost",
+                "Premium running shoes",
+                new Money(180m, "USD"),
+                true,
+                user.Id,
+                sportCategory.Id,
+                adidas.Id);
 
-        new Product(
-            "Adidas Originals Track Jacket",
-            "Classic retro-style jacket inspired by Adidas heritage sportswear.",
-            new Money(90, "USD"),
-            true,
-            user.Id,
-            categoryClothing.Id,
-            adidas.Id
-        ),
+            adidasUltraBoost.AddSepecifiaction("Brand", "Adidas");
+            adidasUltraBoost.AddSepecifiaction("Color", "Blue");
+            adidasUltraBoost.AddSepecifiaction("Size", "L");
 
-        new Product(
-            "Puma Running Shorts",
-            "Lightweight shorts designed for maximum mobility during workouts.",
-            new Money(40, "USD"),
-            true,
-            user.Id,
-            categorySport.Id,
-            puma.Id
-        )
-    };
+            var pumaHoodie = new Product(
+                "Puma Hoodie",
+                "Cotton hoodie",
+                new Money(65m, "USD"),
+                true,
+                user.Id,
+                clothingCategory.Id,
+                puma.Id);
 
-            context.Products.AddRange(products);
+            pumaHoodie.AddSepecifiaction("Brand", "Puma");
+            pumaHoodie.AddSepecifiaction("Color", "Black");
+            pumaHoodie.AddSepecifiaction("Size", "XL");
+
+            var nikeTrainingShirt = new Product(
+                "Nike Training Shirt",
+                "Training shirt",
+                new Money(35m, "USD"),
+                true,
+                user.Id,
+                clothingCategory.Id,
+                nike.Id);
+
+            nikeTrainingShirt.AddSepecifiaction("Brand", "Nike");
+            nikeTrainingShirt.AddSepecifiaction("Color", "Red");
+            nikeTrainingShirt.AddSepecifiaction("Size", "S");
+
+            var appleWatch = new Product(
+                "Apple Watch Series",
+                "Smart watch",
+                new Money(300m, "USD"),
+                true,
+                user.Id,
+                electronicsCategory.Id,
+                apple.Id);
+
+            appleWatch.AddSepecifiaction("Brand", "Apple");
+            appleWatch.AddSepecifiaction("Color", "White");
+
+            context.Products.AddRange(
+                nikeAirZoom,
+                adidasUltraBoost,
+                pumaHoodie,
+                nikeTrainingShirt,
+                appleWatch);
+
             context.SaveChanges();
         }
         
-
     }
 }
