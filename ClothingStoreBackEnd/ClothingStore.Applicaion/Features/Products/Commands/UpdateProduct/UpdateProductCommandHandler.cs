@@ -57,6 +57,7 @@ namespace ClothingStore.Application.Features.Products.Commands.UpdateProduct
 
             product.ClearSpecifications();
 
+
             foreach (var specification in request.Specifications)
             {
                 product.AddSepecifiaction(
