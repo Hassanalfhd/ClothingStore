@@ -6,7 +6,7 @@ namespace ClothingStore.Application.Interfaces.Repositories
     {
         public long Add(UserProfile userProfile);
 
-        Task<long?> GetIdAsync(Guid PublicId, CancellationToken cancellationToken = default);
+        Task<long?> GetIdAsync(Guid? PublicId, CancellationToken cancellationToken = default);
 
     }
 }

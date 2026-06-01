@@ -26,16 +26,12 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.HasIndex(x => x.PublicId).IsUnique();
 
             builder.Property(x => x.VariantId)
-                .IsRequired(false);
+                .IsRequired();
 
             builder.Property(x => x.ProductName)
                 .IsRequired()
                 .HasMaxLength(200);
-
-            builder.Property(x => x.VariantName)
-                .IsRequired()
-                .HasMaxLength(200);
-
+            
             builder.OwnsOne(x => x.UnitPrice, price =>
             {
                 price.Property(p => p.Amount)
@@ -47,7 +43,6 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                     .HasMaxLength(10);
             });
 
-          
 
             builder.Property(x => x.Quantity)
                 .IsRequired();

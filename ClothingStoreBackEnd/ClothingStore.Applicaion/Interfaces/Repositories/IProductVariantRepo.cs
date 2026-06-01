@@ -1,4 +1,6 @@
-﻿using ClothingStore.Domain.Entities;
+﻿using ClothingStore.Application.DTOs;
+using ClothingStore.Application.Features.Products.Queries.GetProductById;
+using ClothingStore.Domain.Entities;
 
 namespace ClothingStore.Application.Interfaces.Repositories
 {
@@ -8,6 +10,7 @@ namespace ClothingStore.Application.Interfaces.Repositories
         Task<long?> GetProductVariantId(Guid PublicId, CancellationToken cancellationToken);
 
         Task<ProductVariant?> GetByIdAsync(Guid PublicId, CancellationToken cancellationToken);
+        Task<ProductVariantCartDto?> GetVariantDtoByIdAsync(Guid PublicId, CancellationToken cancellationToken);
 
     }
 }

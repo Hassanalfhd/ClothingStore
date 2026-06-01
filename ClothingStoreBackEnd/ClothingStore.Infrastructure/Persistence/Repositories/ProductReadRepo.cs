@@ -1,4 +1,5 @@
-﻿using ClothingStore.Application.Features.Products.Queries.GetProductById;
+﻿using ClothingStore.Application.DTOs;
+using ClothingStore.Application.Features.Products.Queries.GetProductById;
 using ClothingStore.Application.Features.Products.Queries.GetProducts;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Domain.Common;
@@ -199,5 +200,16 @@ public sealed class ProductReadRepo : IProductReadRepos
 
         return productData.Dto;
     }
+
+
+    public async Task<ProductDto?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken)
+     => await _context.Products
+         .Where(x => x.PublicId == publicId)
+         .Select(x => new ProductDto
+         {
+             Id = x.Id,
+             ProductName = x.Name
+         })
+         .FirstOrDefaultAsync(cancellationToken);
 
 }

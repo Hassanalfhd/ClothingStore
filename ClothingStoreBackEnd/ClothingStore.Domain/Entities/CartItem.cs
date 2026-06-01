@@ -14,11 +14,9 @@ namespace ClothingStore.Domain.Entities
 
         public long ProductId { get; private set; }
 
-        public long? VariantId { get; private set; }
+        public long VariantId { get; private set; }
 
         public string ProductName { get; private set; }
-
-        public string? VariantName { get; private set; }
 
         public Money UnitPrice { get; private set; }
         public int Quantity { get; private set; }
@@ -29,9 +27,8 @@ namespace ClothingStore.Domain.Entities
         public CartItem(
             long cartId,
             long productId,
-            long? variantId,
+            long variantId,
             string productName,
-            string? variantName,
             Money unitPrice,
             int quantity)
         {
@@ -39,7 +36,6 @@ namespace ClothingStore.Domain.Entities
             ProductId = productId;
             VariantId = variantId;
             ProductName = productName;
-            VariantName = variantName;
             SetUnitPrice(unitPrice);
             SetQuantity(quantity);
         }

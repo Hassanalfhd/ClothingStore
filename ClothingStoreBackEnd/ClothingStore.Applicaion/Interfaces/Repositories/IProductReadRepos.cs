@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using ClothingStore.Application.DTOs;
 using ClothingStore.Application.Features.Products.Queries.GetProductById;
 using ClothingStore.Application.Features.Products.Queries.GetProducts;
 using ClothingStore.Domain.Common;
@@ -30,7 +31,7 @@ namespace ClothingStore.Application.Interfaces.Repositories
         ProductSortBy sortBy,
         CancellationToken cancellationToken);
 
-
+        Task<ProductDto?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken);
         Task<long?> GetProductId(Guid PublicId, CancellationToken cancellationToken);
     }
 }

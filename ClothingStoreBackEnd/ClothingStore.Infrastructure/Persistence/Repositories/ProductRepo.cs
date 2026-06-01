@@ -20,5 +20,6 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
         public async Task<Product?> GetByIdAsync(Guid publicId, CancellationToken cancellationToken) => await _context.Products.FirstOrDefaultAsync(x => x.PublicId == publicId, cancellationToken);
 
 
+
     }
 }

@@ -19,17 +19,19 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.UserId)
                 .IsRequired(false);
+            
             builder.Property(x => x.PublicId).IsRequired();
-
             builder.HasIndex(x => x.PublicId).IsUnique();
 
             builder.Property(x => x.IsCheckedOut)
-                .IsRequired();
+                .IsRequired()
+                .HasDefaultValue(false);
 
        
             builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
 
             builder.Property(x => x.UpdatedAt);
+
 
             // Relationship
             builder.HasMany(x => x.Items)
