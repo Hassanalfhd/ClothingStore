@@ -14,6 +14,7 @@ namespace ClothingStore.Domain.Entities
 
         public List<CartItem> Items { get; private set; } = new();
 
+
         public bool IsCheckedOut { get; private set; }
 
         private Cart() { } // EF Core
@@ -54,7 +55,6 @@ namespace ClothingStore.Domain.Entities
                 quantity);
 
             Items.Add(item);
-
             MarkAsUpdated();
         }
 
@@ -62,6 +62,42 @@ namespace ClothingStore.Domain.Entities
         {
             Items.Clear();
             MarkAsUpdated();
+        }
+
+        public void IncreaseQuantity(long variantId)
+        {
+            var item = Items.FirstOrDefault(x => x.VariantId == variantId);
+
+            if (item is null)
+                throw new InvalidOperationException();
+
+            item.IncreaseQuantity();
+        }
+
+
+        public void DecreaseQuantity(long variantId)
+        {
+            var item = Items.FirstOrDefault(x => x.VariantId == variantId);
+
+            if (item is null)
+                throw new InvalidOperationException();
+
+            if (item.Quantity == 1)
+            {
+                Items.Remove(item);
+                return;
+            }
+
+            item.DecreaseQuantity();
+        }
+        public void RemoveItem(long variantId)
+        {
+            var item = Items.FirstOrDefault(x => x.VariantId == variantId);
+            if (item is null)
+                throw new InvalidOperationException("Cart item not found");
+
+            Items.Remove(item);
+
         }
 
         public void MarkAsCheckedOut()

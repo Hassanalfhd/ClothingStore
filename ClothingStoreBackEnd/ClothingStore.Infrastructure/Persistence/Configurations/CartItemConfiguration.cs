@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ClothingStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace ClothingStore.Infrastructure.Persistence.Configurations
 {
@@ -17,7 +18,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.HasKey(x => x.Id);
 
-            
+
             builder.Property(x => x.CartId)
                 .IsRequired();
 
@@ -31,7 +32,7 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.Property(x => x.ProductName)
                 .IsRequired()
                 .HasMaxLength(200);
-            
+
             builder.OwnsOne(x => x.UnitPrice, price =>
             {
                 price.Property(p => p.Amount)
@@ -48,6 +49,20 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .IsRequired();
 
             builder.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
+
+
+            builder.HasOne<Product>()
+                    .WithMany()
+                      .HasForeignKey(x => x.ProductId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.HasOne<ProductVariant>()
+                    .WithMany()
+                      .HasForeignKey(x => x.VariantId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+
         }
     }
 }

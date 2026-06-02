@@ -31,5 +31,44 @@ namespace ClothingStore.API.Controllers.v1
             return Ok(result);
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> RemoveFromCart(
+            ManageCartItemQuantityDto dto,
+            CancellationToken cancellationToken)
+        {
+            var result = await _cartService.RemoveFromCart(dto, cancellationToken);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Error);
+
+            return Ok(result);
+        }
+
+
+        [HttpPost("increase-quantity")]
+        public async Task<IActionResult> IncreaseQuantity(
+    [FromBody] ManageCartItemQuantityDto dto,
+    CancellationToken cancellationToken)
+        {
+            var result = await _cartService.IncreaseQuantity(dto, cancellationToken);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Error);
+
+            return Ok(result);
+        }
+
+        [HttpPost("decrease-quantity")]
+        public async Task<IActionResult> DecreaseQuantity(
+        [FromBody] ManageCartItemQuantityDto dto,
+        CancellationToken cancellationToken)
+        {
+            var result = await _cartService.DecreaseQuantity(dto, cancellationToken);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Error);
+
+            return Ok(result);
+        }
     }
 }

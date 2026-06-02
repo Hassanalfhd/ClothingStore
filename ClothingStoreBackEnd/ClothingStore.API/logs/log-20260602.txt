@@ -261,3 +261,400 @@ WHERE [Id] = @p2;
 UPDATE [Carts] SET [UpdatedAt] = @p3
 OUTPUT 1
 WHERE [Id] = @p4;
+[2026-06-02 23:35:34 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware Failed to determine the https port for redirect.
+[2026-06-02 23:35:38 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (78ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:35:38 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:35:38 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:35:38 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (29ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:35:39 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:35:42 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:35:42 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:35:42 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:35:42 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:35:42 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:35:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:35:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:35:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:35:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:35:50 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:35:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:35:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:35:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:35:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:35:57 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:36:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (29ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:36:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (27ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:36:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (21ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:36:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (16ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:36:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:36:13 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (18ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:36:13 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:36:13 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (24ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:36:13 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (21ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:36:13 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (27ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:36:18 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:36:18 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:36:19 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (30ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:36:19 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:36:19 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:36:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:36:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:36:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:36:21 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:36:22 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [Quantity] = @p0, [UpdatedAt] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+[2026-06-02 23:36:34 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:36:34 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:36:34 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:36:34 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[ColorId], [p].[CreatedAt], [p].[CreatedBy], [p].[IsActive], [p].[ProductId], [p].[PublicId], [p].[SKU], [p].[SizeId], [p].[StockQuantity], [p].[UpdatedAt], [p].[Price], [p].[Currency]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:36:34 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+OUTPUT 1
+WHERE [Id] = @p0;
+[2026-06-02 23:39:05 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (24ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Price], [p].[Currency], [p].[StockQuantity]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:39:05 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Name] AS [ProductName]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-06-02 23:39:05 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (9ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:39:05 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:39:05 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (19ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:39:05 ERR] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Quantity must be greater than 0
+   at ClothingStore.Domain.Entities.Cart.AddItem(Int64 productId, Int64 variantId, String productName, Money unitPrice, Int32 quantity) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Domain\Entities\Cart.cs:line 36
+   at ClothingStore.Application.Features.Catalog.Cart.CartService.AddToCart(AddToCartDto cartDto, CancellationToken cancellationToken) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Applicaion\Features\Catalog\Cart\CartService.cs:line 57
+   at ClothingStore.API.Controllers.v1.CartsController.AddToCart(AddToCartDto dto, CancellationToken cancellationToken) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API\Controllers\v1\CartsController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at StackExchange.Profiling.MiniProfilerMiddleware.Invoke(HttpContext context) in C:\projects\dotnet\src\MiniProfiler.AspNetCore\MiniProfilerMiddleware.cs:line 94
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2026-06-02 23:39:23 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (46ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Price], [p].[Currency], [p].[StockQuantity]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:39:27 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (34ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Name] AS [ProductName]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-06-02 23:39:29 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (35ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:39:30 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (15ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:39:30 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (53ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:39:52 ERR] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Quantity must be greater than 0
+   at ClothingStore.Domain.Entities.Cart.AddItem(Int64 productId, Int64 variantId, String productName, Money unitPrice, Int32 quantity) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Domain\Entities\Cart.cs:line 36
+   at ClothingStore.Application.Features.Catalog.Cart.CartService.AddToCart(AddToCartDto cartDto, CancellationToken cancellationToken) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.Applicaion\Features\Catalog\Cart\CartService.cs:line 57
+   at ClothingStore.API.Controllers.v1.CartsController.AddToCart(AddToCartDto dto, CancellationToken cancellationToken) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API\Controllers\v1\CartsController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at StackExchange.Profiling.MiniProfilerMiddleware.Invoke(HttpContext context) in C:\projects\dotnet\src\MiniProfiler.AspNetCore\MiniProfilerMiddleware.cs:line 94
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2026-06-02 23:40:00 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (25ms) [Parameters=[@__PublicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Price], [p].[Currency], [p].[StockQuantity]
+FROM [ProductVariants] AS [p]
+WHERE [p].[PublicId] = @__PublicId_0
+[2026-06-02 23:40:00 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Name] AS [ProductName]
+FROM [Products] AS [p]
+WHERE [p].[PublicId] = @__publicId_0
+[2026-06-02 23:40:01 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__publicId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PublicId]
+FROM [UserProfiles] AS [u]
+WHERE [u].[PublicId] = @__publicId_0
+[2026-06-02 23:40:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (20ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[PublicId], [c].[UpdatedAt], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+ORDER BY [c].[Id]
+[2026-06-02 23:40:02 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c0].[Id], [c0].[CartId], [c0].[CreatedAt], [c0].[ProductId], [c0].[ProductName], [c0].[PublicId], [c0].[Quantity], [c0].[UpdatedAt], [c0].[VariantId], [c0].[UnitPrice], [c0].[Currency], [t].[Id]
+FROM (
+    SELECT TOP(1) [c].[Id]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [t]
+INNER JOIN [CartItems] AS [c0] ON [t].[Id] = [c0].[CartId]
+ORDER BY [t].[Id]
+[2026-06-02 23:40:20 INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (46ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int64), @p3='?' (Size = 200), @p4='?' (DbType = Guid), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int64), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p9='?' (Size = 10)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([CartId], [CreatedAt], [ProductId], [ProductName], [PublicId], [Quantity], [UpdatedAt], [VariantId], [UnitPrice], [Currency])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+[2026-06-02 23:43:09 FTL]  Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API\Program.cs:line 66
+[2026-06-02 23:43:27 FTL]  Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\hassan\Desktop\project-github\ClothingStore\ClothingStoreBackEnd\ClothingStore.API\Program.cs:line 66

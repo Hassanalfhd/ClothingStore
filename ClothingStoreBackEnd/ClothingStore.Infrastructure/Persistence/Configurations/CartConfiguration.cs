@@ -38,6 +38,12 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 .WithOne()
                 .HasForeignKey(x => x.CartId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne<UserProfile>()
+                .WithMany()
+                .HasForeignKey(x=>x.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

@@ -69,5 +69,88 @@ namespace ClothingStore.Application.Features.Catalog.Cart
 
         }
 
+        public async Task<Result> RemoveFromCart(ManageCartItemQuantityDto dto, CancellationToken cancellationToken)
+        {
+            var userId = await _userRepo.GetIdAsync(dto.UserId, cancellationToken);
+            if (userId is null)
+                return Result.Failure("User not found");
+
+            var cart = await _cartRepo.GetByUserIdAsync(userId.Value, cancellationToken);
+           
+            if (cart is null)
+                return Result.Failure("Cart not found");
+
+            var variant = await _productVariantRepo.GetProductVariantId(dto.VariantId, cancellationToken);
+
+            if (variant is null)
+                return Result.Failure("Variant not found");
+
+            cart.RemoveItem(variant.Value);
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            return Result.Success();
+
+        }
+
+
+        
+        public async Task<Result> IncreaseQuantity(
+    ManageCartItemQuantityDto dto,
+    CancellationToken cancellationToken)
+        {
+            var userId = await _userRepo.GetIdAsync(dto.UserId, cancellationToken);
+
+            if (userId is null)
+                return Result.Failure("User not found");
+
+            var cart = await _cartRepo.GetByUserIdAsync(userId.Value, cancellationToken);
+
+            if (cart is null)
+                return Result.Failure("Cart not found");
+
+            var variant = await _productVariantRepo
+                .GetProductVariantId(dto.VariantId, cancellationToken);
+
+            if (variant is null)
+                return Result.Failure("Variant not found");
+
+            // optional safety check
+            
+            cart.IncreaseQuantity(variant.Value);
+
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return Result.Success();
+        }
+
+
+        public async Task<Result> DecreaseQuantity(
+    ManageCartItemQuantityDto dto,
+    CancellationToken cancellationToken)
+        {
+            var userId = await _userRepo.GetIdAsync(dto.UserId, cancellationToken);
+
+            if (userId is null)
+                return Result.Failure("User not found");
+
+            var cart = await _cartRepo.GetByUserIdAsync(userId.Value, cancellationToken);
+
+            if (cart is null)
+                return Result.Failure("Cart not found");
+
+            var variant = await _productVariantRepo
+                .GetProductVariantId(dto.VariantId, cancellationToken);
+
+            if (variant is null)
+                return Result.Failure("Variant not found");
+
+
+            cart.DecreaseQuantity(variant.Value);
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return Result.Success();
+        }
     }
 }

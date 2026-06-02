@@ -51,6 +51,21 @@ namespace ClothingStore.Domain.Entities
             Quantity = quantity;
             MarkAsUpdated();
         }
+
+        public void IncreaseQuantity()
+        {
+            Quantity++;
+            MarkAsUpdated();
+        }
+
+        public void DecreaseQuantity()
+        {
+            if (Quantity <= 1)
+                throw new InvalidOperationException("Quantity cannot be less than 1.");
+
+            Quantity--;
+            MarkAsUpdated();
+        }
         public void IncreaseQuantity(int quantity)
         {
             if (quantity <= 0)
