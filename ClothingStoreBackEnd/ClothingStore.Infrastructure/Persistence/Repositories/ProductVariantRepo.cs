@@ -37,6 +37,7 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
                 .Select(x => new ProductVariantCartDto
                 {
                     Id = x.Id,
+                    PublicId = x.PublicId,
                     Price = x.Money.Amount,
                     Currency = x.Money.Currency,
 

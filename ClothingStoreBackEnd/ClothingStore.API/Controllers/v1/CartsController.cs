@@ -41,9 +41,37 @@ namespace ClothingStore.API.Controllers.v1
             if (!result.IsSuccess)
                 return BadRequest(result.Error);
 
+            return NoContent();
+        
+        }
+
+
+        [HttpGet()]
+        public async Task<IActionResult> GetCart(
+    Guid UserId,
+    CancellationToken cancellationToken)
+        {
+            var result = await _cartService.GetCartAsync(UserId, cancellationToken);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Error);
+
             return Ok(result);
         }
 
+
+        [HttpDelete("Clear-Cart")]
+        public async Task<IActionResult> ClearCart(
+    Guid UserId,
+    CancellationToken cancellationToken)
+        {
+            var result = await _cartService.ClearCart(UserId, cancellationToken);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Error);
+
+            return NoContent();
+        }
 
         [HttpPost("increase-quantity")]
         public async Task<IActionResult> IncreaseQuantity(

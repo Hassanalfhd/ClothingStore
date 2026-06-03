@@ -14,7 +14,6 @@ namespace ClothingStore.Domain.Entities
 
         public List<CartItem> Items { get; private set; } = new();
 
-
         public bool IsCheckedOut { get; private set; }
 
         private Cart() { } // EF Core
@@ -28,6 +27,7 @@ namespace ClothingStore.Domain.Entities
         public void AddItem(
            long productId,
            long variantId,
+           Guid variantPublicId,
            string productName,
             Money unitPrice,
            int quantity)
@@ -50,6 +50,7 @@ namespace ClothingStore.Domain.Entities
                 Id,  // CartId             
                 productId,
                 variantId,
+                variantPublicId,
                 productName,
                 unitPrice,
                 quantity);

@@ -1,4 +1,5 @@
-﻿using ClothingStore.Application.Features.Catalog.Cart.Dtos;
+﻿using System.Threading;
+using ClothingStore.Application.Features.Catalog.Cart.Dtos;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Application.Interfaces.Services;
 using ClothingStore.Domain.Common;
@@ -57,10 +58,12 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             cart.AddItem(
                 product.Id,
                 variant.Id,
+                variant.PublicId,
                 product.ProductName,
                 new Money(variant.Price, variant.Currency),
                 cartDto.Quantity
                 );
+
 
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -152,5 +155,49 @@ namespace ClothingStore.Application.Features.Catalog.Cart
 
             return Result.Success();
         }
+
+        public async Task<Result> ClearCart(Guid UserId, CancellationToken cancellationToken)
+        {
+            var userId = await _userRepo.GetIdAsync(UserId, cancellationToken);
+
+            if (userId is null)
+                return Result.Failure("User not found");
+
+            var cart = await _cartRepo.GetByUserIdAsync(userId.Value, cancellationToken);
+
+            if (cart is null)
+                return Result.Failure("Cart not found");
+
+            if(cart.Items.Count <= 0)
+                return Result.Failure("Cart is already cleared.");
+
+            cart.Clear();  
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return Result.Success();
+
+        }
+
+        public async Task<Result<CartDto>> GetCartAsync(Guid UserId, CancellationToken cancellationToken)
+        {
+            var userId = await _userRepo.GetIdAsync(UserId, cancellationToken);
+
+            if (userId is null)
+                return Result<CartDto>.Failure("User not found");
+
+            var cart = await _cartRepo.GetByUserIdAsync(userId.Value, cancellationToken);
+
+            if (cart is null)
+                return Result<CartDto>.Failure("Cart not found");
+
+            var result = await _cartRepo.GetCartAsync(userId.Value, cancellationToken);
+
+            if (result is null)
+                return Result<CartDto>.Failure("No items found.");
+
+            return Result<CartDto>.Success(result);
+        }
+
+
     }
 }

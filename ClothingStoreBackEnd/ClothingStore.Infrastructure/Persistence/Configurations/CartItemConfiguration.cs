@@ -26,7 +26,11 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.HasIndex(x => x.PublicId).IsUnique();
 
+
             builder.Property(x => x.VariantId)
+                .IsRequired();
+
+            builder.Property(x => x.VariantPublicId)
                 .IsRequired();
 
             builder.Property(x => x.ProductName)

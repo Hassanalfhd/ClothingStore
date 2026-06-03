@@ -57,11 +57,7 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
         }
 
 
-        public async Task<bool> ClearCartAsync(Guid PublicId, CancellationToken cancellationToken)
-        {
-            return true;
-        }
-
+       
 
         public async Task<CartDto?> GetCartAsync(long userId, CancellationToken cancellationToken)
         {
@@ -71,13 +67,15 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
         {
             CartId = c.PublicId,
 
+
             TotalItems = c.Items.Sum(i => i.Quantity),
 
-            SubTotal = c.Items.Sum(i => i.Quantity * i.UnitPrice.Amount),
+            SubTotal = c.Items
+            .Sum(i=>i.Quantity * i.UnitPrice.Amount),
 
             Items = c.Items.Select(i => new CartItemDto
             {
-                VariantId = i.VariantId,
+                VariantPublicId = i.VariantPublicId,
                 ProductName = i.ProductName,
                 UnitPrice = i.UnitPrice.Amount,
                 Currency = i.UnitPrice.Currency,

@@ -14,10 +14,10 @@ namespace ClothingStore.Application.Interfaces.Repositories
 
         Task<Cart?> GetByPublicIdAsync(Guid publicId, CancellationToken cancellationToken);
 
-        Task<bool>ClearCartAsync(Guid PublicId, CancellationToken cancellationToken);
         Task AddAsync(Cart cart, CancellationToken cancellationToken);
 
         Task<CartDto?> GetCartAsync(long userId, CancellationToken cancellationToken);
+        
         Task<bool> UserHasActiveCartAsync(long userId, CancellationToken cancellationToken);
     }
 }
