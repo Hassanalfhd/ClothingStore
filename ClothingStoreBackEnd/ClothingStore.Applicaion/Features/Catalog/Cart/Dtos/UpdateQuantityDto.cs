@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClothingStore.Application.Features.Catalog.Cart.Dtos
 {
-    public class ManageCartItemQuantityDto
+    public class UpdateQuantityDto 
     {
         public Guid UserId { get; set; }
-        public Guid VariantId { get; set; }
+        public Guid CartItemPublicId { get; set; }
+        public int Quantity { get; set; }
     }
 }

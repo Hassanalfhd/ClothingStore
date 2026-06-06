@@ -88,7 +88,10 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             if (variant is null)
                 return Result.Failure("Variant not found");
 
-            cart.RemoveItem(variant.Value);
+           var result =  cart.RemoveItem(variant.Value);
+
+            if (result.IsFailure)
+                return result;
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             return Result.Success();
@@ -96,11 +99,11 @@ namespace ClothingStore.Application.Features.Catalog.Cart
         }
 
 
-        
         public async Task<Result> IncreaseQuantity(
     ManageCartItemQuantityDto dto,
     CancellationToken cancellationToken)
         {
+
             var userId = await _userRepo.GetIdAsync(dto.UserId, cancellationToken);
 
             if (userId is null)
@@ -111,22 +114,67 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             if (cart is null)
                 return Result.Failure("Cart not found");
 
+            var item = cart.Items.FirstOrDefault(x=>x.PublicId == dto.CartItemPublicId);
+            if (item is null)
+                return Result.Failure("Item not found");
+
+
             var variant = await _productVariantRepo
-                .GetProductVariantId(dto.VariantId, cancellationToken);
+                .GetVariantDtoByIdAsync(item.VariantPublicId, cancellationToken);
 
             if (variant is null)
                 return Result.Failure("Variant not found");
 
-            // optional safety check
+            if (variant.StockQuantity < 1)
+                return Result.Failure("Insufficient stock");
             
-            cart.IncreaseQuantity(variant.Value);
-
-
+            item.IncreaseQuantity();
+            
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Result.Success();
         }
 
+        public async Task<Result> UpdateQuantityAsync(
+    UpdateQuantityDto dto,
+    CancellationToken ct)
+        {
+
+            var userId = await _userRepo.GetIdAsync(dto.UserId, ct);
+
+            if (userId is null)
+                return Result.Failure("User not found");
+
+            var cart = await _cartRepo.GetByUserIdAsync(userId.Value, ct);
+
+            if (cart is null)
+                return Result.Failure("Cart not found");
+
+            var item = cart.Items.FirstOrDefault(x => x.PublicId == dto.CartItemPublicId);
+
+            if (item is null)
+                return Result.Failure("Item not found");
+
+            if (dto.Quantity <= 0)
+                return Result.Failure("Quantity must be greater than 0");
+
+            var variant = await _productVariantRepo.GetVariantDtoByIdAsync(item.VariantPublicId, ct);
+
+
+            if (variant is null)
+                return Result.Failure("Variant not found");
+
+            if (variant.StockQuantity < dto.Quantity)
+                return Result.Failure("Insufficient stock");
+
+            item.UpdateQuantity(dto.Quantity);
+
+            cart.MarkAsUpdated();
+
+            await _unitOfWork.SaveChangesAsync(ct);
+
+            return Result.Success();
+        }
 
         public async Task<Result> DecreaseQuantity(
     ManageCartItemQuantityDto dto,
@@ -142,14 +190,22 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             if (cart is null)
                 return Result.Failure("Cart not found");
 
+
+            var item = cart.Items.FirstOrDefault(x => x.PublicId == dto.CartItemPublicId);
+            if (item is null)
+                return Result.Failure("Item not found");
+
+
             var variant = await _productVariantRepo
-                .GetProductVariantId(dto.VariantId, cancellationToken);
+                .GetVariantDtoByIdAsync(item.VariantPublicId, cancellationToken);
 
             if (variant is null)
                 return Result.Failure("Variant not found");
 
+            if (variant.StockQuantity < 1)
+                return Result.Failure("Insufficient stock");
 
-            cart.DecreaseQuantity(variant.Value);
+            item.DecreaseQuantity();
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
@@ -172,6 +228,7 @@ namespace ClothingStore.Application.Features.Catalog.Cart
                 return Result.Failure("Cart is already cleared.");
 
             cart.Clear();  
+
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Result.Success();

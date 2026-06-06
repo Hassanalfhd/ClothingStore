@@ -1,7 +1,5 @@
-﻿using ClothingStore.Application.Features.Catalog.Brand.Dtos;
-using ClothingStore.Application.Features.Catalog.Cart.Dtos;
+﻿using ClothingStore.Application.Features.Catalog.Cart.Dtos;
 using ClothingStore.Application.Interfaces.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClothingStore.API.Controllers.v1

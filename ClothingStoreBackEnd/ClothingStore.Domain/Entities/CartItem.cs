@@ -37,7 +37,7 @@ namespace ClothingStore.Domain.Entities
             VariantPublicId = variantPublicId;
             ProductName = productName;
             SetUnitPrice(unitPrice);
-            SetQuantity(quantity);
+            UpdateQuantity(quantity);
         }
 
         public void SetUnitPrice(Money unitPrice)
@@ -46,15 +46,14 @@ namespace ClothingStore.Domain.Entities
 
         }
 
-        public void SetQuantity(int quantity)
+        public void UpdateQuantity(int quantity)
         {
             if (quantity <= 0)
                 throw new InvalidOperationException("Quantity cannot be less than 1.");
 
             Quantity = quantity;
-            MarkAsUpdated();
         }
-
+      
         public void IncreaseQuantity()
         {
             Quantity++;

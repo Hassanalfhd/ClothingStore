@@ -14,7 +14,6 @@ namespace ClothingStore.Application.Interfaces.Services
         Task<Result> AddToCart(AddToCartDto cartDto, CancellationToken cancellationToken= default);
         Task<Result> RemoveFromCart(ManageCartItemQuantityDto dto, CancellationToken cancellationToken);
 
-
         Task<Result> IncreaseQuantity(
      ManageCartItemQuantityDto dto,
      CancellationToken cancellationToken);
@@ -26,6 +25,7 @@ namespace ClothingStore.Application.Interfaces.Services
 
         Task<Result<CartDto>>GetCartAsync(Guid UserId, CancellationToken cancellationToken);
 
+        Task<Result> UpdateQuantityAsync(Guid userId, Guid cartItemPublicId, int quantity, CancellationToken ct);
 
     }
 }

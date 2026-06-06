@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClothingStore.Domain.Common;
 using ClothingStore.Domain.ValueObjects;
 
 namespace ClothingStore.Domain.Entities
@@ -65,40 +66,18 @@ namespace ClothingStore.Domain.Entities
             MarkAsUpdated();
         }
 
-        public void IncreaseQuantity(long variantId)
-        {
-            var item = Items.FirstOrDefault(x => x.VariantId == variantId);
-
-            if (item is null)
-                throw new InvalidOperationException();
-
-            item.IncreaseQuantity();
-        }
-
-
-        public void DecreaseQuantity(long variantId)
-        {
-            var item = Items.FirstOrDefault(x => x.VariantId == variantId);
-
-            if (item is null)
-                throw new InvalidOperationException();
-
-            if (item.Quantity == 1)
-            {
-                Items.Remove(item);
-                return;
-            }
-
-            item.DecreaseQuantity();
-        }
-        public void RemoveItem(long variantId)
+      
+        public Result RemoveItem(long variantId)
         {
             var item = Items.FirstOrDefault(x => x.VariantId == variantId);
             if (item is null)
-                throw new InvalidOperationException("Cart item not found");
+                return Result.Failure("Item not found");
 
             Items.Remove(item);
 
+            MarkAsUpdated();
+
+            return Result.Success();
         }
 
         public void MarkAsCheckedOut()

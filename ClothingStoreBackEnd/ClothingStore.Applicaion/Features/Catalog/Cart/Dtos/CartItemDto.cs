@@ -8,6 +8,7 @@ namespace ClothingStore.Application.Features.Catalog.Cart.Dtos
 {
     public class CartItemDto
     {
+        public Guid CartItemPublicId {get;set;}
         public Guid VariantPublicId { get; set; }
 
         public string ProductName { get; set; } = string.Empty;

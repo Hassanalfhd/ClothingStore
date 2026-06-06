@@ -75,6 +75,7 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
 
             Items = c.Items.Select(i => new CartItemDto
             {
+                CartItemPublicId = i.PublicId,
                 VariantPublicId = i.VariantPublicId,
                 ProductName = i.ProductName,
                 UnitPrice = i.UnitPrice.Amount,
