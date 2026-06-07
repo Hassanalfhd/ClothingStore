@@ -20,7 +20,6 @@ namespace ClothingStore.Domain.Entities
         {
             SetName(name);
             SetDisplayOrder(displayOrder);
-
             IsActive = true;
         }
 

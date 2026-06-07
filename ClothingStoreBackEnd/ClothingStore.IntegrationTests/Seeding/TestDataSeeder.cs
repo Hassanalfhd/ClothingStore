@@ -167,8 +167,26 @@ namespace ClothingStore.IntegrationTests.Seeding
                 nikeTrainingShirt,
                 appleWatch);
 
+            var red = new Color("Red", "#ff0000");
+            var small = new Size("S", 1);
+
+            context.Colors.Add(red);
+            context.Sizes.Add(small);
+
             context.SaveChanges();
+
+            var variant1 = new ProductVariant(nikeAirZoom.Id, red.Id, small.Id, userProfile.Id, new Money(200, "USD"), 100, "#10001");
+
+            context.ProductsVariant.Add(variant1);
+            context.SaveChanges();
+
         }
-        
+
+
+
+
+
+
+
     }
 }

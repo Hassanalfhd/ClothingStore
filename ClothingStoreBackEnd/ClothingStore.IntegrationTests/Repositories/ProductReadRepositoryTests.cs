@@ -15,28 +15,18 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ClothingStore.IntegrationTests.Repositories
 {
-    public class ProductReadRepositoryTests: IDisposable
+    public class ProductReadRepositoryTests: IntegrationTestBase
     {
 
-        private readonly ApplicationDbContext _context;
         private readonly ProductReadRepo _repository;
 
         public ProductReadRepositoryTests()
         {
-            _context = TestDbContextFactory.Create();
-            TestDataSeeder.SeedProductsData(_context);
-
             _repository = new ProductReadRepo(_context);
         }
 
 
-
-        public void Dispose()
-        {
-            _context.Database.EnsureDeleted();
-            _context.Dispose();
-        }
-
+        
 
         [Fact]
         public async Task Should_Return_Only_Active_Products()

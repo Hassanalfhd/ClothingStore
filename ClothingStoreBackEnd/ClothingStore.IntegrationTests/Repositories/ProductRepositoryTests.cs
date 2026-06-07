@@ -14,25 +14,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClothingStore.IntegrationTests.Repositories
 {
-    public class ProductRepositoryTests: IDisposable
+    public class ProductRepositoryTests: IntegrationTestBase
     {
 
-        private readonly ApplicationDbContext _context;
         private readonly ProductRepo _repository;
 
         public ProductRepositoryTests()
         {
-            _context = TestDbContextFactory.Create();
-
-            TestDataSeeder.SeedProductsData(_context);
             
             _repository = new ProductRepo(_context);
-        }
-
-        public void Dispose() 
-        {
-            _context.Database.EnsureDeleted();
-            _context.Dispose();
         }
 
 

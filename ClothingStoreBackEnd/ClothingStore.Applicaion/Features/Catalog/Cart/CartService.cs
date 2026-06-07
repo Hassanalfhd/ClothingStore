@@ -25,6 +25,7 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             _unitOfWork = unitOfWork;
         }
 
+
         public async Task<Result> AddToCart(AddToCartDto cartDto, CancellationToken cancellationToken)
         {
 
@@ -83,12 +84,13 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             if (cart is null)
                 return Result.Failure("Cart not found");
 
-            var variant = await _productVariantRepo.GetProductVariantId(dto.VariantId, cancellationToken);
+            var item = cart.Items.FirstOrDefault(x => x.PublicId == dto.CartItemPublicId);
 
-            if (variant is null)
-                return Result.Failure("Variant not found");
+            if (item is null)
+                return Result.Failure("Item not found");
 
-           var result =  cart.RemoveItem(variant.Value);
+            
+           var result =  cart.RemoveItem(item.Id);
 
             if (result.IsFailure)
                 return result;
@@ -125,7 +127,8 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             if (variant is null)
                 return Result.Failure("Variant not found");
 
-            if (variant.StockQuantity < 1)
+            
+            if (item.Quantity + 1 > variant.StockQuantity)
                 return Result.Failure("Insufficient stock");
             
             item.IncreaseQuantity();
@@ -190,20 +193,9 @@ namespace ClothingStore.Application.Features.Catalog.Cart
             if (cart is null)
                 return Result.Failure("Cart not found");
 
-
             var item = cart.Items.FirstOrDefault(x => x.PublicId == dto.CartItemPublicId);
             if (item is null)
                 return Result.Failure("Item not found");
-
-
-            var variant = await _productVariantRepo
-                .GetVariantDtoByIdAsync(item.VariantPublicId, cancellationToken);
-
-            if (variant is null)
-                return Result.Failure("Variant not found");
-
-            if (variant.StockQuantity < 1)
-                return Result.Failure("Insufficient stock");
 
             item.DecreaseQuantity();
 

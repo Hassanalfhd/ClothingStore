@@ -25,7 +25,7 @@ namespace ClothingStore.Application.Interfaces.Services
 
         Task<Result<CartDto>>GetCartAsync(Guid UserId, CancellationToken cancellationToken);
 
-        Task<Result> UpdateQuantityAsync(Guid userId, Guid cartItemPublicId, int quantity, CancellationToken ct);
+        Task<Result> UpdateQuantityAsync(UpdateQuantityDto dto, CancellationToken ct);
 
     }
 }

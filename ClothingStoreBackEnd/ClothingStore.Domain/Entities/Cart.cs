@@ -67,9 +67,9 @@ namespace ClothingStore.Domain.Entities
         }
 
       
-        public Result RemoveItem(long variantId)
+        public Result RemoveItem(long cartItemId)
         {
-            var item = Items.FirstOrDefault(x => x.VariantId == variantId);
+            var item = Items.FirstOrDefault(x => x.Id == cartItemId);
             if (item is null)
                 return Result.Failure("Item not found");
 

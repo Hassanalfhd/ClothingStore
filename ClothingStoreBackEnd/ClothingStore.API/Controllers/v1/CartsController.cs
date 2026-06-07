@@ -71,7 +71,8 @@ namespace ClothingStore.API.Controllers.v1
             return NoContent();
         }
 
-        [HttpPost("increase-quantity")]
+
+        [HttpPatch("increase-quantity")]
         public async Task<IActionResult> IncreaseQuantity(
     [FromBody] ManageCartItemQuantityDto dto,
     CancellationToken cancellationToken)
@@ -84,7 +85,8 @@ namespace ClothingStore.API.Controllers.v1
             return Ok(result);
         }
 
-        [HttpPost("decrease-quantity")]
+
+        [HttpPatch("decrease-quantity")]
         public async Task<IActionResult> DecreaseQuantity(
         [FromBody] ManageCartItemQuantityDto dto,
         CancellationToken cancellationToken)
@@ -96,5 +98,19 @@ namespace ClothingStore.API.Controllers.v1
 
             return Ok(result);
         }
+
+        [HttpPatch("update-quantity")]
+        public async Task<IActionResult> UpdateQuantity(
+       [FromBody] UpdateQuantityDto dto,
+       CancellationToken cancellationToken)
+        {
+            var result = await _cartService.UpdateQuantityAsync(dto, cancellationToken);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Error);
+
+            return Ok(result);
+        }
+
     }
 }

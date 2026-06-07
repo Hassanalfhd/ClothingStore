@@ -30,11 +30,6 @@ namespace ClothingStore.IntegrationTests.Common
 
         }
 
-        public static void Destroy(ApplicationDbContext context)
-        {
-            context.Database.EnsureDeleted();
-            context.Database.CloseConnection();
-            context.Dispose();
-        }
+      
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClothingStore.Domain.Entities
 {
+    //TODO
     public class Order: EntityBased
     {
 
