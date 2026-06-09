@@ -113,6 +113,106 @@ namespace ClothingStore.IntegrationTests.Repositories
             result.Should().BeNull();
         }
 
+        [Fact]
+        public async Task GetCartAsync_Should_Return_CartDto()
+        {
+            var user = _context.UserProfiles.First();
+
+            var product = _context.Products.First();
+
+            var variant = _context.ProductsVariant.First();
+
+            var cart = new Cart(user.Id);
+
+            cart.AddItem(
+                product.Id,
+                variant.Id,
+                variant.PublicId,
+                product.Name,
+                new Money(variant.Money.Amount, variant.Money.Currency),
+                2);
+
+            _context.Carts.Add(cart);
+
+            await _context.SaveChangesAsync();
+
+            var repo = new CartRepo(_context);
+
+            var result = await repo.GetCartAsync(
+                user.Id,
+                CancellationToken.None);
+
+            result.Should().NotBeNull();
+
+            result!.Items.Should().HaveCount(1);
+        }
+
+        [Fact]
+        public async Task GetCartAsync_Should_Calculate_TotalItems_Correctly()
+        {
+            var user = _context.UserProfiles.First();
+
+            var product = _context.Products.First();
+
+            var variant = _context.ProductsVariant.First();
+
+            var cart = new Cart(user.Id);
+
+            cart.AddItem(
+                product.Id,
+                variant.Id,
+                variant.PublicId,
+                product.Name,
+                new Money(100, "USD"),
+                2);
+
+          
+
+            _context.Carts.Add(cart);
+
+            await _context.SaveChangesAsync();
+
+            var repo = new CartRepo(_context);
+
+            var result = await repo.GetCartAsync(
+                user.Id,
+                CancellationToken.None);
+
+            result!.TotalItems.Should().Be(102);
+        }
+
+        [Fact]
+        public async Task GetCartAsync_Should_Calculate_SubTotal_Correctly()
+        {
+            var user = _context.UserProfiles.First();
+
+            var product = _context.Products.First();
+
+            var variant = _context.ProductsVariant.First();
+
+            var cart = new Cart(user.Id);
+
+            cart.AddItem(
+                product.Id,
+                variant.Id,
+                variant.PublicId,
+                product.Name,
+                new Money(100, "USD"),
+                2);
+
+            _context.Carts.Add(cart);
+
+            await _context.SaveChangesAsync();
+
+            var repo = new CartRepo(_context);
+
+            var result = await repo.GetCartAsync(
+                user.Id,
+                CancellationToken.None);
+
+            result!.SubTotal.Should().Be(200);
+        }
+
     }
 
 }
