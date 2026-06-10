@@ -62,6 +62,7 @@ public static class DependencyInjection
         services.AddScoped<IProductVariantRepo, ProductVariantRepo>();
         services.AddScoped<IProductImageRepo, ProductImageRepo>();
         services.AddScoped<ICartRepo, CartRepo>();
+        services.AddScoped<IOrderRepo, OrderRepo>();
 
         return services;
     }

@@ -45,7 +45,7 @@ namespace ClothingStore.Domain.Entities
 
             if (userId <= 0)
                 throw new ArgumentException(nameof(userId));
-
+            UserId = userId;
             RecipientName = recipientName;
             PhoneNumber = phoneNumber;
             City = city;
@@ -80,7 +80,10 @@ namespace ClothingStore.Domain.Entities
         
         int quantity)
         {
-            EnsureEditable();
+            var result = EnsureEditable();
+
+            if (result.IsFailure)
+                return;
 
             var item = OrderItem.Create(
                 productId,

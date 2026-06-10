@@ -4,6 +4,7 @@ using ClothingStore.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothingStore.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260610204932_AddOrderAndOrderItemsTables")]
+    partial class AddOrderAndOrderItemsTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,8 +305,6 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.HasIndex("PublicId")
                         .IsUnique();
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Orders", (string)null);
                 });
 
@@ -348,10 +349,6 @@ namespace ClothingStore.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("VariantId");
 
                     b.ToTable("OrderItems", (string)null);
                 });
@@ -408,8 +405,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("CreatedAt");
-
                     b.HasIndex("CreatedBy");
 
                     b.HasIndex("IsActive");
@@ -418,8 +413,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("PublicId")
                         .IsUnique();
-
-                    b.HasIndex("Status");
 
                     b.ToTable("Products", (string)null);
                 });
@@ -1017,33 +1010,12 @@ namespace ClothingStore.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ClothingStore.Domain.Entities.Order", b =>
-                {
-                    b.HasOne("ClothingStore.Domain.Entities.UserProfile", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ClothingStore.Domain.Entities.OrderItem", b =>
                 {
                     b.HasOne("ClothingStore.Domain.Entities.Order", null)
                         .WithMany("Items")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ClothingStore.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ClothingStore.Domain.Entities.ProductVariant", null)
-                        .WithMany()
-                        .HasForeignKey("VariantId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -1083,8 +1055,6 @@ namespace ClothingStore.Infrastructure.Migrations
                                 .HasColumnName("Currency");
 
                             b1.HasKey("ProductId");
-
-                            b1.HasIndex("Amount");
 
                             b1.ToTable("Products");
 

@@ -4,6 +4,7 @@ using ClothingStore.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClothingStore.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260610205331_AddRelationshipWithOrderAndProductAndVariant")]
+    partial class AddRelationshipWithOrderAndProductAndVariant
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -408,8 +411,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("CreatedAt");
-
                     b.HasIndex("CreatedBy");
 
                     b.HasIndex("IsActive");
@@ -418,8 +419,6 @@ namespace ClothingStore.Infrastructure.Migrations
 
                     b.HasIndex("PublicId")
                         .IsUnique();
-
-                    b.HasIndex("Status");
 
                     b.ToTable("Products", (string)null);
                 });
@@ -1083,8 +1082,6 @@ namespace ClothingStore.Infrastructure.Migrations
                                 .HasColumnName("Currency");
 
                             b1.HasKey("ProductId");
-
-                            b1.HasIndex("Amount");
 
                             b1.ToTable("Products");
 

@@ -22,7 +22,6 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
         public async Task<Cart?> GetByUserIdAsync(long userId, CancellationToken cancellationToken)
         {
             return await _context.Carts
-                .AsSplitQuery()
                 .Include(x => x.Items)
                 .FirstOrDefaultAsync(x =>
                     x.UserId == userId &&
@@ -32,8 +31,7 @@ namespace ClothingStore.Infrastructure.Persistence.Repositories
 
         public async Task<Cart?> GetByPublicIdAsync(Guid publicId, CancellationToken cancellationToken)
         {
-            return await _context.Carts
-                .AsSplitQuery()
+            return await _context.Carts                
                 .Include(x => x.Items)
                 .FirstOrDefaultAsync(x =>
                     x.PublicId == publicId &&

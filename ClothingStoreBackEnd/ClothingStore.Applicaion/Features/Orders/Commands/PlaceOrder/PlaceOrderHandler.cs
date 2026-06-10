@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClothingStore.Application.Interfaces.Repositories;
+﻿using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Domain.Common;
 using ClothingStore.Domain.Entities;
 using MediatR;
@@ -50,6 +45,7 @@ namespace ClothingStore.Application.Features.Orders.Commands.PlaceOrder
                 return Result<Guid>.Failure(
                     "Cart not found");
 
+
             if (!cart.Items.Any())
                 return Result<Guid>.Failure(
                     "Cart is empty");
@@ -71,7 +67,10 @@ namespace ClothingStore.Application.Features.Orders.Commands.PlaceOrder
                     item.Quantity);
             }
 
-            order.Validate();
+
+            var result = order.Validate();
+            if (result.IsFailure)
+                return Result<Guid>.Failure(result.Error);
 
             await _orderRepository.AddAsync(
                 order,
@@ -80,6 +79,7 @@ namespace ClothingStore.Application.Features.Orders.Commands.PlaceOrder
             cart.Clear();
 
             await _unitOfWork.SaveChangesAsync(ct);
+
 
             order.SetOrderNumber(
                 $"ORD-{order.Id:D6}");

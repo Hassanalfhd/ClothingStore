@@ -27,6 +27,19 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Quantity)
                 .IsRequired();
+
+
+            builder.HasOne<Product>()
+                    .WithMany()
+                      .HasForeignKey(x => x.ProductId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.HasOne<ProductVariant>()
+                    .WithMany()
+                      .HasForeignKey(x => x.VariantId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

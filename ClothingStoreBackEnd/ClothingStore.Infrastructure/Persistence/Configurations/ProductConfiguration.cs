@@ -23,6 +23,16 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
             builder.HasIndex(x => x.Name);
             builder.HasIndex(x => x.CategoryId);
             builder.HasIndex(x => x.IsActive);
+            builder.HasIndex(x=>x.Status);
+            builder.HasIndex(x=>x.CreatedAt);
+
+            builder.HasIndex(x => new
+            {
+                x.IsActive,
+                x.CategoryId,
+                x.Status
+            })
+            .HasDatabaseName("IX_Products_Search");
 
 
             builder.Property(x => x.Name)
@@ -36,6 +46,8 @@ namespace ClothingStore.Infrastructure.Persistence.Configurations
                 price.Property(p => p.Amount)
                     .HasColumnName("BasePrice")
                     .HasPrecision(18, 2);
+
+                price.HasIndex(p => p.Amount);
 
                 price.Property(p => p.Currency)
                     .HasColumnName("Currency")

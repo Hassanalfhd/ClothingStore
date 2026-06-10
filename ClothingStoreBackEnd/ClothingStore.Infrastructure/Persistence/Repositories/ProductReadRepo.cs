@@ -3,7 +3,6 @@ using ClothingStore.Application.Features.Products.Queries.GetProductById;
 using ClothingStore.Application.Features.Products.Queries.GetProducts;
 using ClothingStore.Application.Interfaces.Repositories;
 using ClothingStore.Domain.Common;
-using ClothingStore.Domain.Entities;
 using ClothingStore.Domain.Enums;
 using ClothingStore.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -116,6 +115,7 @@ public sealed class ProductReadRepo : IProductReadRepos
             Currency = x.BasePrice.Currency,
             Status = x.Status.ToString(),
             CategoryName = x.Category.Name,
+            //Store TotalStock in Product, you must Think when the productVariants has a lot of rows like 30000 or more 
             TotalStock = x.Variants.Sum(v => v.StockQuantity),
 
             ImageUrl = x.Images
