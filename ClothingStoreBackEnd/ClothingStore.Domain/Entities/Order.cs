@@ -9,7 +9,7 @@ namespace ClothingStore.Domain.Entities
         private readonly List<OrderItem> _items = new();
 
         private Order() { }
-        public string OrderNumber { get; private set; } = "ORD-000001";
+        public string OrderNumber { get; private set; } = "ORD-000001"; 
         public long UserId { get; private set; }// CustomerId 
         public decimal TotalAmount { get; private set; }
 

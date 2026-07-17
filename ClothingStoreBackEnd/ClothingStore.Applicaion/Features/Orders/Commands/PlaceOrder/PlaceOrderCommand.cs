@@ -8,6 +8,7 @@ using MediatR;
 
 namespace ClothingStore.Application.Features.Orders.Commands.PlaceOrder
 {
+    // TODO: Remove UserId after Implementing JWT Authentication 
     public sealed record PlaceOrderCommand(
       Guid UserId,
       string RecipientName,

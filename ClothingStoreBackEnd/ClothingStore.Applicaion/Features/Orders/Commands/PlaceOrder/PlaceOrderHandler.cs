@@ -89,5 +89,6 @@ namespace ClothingStore.Application.Features.Orders.Commands.PlaceOrder
             return Result<Guid>.Success(
                 order.PublicId);
         }
+
     }
 }

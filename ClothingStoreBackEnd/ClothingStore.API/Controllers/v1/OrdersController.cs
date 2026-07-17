@@ -41,7 +41,6 @@ namespace ClothingStore.API.Controllers.v1
             return Ok(new
             {
                 OrderPublicId = result.Value
-
             });
         }
 
